@@ -1,0 +1,12 @@
+.root {
+    position: absolute;
+    margin: 15px 0 0 50px;
+    padding: 0 0.5%;
+}
+
+.img {
+    margin-left: 5px;
+    margin-top: 5px;
+    max-height: 250px;
+    max-width: 250px;
+}

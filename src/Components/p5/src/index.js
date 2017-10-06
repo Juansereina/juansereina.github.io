@@ -48,13 +48,9 @@ export default function sketch(p) {
     }
 
     function prueba() {
-        p.textFont(font)
+      //  p.textFont(font)
         p.textSize(25)
-
         p.text('train',100,100)
-      //  let points = p5.textToPoints('train',100,100)
-        //console.log(points)
-
     }
 
     function background() {
@@ -63,7 +59,7 @@ export default function sketch(p) {
             p.background(img || 70)
         p.fill(0,100)
         p.rect(0,0,p.windowWidth,p.windowHeight)
-        circlesCycle()
+
     }
 
     p.windowResized = () => {

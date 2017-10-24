@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './app.css'
+import styles from './app.css'
 import {Route, Switch} from 'react-router-dom'
 
 import Navbar from './Components/Navbar'
@@ -11,7 +11,7 @@ import Background from './Components/p5'
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className={styles.root}>
                 <Background/>
                 <Navbar/>
                 <Switch>

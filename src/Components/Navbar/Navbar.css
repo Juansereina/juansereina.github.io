@@ -20,6 +20,11 @@
     margin: 0.5em 0;
 }
 
+.icon:hover {
+    color: #00ffef;
+
+}
+
 .logo{
     flex: 1;
 }

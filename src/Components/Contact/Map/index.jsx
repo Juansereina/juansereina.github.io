@@ -21,7 +21,6 @@ export default class App extends Component {
     super(props);
     this.state = {
       width:1000,
-      height:1000,
       viewport: {
         latitude: 3.434847,
         longitude: -76.505297,

@@ -6,6 +6,7 @@
   "author": "Juanse2296",
   "license": "MIT",
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack-dev-server -w",
     "produ": "webpack -p"
   },

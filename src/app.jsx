@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styles from './app.css'
 import {Route, Switch} from 'react-router-dom'
+import { AnimatedSwitch } from 'react-router-transition'
 
 import Navbar from './Components/Navbar'
 import Home from './Components/Home'
@@ -9,20 +10,24 @@ import Contact from './Components/Contact'
 import Background from './Components/p5'
 
 class App extends Component {
-    render() {
-        return (
-            <div className={styles.root}>
-                <Background/>
-                <Navbar/>
-                <Switch>
-                    <Route path='/' exact component={Home}/>
-                    <Route path='/home' component={Home}/>
-                    <Route path='/work' component={Work}/>
-                    <Route path='/contact' component={Contact}/>
-                </Switch>
-            </div>
-        )
+  render() {
+    return (
+      <div className={styles.root}>
+        <Background/>
+        <Navbar/>
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper"
+          >
+            <Route path='/' exact component={Home}/>
+            <Route path='/home' component={Home}/>
+            <Route path='/work' component={Work}/>
+            <Route path='/contact' component={Contact}/>
+          </AnimatedSwitch>
+        </div>
+      )
     }
-}
-export default App
-
+  }
+  export default App

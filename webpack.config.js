@@ -5,6 +5,16 @@ const webpack = require('webpack')
 const cssModules = 'module&localIdentName=[name]__[local]___[hash:base64:5]'
 const nodeExternals = require('webpack-node-externals');
 
+const BABEL_CONFIG = {
+    presets: [
+        'es2015',
+        'react',
+        'stage-2'
+    ].map(function configMap(name) {
+        return require.resolve(`babel-preset-${name}`);
+    })
+};
+
 module.exports = {
     devtool: "cheap-eval-source-map",
     resolve: {
@@ -34,9 +44,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: [{
+                    loader: 'babel-loader',
+                    options: BABEL_CONFIG
+                }]
             },
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import styles from './Contact.css'
+import Map from './Map'
+
 class Contact extends Component {
 
     handleSend(event){
@@ -37,6 +39,7 @@ class Contact extends Component {
                     </form>
                 </div>
                 <div className={styles.subroot}/>
+                <Map/>
             </div>
         )
     }

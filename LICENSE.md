@@ -1,2 +1,2 @@
 
-Copyright (C) 2017 Juanse2296
+Copyright (C) Juanse2296

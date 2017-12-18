@@ -14,7 +14,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .containerForm {
@@ -29,7 +28,7 @@
 
 .input {
     flex: 1;
-    margin: 5px 5px 0 5px ;
+    margin: 5px 5px 0 5px;
     background-color: rgba(22, 36, 76, 0.7);
     padding: 5px 10px;
     box-sizing: border-box;
@@ -61,32 +60,28 @@
 .button:focus {
     background-color: rgba(255, 255, 255, 0.85);
 }
-.text{
-color: white;
+
+.text {
+    color: white;
     font-size: 1.6em;
 }
 
-.message{
+.message {
     width: 280px;
     display: flex;
     justify-content: space-between;
 }
 
-
 @media only screen and (max-width: 425px) {
-
     .root {
         padding-left: 0;
         padding-top: 50px;
     }
-
     .containerForm {
         width: 100%;
-
         box-sizing: border-box;
     }
     .data_message {
         flex-direction: column;
     }
 }
-

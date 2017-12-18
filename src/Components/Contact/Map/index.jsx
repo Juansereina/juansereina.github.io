@@ -1,5 +1,11 @@
-import React, {Component} from 'react';
-import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
+import React, {
+    Component
+} from 'react';
+import MapGL, {
+    Marker,
+    Popup,
+    NavigationControl
+} from 'react-map-gl';
 import CityPin from './city-pin';
 import CityInfo from './city-info';
 import CITIES from './cities.json';
@@ -13,7 +19,7 @@ const navStyle = {
     padding: '10px'
 };
 
-export default class App extends Component {
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,48 +57,95 @@ export default class App extends Component {
     };
 
     _updateViewport = (viewport) => {
-        this.setState({viewport});
+        this.setState({
+            viewport
+        });
     }
 
     _renderCityMarker = (city, index) => {
-        return (
-            <Marker key={`marker-${index}`}
-                    longitude={city.longitude}
-                    latitude={city.latitude}>
-                <CityPin size={20} onClick={() => this.setState({popupInfo: city})}/>
-            </Marker>
+        return ( <
+            Marker key = {
+                `marker-${index}`
+            }
+            longitude = {
+                city.longitude
+            }
+            latitude = {
+                city.latitude
+            } >
+            <
+            CityPin size = {
+                20
+            }
+            onClick = {
+                () => this.setState({
+                    popupInfo: city
+                })
+            }
+            /></Marker >
         );
     }
 
     _renderPopup() {
-        const {popupInfo} = this.state;
-        return popupInfo && (
-            <Popup tipSize={5}
-                   anchor="top"
-                   longitude={popupInfo.longitude}
-                   latitude={popupInfo.latitude}
-                   onClose={() => this.setState({popupInfo: null})}>
-                <CityInfo info={popupInfo}/>
-            </Popup>
+        const {
+            popupInfo
+        } = this.state;
+        return popupInfo && ( <
+            Popup tipSize = {
+                5
+            }
+            anchor = "top"
+            longitude = {
+                popupInfo.longitude
+            }
+            latitude = {
+                popupInfo.latitude
+            }
+            onClose = {
+                () => this.setState({
+                    popupInfo: null
+                })
+            } >
+            <
+            CityInfo info = {
+                popupInfo
+            }
+            /></Popup >
         );
     }
 
     render() {
-        const {viewport} = this.state;
-        return (
-            <div className={styles.root}>
-                <MapGL
-                    {...viewport}
-                    mapStyle="mapbox://styles/juanse2296/cj9ayhql43tss2rn2z5mior2k"
-                    onViewportChange={this._updateViewport}
-                    mapboxApiAccessToken={MAPBOX_TOKEN}>
-                    {CITIES.map(this._renderCityMarker)}
-                    {this._renderPopup()}
-                    <div style={navStyle}>
-                        <NavigationControl onViewportChange={this._updateViewport}/>
-                    </div>
-                </MapGL>
+        const {
+            viewport
+        } = this.state;
+        return ( <div className = {
+                styles.root
+            } >
+            <MapGL { ...viewport
+            }
+            mapStyle = "mapbox://styles/juanse2296/cj9ayhql43tss2rn2z5mior2k"
+            onViewportChange = {
+                this._updateViewport
+            }
+            mapboxApiAccessToken = {
+                MAPBOX_TOKEN
+            } > {
+                CITIES.map(this._renderCityMarker)
+            } {
+                this._renderPopup()
+            } <
+            div style = {
+                navStyle
+            } >
+            <
+            NavigationControl onViewportChange = {
+                this._updateViewport
+            }
+            />
             </div>
-        );
+           </MapGL>  
+        </div>);
     }
 }
+
+export default App

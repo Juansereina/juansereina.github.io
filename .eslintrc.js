@@ -6,6 +6,11 @@ module.exports = {
         "import"
     ],
     rules:{
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "aspects": [ "noHref", "invalidHref", "preferButton" ]
+          }]
       }
 };

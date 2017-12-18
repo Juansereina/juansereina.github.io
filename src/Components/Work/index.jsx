@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent as Component } from 'react';
 import $ from 'jquery';
 import Img from 'react-image';
 import Lightbox from 'react-image-lightbox';

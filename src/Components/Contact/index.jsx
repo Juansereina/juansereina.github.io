@@ -1,16 +1,22 @@
 import React, {Component} from 'react'
 import styles from './Contact.css'
 import Map from './Map'
-
+import FontAwesome from 'react-fontawesome'
+const default_style_icon=`${styles.icon} hvr-forward`
 class Contact extends Component {
 
-    handleSend(event){
+    handleSend(event) {
         event.preventDefault()
     }
+
     render() {
         return (
             <div className={`${styles.root} `}>
-                <div className={styles.subroot}>
+                <div className={`${styles.sub_root}`}>
+                        <div className={styles.message}>
+                            <span className={styles.text}>Send me a <strong>message</strong>!</span>
+                            <FontAwesome name='thumbs-up' size='2x' className = {default_style_icon}/>
+                        </div>
                     <form className={styles.containerForm}>
                         <div className={styles.data_message}>
                             <div className={`${styles.input}`}>
@@ -19,7 +25,8 @@ class Contact extends Component {
                             </div>
                             <div className={`${styles.input}`}>
                                 <span className={`fa fa-vcard ${styles.icon} ${styles.item}`}/>
-                                <input placeholder="Email" id="email" type="text" className={`${styles.item} validate`}/>
+                                <input placeholder="Email" id="email" type="text"
+                                       className={`${styles.item} validate`}/>
                             </div>
                         </div>
                         <div className={styles.content_message}>
@@ -33,12 +40,12 @@ class Contact extends Component {
                                           className="materialize-textarea lighten-5 "/>
                             </div>
                         </div>
-                        <button className={`${styles.button} btn white-text `} type="submit" name="action" onClick={this.handleSend}>
+                        <button className={`${styles.button} btn white-text `} type="submit" name="action"
+                                onClick={this.handleSend}>
                             <span>Send</span>
                         </button>
                     </form>
                 </div>
-                <div className={styles.subroot}/>
                 <Map/>
             </div>
         )

@@ -18,7 +18,7 @@ class Logo extends Component {
                     <Part img={imgCenter} effect={`${animate.animated} ${animate.jackInTheBox}`} description="Reina"/>
                     <Part img={imgRight} effect={`${animate.animated} ${animate.bounceInRight}`} description="Reina"/>
                 </div>
-                <div>
+                <div className={styles.log_bottom}>
                     <Part img={imgBottom} effect={`${animate.animated} ${animate.bounceInRight}`} description="Interactive design"/>
                 </div>
             </div>
@@ -37,8 +37,8 @@ class Part extends Component {
     }
     render() {
         return (
-            <div>
-                <img className={this.state.effect[this.state.load]} src={this.props.img} alt={this.props.description}/>
+            <div >
+                <img className={`${this.state.effect[this.state.load]} ${styles.image}`} src={this.props.img} alt={this.props.description}/>
             </div>
         )
     }

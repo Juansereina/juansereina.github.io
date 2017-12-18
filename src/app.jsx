@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import styles from './app.css'
-import {Route, Switch} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 
 import Navbar from './Components/Navbar'
@@ -9,10 +8,11 @@ import Work from './Components/Work'
 import Contact from './Components/Contact'
 import Background from './Components/p5'
 
+
 class App extends Component {
   render() {
     return (
-      <div className={styles.root}>
+      <div>
         <Background/>
         <Navbar/>
         <AnimatedSwitch

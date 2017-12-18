@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import styles from './Home.css'
 import Logo from './Logo'
 import animate from '../Common/animate.css'
-
 class Home extends Component {
     render() {
         return (

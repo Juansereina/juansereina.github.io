@@ -12,7 +12,7 @@ class App extends Component{
     render () {
         return (
             <div className={styles.root}>
-                <P5Wrapper sketch={this.state.stateSketch}/>
+                <P5Wrapper style="vertical-align:top" sketch={this.state.stateSketch}/>
             </div>
         );
     }

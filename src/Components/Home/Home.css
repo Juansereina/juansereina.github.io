@@ -1,4 +1,4 @@
-.root{
+.root {
     position: absolute;
     padding-left: 50px;
     box-sizing: border-box;
@@ -9,13 +9,35 @@
     justify-content: center;
     align-items: center;
 }
-strong{
+
+strong {
     color: #01c0bb;
 }
-.text{
+
+.text {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     color: #e1e1e1;
     align-items: center;
+}
+
+/* ------------------Mobile version ---------------------*/
+
+@media only screen and (max-width: 425px) {
+    .root {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    h5 {
+        font-size: 1.6em;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    h5 {
+        font-size: 1.4em;
+    }
 }

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import styles from './Work.css'
 import $ from 'jquery'
 import Img from 'react-image'
-import Gallery from './Gallery'
 
 import Lightbox from 'react-image-lightbox';
 
@@ -67,15 +66,17 @@ class Work extends Component {
 
     render() {
         return (
-            <div className={`${styles.root} row `}>
+            <div className={`${styles.root}`}>
                 {this.renderGallery()}
-                <div className='col'>
+                <div className={styles.grid}>
                     {this.state.projects.map(img => (
+
                         <Img key={img.id}
                              onClick={ () => this.setState({openGallery: true, img:img.src})}
                              src={img.thumbnail}
                              alt={img.alt}
                              className={`${styles.img} hvr-bob `}/>
+
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, {
-    Component
+   PureComponent as Component
 } from 'react';
 import MapGL, {
     Marker,
@@ -115,36 +115,21 @@ class App extends Component {
     }
 
     render() {
-        const {
-            viewport
-        } = this.state;
-        return ( <div className = {
-                styles.root
-            } >
-            <MapGL { ...viewport
-            }
-            mapStyle = "mapbox://styles/juanse2296/cj9ayhql43tss2rn2z5mior2k"
-            onViewportChange = {
-                this._updateViewport
-            }
-            mapboxApiAccessToken = {
-                MAPBOX_TOKEN
-            } > {
-                CITIES.map(this._renderCityMarker)
-            } {
-                this._renderPopup()
-            } <
-            div style = {
-                navStyle
-            } >
-            <
-            NavigationControl onViewportChange = {
-                this._updateViewport
-            }
-            />
+        const { viewport } = this.state;
+        return ( 
+            <div className = { styles.root } >
+               <MapGL { ...viewport }
+                 mapStyle = "mapbox://styles/juanse2296/cj9ayhql43tss2rn2z5mior2k"
+                 onViewportChange = { this._updateViewport }
+                 mapboxApiAccessToken = { MAPBOX_TOKEN } > 
+                 { CITIES.map(this._renderCityMarker) }
+                 { this._renderPopup() } 
+                  <div style = { navStyle } >
+                  <NavigationControl onViewportChange = { this._updateViewport } />
+                 </div>
+                </MapGL>  
             </div>
-           </MapGL>  
-        </div>);
+        );
     }
 }
 

@@ -10,7 +10,7 @@ export default function sketch(p) {
   }
   function createCircle(y) {
     const x = getRandomArbitrary(1, p.width - 1);
-    const circle = new Circle(p, x, y);
+    const circle = new Circle(p, p.createVector(x, y));
     circles.push(circle);
   }
 

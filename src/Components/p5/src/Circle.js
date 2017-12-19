@@ -1,7 +1,7 @@
 class Circle {
-  constructor(app, x, y) {
-    this.x = x;
-    this.y = y;
+  constructor(app, pos) {
+    this.x = pos.x;
+    this.y = pos.y;
     this.size = this.getRandomArbitrary(0.75, 3);
     this.tempoSize = this.size;
     this.velocity = this.getRandomArbitrary(0.1, 0.5);
@@ -18,35 +18,37 @@ class Circle {
 
   draw(app) {
     let posX = this.x;
-    const posY = this.y;
     posX += (app.map(app.mouseX, 0, app.width, 0, this.dif) * -1);
-    const opa = this.opacity;
-    const s = this.size;
-    const dis = app.dist(posX, posY, app.mouseX, app.mouseY);
-    this.drawObject(app, s, opa, posX, posY, dis);
+    this.drawObject(app, posX);
     if (this.move()) this.y = app.height;
     this.changeEffect();
     this.timeEffects(app);
-    this.drawLine(app, posX, posY, opa, dis);
+    this.drawLine(app, posX);
   }
 
-  drawObject(app, size, opacity, posX, posY, dist) {
-    let newSize = size;
-    if (dist < 100) {
-      newSize += app.map(dist, 100, 0, 0, size * 1.5);
+  calculateDist(app, posX) {
+    return app.dist(posX, this.y, app.mouseX, app.mouseY);
+  }
+
+  drawObject(app, posX) {
+    let newSize = this.size;
+    const dis = this.calculateDist(app, posX);
+    if (dis < 100) {
+      newSize += app.map(dis, 100, 0, 0, this.size * 1.5);
     }
-    app.fill(this.r, this.g, this.b, opacity);
+    app.fill(this.r, this.g, this.b, this.opacity);
     app.ellipseMode(app.CENTER);
-    app.ellipse(posX, posY, newSize, newSize);
+    app.ellipse(posX, this.y, newSize, newSize);
   }
 
-  drawLine(app, posX, posY, opacity, dist) {
+  drawLine(app, posX) {
+    const dis = this.calculateDist(app, posX);
     app.push();
-    if (dist < 100 && opacity > 50) {
-      const opaLine = app.map(dist, 100, 0, 0, 255);
+    if (dis < 100 && this.opacity > 50) {
+      const opaLine = app.map(dis, 100, 0, 0, 255);
       app.stroke(this.r, this.g, this.b, opaLine);
       app.strokeWeight(0.5);
-      app.line(posX, posY, app.mouseX, app.mouseY);
+      app.line(posX, this.y, app.mouseX, app.mouseY);
     }
     app.pop();
   }

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Logo.css';
+
+const propTypes = {
+  effect: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 class Section extends Component {
   constructor(props) {
@@ -18,5 +25,7 @@ class Section extends Component {
     );
   }
 }
+
+Section.propTypes = propTypes;
 
 export default Section;

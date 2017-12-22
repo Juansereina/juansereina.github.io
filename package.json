@@ -9,10 +9,12 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server -w",
     "build": "webpack -p",
-    "start:server": "npm run build && nodemon ./index.js"
+    "start:server": "nodemon ./index.js",
+    "start:production": "npm run build && npm run start:server"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "jquery": "^3.2.1",

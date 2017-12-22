@@ -48,7 +48,7 @@
 
 /* ------------------Mobile version ---------------------*/
 
-@media only screen and (max-width: 425px) {
+@media all and (max-width: 425px) {
 
     .root {
         width: 100%;

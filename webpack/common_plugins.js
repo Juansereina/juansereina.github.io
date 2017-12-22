@@ -1,11 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-function generate(webpack, HtmlWebpackPlugin, ExtractTextPlugin) {
+function generate() {
   const plugins = {
     object: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin(),
-      new webpack.NoEmitOnErrorsPlugin(),
       new HtmlWebpackPlugin({
         title: 'Portfolio Juanse2296',
         minify: {
@@ -19,6 +19,7 @@ function generate(webpack, HtmlWebpackPlugin, ExtractTextPlugin) {
         disable: false,
         allChunks: true,
       }),
+      new CleanWebpackPlugin(['dist']),
     ],
   };
   return plugins;

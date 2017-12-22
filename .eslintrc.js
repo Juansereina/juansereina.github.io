@@ -11,6 +11,7 @@ module.exports = {
             "components": [ "Link" ],
             "specialLink": [ "hrefLeft", "hrefRight" ],
             "aspects": [ "noHref", "invalidHref", "preferButton" ]
-          }]
+          }],
+          "import/no-extraneous-dependencies": 0
       }
 };

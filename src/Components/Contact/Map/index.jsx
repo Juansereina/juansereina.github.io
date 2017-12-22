@@ -116,6 +116,8 @@ class App extends Component {
 
     render() {
         const { viewport } = this.state;
+        console.log(MAPBOX_TOKEN);
+        
         return ( 
             <div className = { styles.root } >
                <MapGL { ...viewport }

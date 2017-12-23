@@ -1,23 +1,33 @@
 
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
-
+import path from 'path';
+import express from 'express';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
 import config from './config';
+import { createMessage, sendMessage } from './services';
 
 const app = express();
 const { port } = config;
-const { createMessage, sendMessage } = require('./services');
 
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.resolve('../dist')));
 
+const sending = async () => {
+  try {
+    const message = await createMessage('buuuuuuuuuuuuuuuuuuuu', 'hey');
+    const send = await sendMessage(message);
+    return send;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 app.get('/send', (req, res) => {
-  const message = createMessage('Oasdfasdfasdfasdftro', 'hey');
-  res.send('message sent!');
+  sending().then(() => {
+    res.send('message sent!');
+  }).catch(err => res.status(500).send(err));
 });
 
 app.get('*.js', (req, res, next) => {

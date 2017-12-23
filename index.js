@@ -1,12 +1,14 @@
+
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const config = require('./config');
+
+import config from './config';
 
 const app = express();
 const { port } = config;
-const nodeMailer = require('./services/mail');
+const { createMessage, sendMessage } = require('./services');
 
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,7 +16,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve('dist')));
 
 app.get('/send', (req, res) => {
-  nodeMailer();
+  const message = createMessage('Oasdfasdfasdfasdftro', 'hey');
+
   res.send('message sent!');
 });
 

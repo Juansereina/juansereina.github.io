@@ -1,21 +1,17 @@
 import express from 'express';
 import services from '../services';
+import middlewares from '../middlewares';
 
-const { mail } = services;
 const api = express.Router();
+const { mail } = services;
+const { validateMessage } = middlewares.mail;
 
-api.get('/send', (req, res) => {
-  const subject = 'lol';
-  const text = 'holiwis';
+api.post('/send', validateMessage, (req, res) => {
+  const { subject } = req.body;
+  const { text } = req.body;
   mail.newMessage(subject, text).then(() => {
-    res.send(`subject: ${subject} and text: ${text} `);
+    res.send('Message sent!');
   });
-});
-
-api.get('*.js', (req, res, next) => {
-  req.url = `${req.url}.gz`;
-  res.set('Content-Encoding', 'gzip');
-  next();
 });
 
 export default api;

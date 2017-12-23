@@ -9,6 +9,9 @@ function generate() {
         title: 'Portfolio Juanse2296',
         minify: {
           collapseWhitespace: true,
+          collapseInlineTagWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true
         },
         hash: true,
         template: path.resolve(__dirname, '../src/index.html'),

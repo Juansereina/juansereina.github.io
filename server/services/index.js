@@ -1,7 +1,10 @@
-const createMessage = require('./createMessage');
-const sendMessage = require('./sendMessage');
+import mail from './mail';
 
-module.exports = {
-  createMessage,
-  sendMessage,
+const services = {
+  mail,
 };
+
+export default {
+  mail,
+};
+

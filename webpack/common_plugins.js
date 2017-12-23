@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 function generate() {
   const plugins = {
@@ -19,7 +18,6 @@ function generate() {
         disable: false,
         allChunks: true,
       }),
-      new CleanWebpackPlugin(['dist']),
     ],
   };
   return plugins;

@@ -13,11 +13,10 @@ const { createMessage, sendMessage } = require('./services');
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.resolve('dist')));
+app.use(express.static(path.resolve('../dist')));
 
 app.get('/send', (req, res) => {
   const message = createMessage('Oasdfasdfasdfasdftro', 'hey');
-
   res.send('message sent!');
 });
 

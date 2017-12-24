@@ -8,4 +8,5 @@ module.exports = {
   compress: true,
   open: true,
   stats: 'errors-only',
+  headers: { 'Access-Control-Allow-Origin': '*' },
 };

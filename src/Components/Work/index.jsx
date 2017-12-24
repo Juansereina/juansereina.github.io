@@ -1,7 +1,7 @@
 import React, { PureComponent as Component } from 'react';
-import $ from 'jquery';
 import Img from 'react-image';
 import Lightbox from 'react-image-lightbox';
+import jsonp from 'jsonp';
 import styles from './Work.css';
 
 class Work extends Component {
@@ -20,13 +20,10 @@ class Work extends Component {
 
   queryBehance() {
     const url = 'https://www.behance.net/v2/users/Juanse2296/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
-    $.ajax({
-      url,
-      type: 'GET',
-      data: { projects: {} },
-      dataType: 'jsonp',
-    }).done(response => this.fillProjects(response.projects)).fail((err) => {
-      console.log('Ajax request fails: ', err.message);
+    jsonp(url, null, (err, data) => {
+      if (!err) {
+        this.fillProjects(data.projects);
+      }
     });
   }
 
@@ -50,12 +47,12 @@ class Work extends Component {
     return (
       <div>
         {
-                    openGallery &&
-                    <Lightbox
-                      mainSrc={img}
-                      onCloseRequest={() => this.setState({ openGallery: false, img: null })}
-                    />
-                }
+          openGallery &&
+            <Lightbox
+              mainSrc={img}
+              onCloseRequest={() => this.setState({ openGallery: false, img: null })}
+            />
+        }
       </div>
     );
   }
@@ -73,7 +70,7 @@ class Work extends Component {
               alt={img.alt}
               className={`${styles.img} hvr-bob `}
             />
-                    ))}
+          ))}
         </div>
       </div>
     );

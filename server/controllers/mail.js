@@ -1,26 +1,32 @@
-const nodeMailer = require('nodemailer');
-const { accountNodemailer, nodemailerOptions } = require('../config');
+import nodeMailer from 'nodemailer';
+import config from '../config';
 
-let transporter;
+const {
+  port,
+  service,
+  user,
+  password,
+  domainName,
+  keySelector,
+  privateKey,
+} = config;
 
-if (!transporter) {
-  transporter = nodeMailer.createTransport({
-    service: nodemailerOptions.service,
-    secure: true,
-    port: nodemailerOptions.port,
-    auth: {
-      user: accountNodemailer.user,
-      pass: accountNodemailer.password,
-    },
-    dkim: {
-      domainName: nodemailerOptions.domainName,
-      keySelector: nodemailerOptions.keySelector,
-      privateKey: nodemailerOptions.privateKey,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
-}
+const transporter = {}; nodeMailer.createTransport({
+  service,
+  secure: true,
+  port,
+  auth: {
+    user,
+    pass: password,
+  },
+  dkim: {
+    domainName,
+    keySelector,
+    privateKey,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
 
-module.exports = transporter;
+export default transporter;

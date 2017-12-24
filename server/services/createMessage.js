@@ -1,4 +1,4 @@
-const { accountNodemailer } = require('../config');
+import { accountNodemailer } from '../config';
 
 const validate = (subject, text) => {
   if (!subject || !text) {
@@ -21,4 +21,4 @@ const createMessage = (subject, text) =>
     resolve(Message);
   });
 
-module.exports = createMessage;
+export default createMessage;

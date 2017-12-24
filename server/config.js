@@ -1,5 +1,5 @@
 
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -16,8 +16,9 @@ const nodemailerOptions = {
   privateKey: process.env.PRIVATEKEY_NODEMAILER,
 };
 
-module.exports = {
+export default {
   port,
   accountNodemailer,
   nodemailerOptions,
 };
+

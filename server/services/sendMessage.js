@@ -1,4 +1,4 @@
-const transporter = require('../controllers/mail');
+import transporter from '../controllers/mail';
 
 const send = Message =>
   new Promise((resolve, reject) => {
@@ -10,4 +10,4 @@ const send = Message =>
     });
   });
 
-module.exports = send;
+export default send;

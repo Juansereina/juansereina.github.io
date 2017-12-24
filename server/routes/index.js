@@ -8,7 +8,7 @@ const { validateMessage } = middlewares.mail;
 
 api.post('/send', validateMessage, (req, res) => {
   const { subject } = req.body;
-  const { text } = req.body;
+  const text = req.body;
   mail.newMessage(subject, text).then(() => {
     res.send('Message sent!');
   });

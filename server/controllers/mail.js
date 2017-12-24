@@ -2,27 +2,22 @@ import nodeMailer from 'nodemailer';
 import config from '../config';
 
 const {
-  port,
-  service,
-  user,
-  password,
-  domainName,
-  keySelector,
-  privateKey,
+  nodemailerOptions,
+  accountNodemailer,
 } = config;
 
-const transporter = {}; nodeMailer.createTransport({
-  service,
-  secure: true,
-  port,
+const transporter = nodeMailer.createTransport({
+  service: nodemailerOptions.service,
+  secure: false,
+  port: nodemailerOptions.port,
   auth: {
-    user,
-    pass: password,
+    user: accountNodemailer.user,
+    pass: accountNodemailer.password,
   },
   dkim: {
-    domainName,
-    keySelector,
-    privateKey,
+    domainName: nodemailerOptions.domainName,
+    keySelector: nodemailerOptions.keySelector,
+    privateKey: nodemailerOptions.privateKey,
   },
   tls: {
     rejectUnauthorized: false,

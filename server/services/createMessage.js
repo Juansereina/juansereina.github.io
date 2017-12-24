@@ -1,4 +1,8 @@
-import { accountNodemailer } from '../config';
+import config from '../config';
+
+const {
+  accountNodemailer,
+} = config;
 
 const validate = (subject, text) => {
   if (!subject || !text) {
@@ -7,8 +11,11 @@ const validate = (subject, text) => {
   return true;
 };
 
-const createMessage = (subject, text) =>
+const createMessage = (sub, txt) =>
   new Promise((resolve, reject) => {
+    const subject = JSON.stringify(sub);
+    const text = JSON.stringify(txt);
+
     if (!validate(subject, text)) {
       reject(new Error('Empty Value'));
     }

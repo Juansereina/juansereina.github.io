@@ -5,16 +5,7 @@ import Form from './Form/';
 import Map from './Map';
 import Helpers from './helpers';
 
-const { isEmpty } = Helpers;
-
-const validate = message =>
-  new Promise((resolve, reject) => {
-    if (!message.Name || !message.Email || !message.Subject || !message.Message) {
-      reject(new Error('Missing value'));
-    }
-    resolve(message);
-  });
-
+const { isEmpty, api, validateMessageValues } = Helpers;
 
 export class Contact extends Component {
   constructor(props) {
@@ -35,16 +26,12 @@ export class Contact extends Component {
   async sendMessage(e) {
     e.preventDefault();
     const message = { ...this.state.message };
-    const validResult = await validate(message);
+    const validResult = await validateMessageValues(message);
     const result = await isEmpty(validResult);
     this.setState({ loading: true });
-    await fetch('/api/send', {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      body: JSON.stringify(result),
-    }).then(() => this.setState({ loading: true }))
-      .catch(err => (err));
+    api.post(result);
   }
+
   render() {
     return (
       <div className={`${styles.root} `}>

@@ -1,6 +1,5 @@
 import React, { PureComponent as Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import axios from 'axios';
 import styles from './Contact.css';
 import Form from './form';
 import Map from './Map';
@@ -8,12 +7,12 @@ import Map from './Map';
 const defaulStstyleIcon = `${styles.icon} hvr-forward`;
 
 const isEmpty = (str) => {
-  let state = true;
+  let empty = true;
   const values = Object.values(str);
   values.forEach((val) => {
-    if (!val.trim()) state = false;
+    if (!val.trim()) empty = false;
   });
-  return state;
+  return empty;
 };
 
 const validate = (message) => {
@@ -26,42 +25,45 @@ const validate = (message) => {
 export class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = { loading: true };
     this.captureMessage = this.captureMessage.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
   }
+
   captureMessage(event) {
     const data = event.target.value;
+    const message = { ...this.state.message };
     switch (event.target.id) {
       case 'name':
-        this.setState({ name: data });
+        message.name = data;
         break;
       case 'email':
-        this.setState({ email: data });
+        message.email = data;
         break;
       case 'subject':
-        this.setState({ subject: data });
+        message.subject = data;
         break;
       case 'textarea':
-        this.setState({ textarea: data });
+        message.textarea = data;
         break;
       default:
         break;
     }
+    this.setState({ message });
   }
 
   sendMessage(e) {
     e.preventDefault();
-    const message = { ...this.state };
+
+    const message = { ...this.state.message };
     if (validate(message)) {
-      const data = new FormData();
-      data.append('json', JSON.stringify(message));
+      this.setState({ loading: true });
       fetch('/api/send', {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify(message),
-      }).then(response => console.log(response))
-        .catch(err => console.log(err));
+      }).then(() => this.setState({ loading: false }))
+        .catch(err => (err));
     }
   }
   render() {
@@ -72,7 +74,11 @@ export class Contact extends Component {
             <span className={styles.text}>Send me a <strong>message</strong>!</span>
             <FontAwesome name="thumbs-up" size="2x" className={defaulStstyleIcon} />
           </div>
-          <Form handleChange={this.captureMessage} sendMessage={this.sendMessage} />
+          <Form
+            handleChange={this.captureMessage}
+            sendMessage={this.sendMessage}
+            loading={this.state.loading}
+          />
         </div>
         <Map />
       </div>);

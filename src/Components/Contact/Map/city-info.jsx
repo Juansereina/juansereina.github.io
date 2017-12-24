@@ -1,7 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CityInfo = () => {
-  const { info } = this.props;
+const propTypes = {
+  info: PropTypes.string.isRequired,
+};
+
+const CityInfo = ({ info }) => {
   const displayName = `${info.city}, ${info.state}`;
   return (
     <div>
@@ -15,5 +19,7 @@ const CityInfo = () => {
     </div>
   );
 };
+
+CityInfo.propTypes = propTypes;
 
 export default CityInfo;

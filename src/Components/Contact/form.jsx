@@ -6,9 +6,11 @@ import Section from './section_form';
 const propTypes = {
   handleChange: PropTypes.func.isRequired,
   sendMessage: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
-const form = ({ handleChange, sendMessage }) => (
+
+const form = ({ handleChange, sendMessage, loading }) => (
   <form className={styles.containerForm}>
     <div className={styles.data_message}>
       <Section placeholder="Name" id="name" icon="fa-user" handleChange={handleChange} />
@@ -21,13 +23,14 @@ const form = ({ handleChange, sendMessage }) => (
         <textarea
           placeholder="Message"
           id="textarea"
-          className="materialize-textarea lighten-5"
+          className={`materialize-textarea lighten-5 ${styles.item}`}
           onChange={handleChange}
         />
       </div>
     </div>
     <button className={`${styles.button} btn white-text `} name="action" onClick={sendMessage} >
-      <span>Send</span>
+      {loading ? <span className={`fa  fa-cog ${styles.icon} ${styles.item} fa-spin fa-2x`} />
+      : <span className={`fa ${styles.icon}`} >send</span>}
     </button>
   </form>);
 

@@ -43,6 +43,8 @@
   color: white;
 }
 
+
+
 .icon {
   color: white;
 }
@@ -50,7 +52,9 @@
 .button {
   margin: 5px;
   width: 98%;
+  height: 60px;
   background-color: rgba(255, 255, 255, 0.51);
+  padding-top: 3px;
 }
 
 .button:hover {
@@ -71,6 +75,10 @@
   display: flex;
   justify-content: space-between;
 }
+.textHover:hover, .loading{
+  color: rgba(22, 36, 76, 0.7);
+}
+
 
 @media all and (max-width: 425px) {
   .root {
@@ -84,4 +92,7 @@
   .data_message {
     flex-direction: column;
   }
+}
+.item:disabled {
+  color: red;
 }

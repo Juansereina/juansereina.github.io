@@ -25,7 +25,7 @@ const validate = (message) => {
 export class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true };
+    this.state = { loading: false };
     this.captureMessage = this.captureMessage.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
   }
@@ -62,7 +62,7 @@ export class Contact extends Component {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify(message),
-      }).then(() => this.setState({ loading: false }))
+      }).then(() => this.setState({ loading: true }))
         .catch(err => (err));
     }
   }

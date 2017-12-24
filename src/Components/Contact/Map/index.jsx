@@ -30,6 +30,8 @@ class App extends Component {
         zoom: 9.36,
         bearing: 0,
         pitch: 0,
+        width: 500,
+        height: 500,
       },
       popupInfo: null,
     };

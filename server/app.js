@@ -8,11 +8,7 @@ const app = express();
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.resolve('../dist')));
+const DIST_DIR = path.join(__dirname, '../dist');
+app.use(express.static(DIST_DIR));
 app.use('/api', api);
-app.get('*.js', (req, res, next) => {
-  req.url = `${req.url}.gz`;
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
 export default app;

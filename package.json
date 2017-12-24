@@ -6,12 +6,13 @@
   "author": "Juanse2296",
   "license": "MIT",
   "scripts": {
-    "build:client": "webpack --config ./webpack/webpack.prod.js",
+    "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
     "build:server": "",
     "build": "npm run build:client && npm run build:server",
-    "server": "nodemon ./bin/dev",
+    "clean": "rm -rf dist",
     "dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",
     "prod": "npm run build && npm run server",
+    "server": "nodemon ./bin/dev",
     "start": "npm run dev"
   },
   "dependencies": {

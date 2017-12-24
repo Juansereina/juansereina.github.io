@@ -1,26 +1,20 @@
 import React, { PureComponent as Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import styles from './Contact.css';
-import Form from './form';
+import Form from './Form/';
 import Map from './Map';
+import Helpers from './helpers';
 
-const defaulStstyleIcon = `${styles.icon} hvr-forward`;
+const { isEmpty } = Helpers;
 
-const isEmpty = (str) => {
-  let empty = true;
-  const values = Object.values(str);
-  values.forEach((val) => {
-    if (!val.trim()) empty = false;
+const validate = message =>
+  new Promise((resolve, reject) => {
+    if (!message.Name || !message.Email || !message.Subject || !message.Message) {
+      reject(new Error('Missing value'));
+    }
+    resolve(message);
   });
-  return empty;
-};
 
-const validate = (message) => {
-  if (!message.name || !message.email || !message.subject || !message.textarea) {
-    return false;
-  }
-  return isEmpty(message);
-};
 
 export class Contact extends Component {
   constructor(props) {
@@ -33,38 +27,23 @@ export class Contact extends Component {
   captureMessage(event) {
     const data = event.target.value;
     const message = { ...this.state.message };
-    switch (event.target.id) {
-      case 'name':
-        message.name = data;
-        break;
-      case 'email':
-        message.email = data;
-        break;
-      case 'subject':
-        message.subject = data;
-        break;
-      case 'textarea':
-        message.textarea = data;
-        break;
-      default:
-        break;
-    }
+    const name = String(event.target.id);
+    message[name] = data;
     this.setState({ message });
   }
 
-  sendMessage(e) {
+  async sendMessage(e) {
     e.preventDefault();
-
     const message = { ...this.state.message };
-    if (validate(message)) {
-      this.setState({ loading: true });
-      fetch('/api/send', {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'POST',
-        body: JSON.stringify(message),
-      }).then(() => this.setState({ loading: true }))
-        .catch(err => (err));
-    }
+    const validResult = await validate(message);
+    const result = await isEmpty(validResult);
+    this.setState({ loading: true });
+    await fetch('/api/send', {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      body: JSON.stringify(result),
+    }).then(() => this.setState({ loading: true }))
+      .catch(err => (err));
   }
   render() {
     return (
@@ -72,7 +51,7 @@ export class Contact extends Component {
         <div className={`${styles.sub_root}`}>
           <div className={styles.message}>
             <span className={styles.text}>Send me a <strong>message</strong>!</span>
-            <FontAwesome name="thumbs-up" size="2x" className={defaulStstyleIcon} />
+            <FontAwesome name="thumbs-up" size="2x" className={`${styles.icon} hvr-forward`} />
           </div>
           <Form
             handleChange={this.captureMessage}

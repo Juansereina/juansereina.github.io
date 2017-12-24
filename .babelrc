@@ -11,5 +11,6 @@
       "node": "current"
     },
     "modules": false
-  }
+  },
+  "plugins": ["transform-runtime"]
 }

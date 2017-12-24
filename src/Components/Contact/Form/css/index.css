@@ -1,0 +1,19 @@
+
+  .data_message {
+    display: flex;
+  }
+  .containerForm {
+    width: 550px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  @media all and (max-width: 425px) {
+    .containerForm {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .data_message {
+      flex-direction: column;
+    }
+  }

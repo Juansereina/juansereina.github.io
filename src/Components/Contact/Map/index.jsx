@@ -10,6 +10,7 @@ import CityPin from './city-pin';
 import CityInfo from './city-info';
 import CITIES from './cities.json';
 import styles from './Map.css';
+import animate from '../../Common/animate.css';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoianVhbnNlMjI5NiIsImEiOiJjajlhbTdjNjEweWY4MndsZ2p2cHM0c3RtIn0.U8uD3-sKlhqmCRtJJ2hv2w';
 const navStyle = {
@@ -95,7 +96,7 @@ class App extends Component {
   render() {
     const { viewport } = this.state;
     return (
-      <div className={styles.root} >
+      <div className={`${styles.root} ${animate.animated} ${animate.fadeIn}`} >
         <MapGL
           {...viewport}
           mapStyle="mapbox://styles/juanse2296/cj9ayhql43tss2rn2z5mior2k"

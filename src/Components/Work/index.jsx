@@ -1,8 +1,10 @@
 import React, { PureComponent as Component } from 'react';
 import Img from 'react-image';
 import Lightbox from 'react-image-lightbox';
-import jsonp from 'jsonp';
 import styles from './Work.css';
+import helper from './helper';
+
+const { createProjects, consultProjects } = helper;
 
 class Work extends Component {
   constructor(props) {
@@ -15,29 +17,12 @@ class Work extends Component {
   }
 
   componentWillMount() {
-    this.queryBehance();
+    consultProjects().then(res => this.fillProjects(res));
   }
 
-  queryBehance() {
-    const url = 'https://www.behance.net/v2/users/Juanse2296/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
-    jsonp(url, null, (err, data) => {
-      if (!err) {
-        this.fillProjects(data.projects);
-      }
-    });
-  }
-
-  fillProjects(_projects) {
-    const projects = _projects.map((project) => {
-      const newProject = {
-        id: project.id,
-        thumbnail: project.covers['404'],
-        src: project.covers.original,
-        alt: project.name,
-      };
-      return newProject;
-    });
-    return this.setState({
+  async fillProjects(_projects) {
+    const projects = await createProjects(_projects);
+    this.setState({
       projects,
     });
   }

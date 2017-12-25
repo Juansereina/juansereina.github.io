@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import animate from '../../Common/animate.css';
 import styles from './css/index.css';
 import Section from './section';
 import Button from './button';
@@ -13,7 +12,7 @@ const propTypes = {
 };
 
 const form = ({ handleChange, sendMessage, loading }) => (
-  <form className={`styles.containerForm ${animate.animated} ${animate.fadeInDown}`}>
+  <form className={styles.containerForm}>
     <div className={styles.data_message}>
       <Section id="Name" icon="user" handleChange={handleChange} active={loading} />
       <Section id="Email" icon="vcard" handleChange={handleChange} active={loading} />

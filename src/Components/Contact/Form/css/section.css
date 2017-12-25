@@ -17,3 +17,16 @@
     border-radius: 2px;
     border: solid 1px rgba(255, 255, 255, 0.21);
   }
+
+  @media all and (max-width: 375px) {
+    .input {
+      flex: 1;
+      margin: 5px 5px 0 5px;
+      background-color: rgba(22, 36, 76, 0.7);
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      border-radius: 2px;
+      border: solid 1px r
+    }  
+  }

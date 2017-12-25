@@ -1,0 +1,15 @@
+.message {
+    min-width: 320px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .text {
+    color: white;
+    font-size: 1.6em;
+  }
+  
+  .icon {
+    margin-right: 0.5em;
+    color: #00ffef;
+  }

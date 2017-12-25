@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Logo.css';
+import hover from '../Common/hover.css'
 
 const propTypes = {
   effect: PropTypes.string.isRequired,
@@ -13,7 +14,7 @@ class Section extends Component {
     super(props);
     this.state = {
       load: 0,
-      effect: [props.effect, 'hvr-bob'],
+      effect: [props.effect, `${hover.bob}`],
     };
     setTimeout(() => { this.setState({ load: 1 }); }, 2000);
   }

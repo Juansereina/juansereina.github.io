@@ -1,10 +1,10 @@
 import isEmpty from './isEmpty';
-import api from './api';
+import post from './post';
 import validateMessageValues from './validateMessageValues';
 
 const Helpers = {
   isEmpty,
-  api,
+  post,
   validateMessageValues,
 };
 

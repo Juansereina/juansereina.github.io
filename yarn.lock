@@ -5444,9 +5444,9 @@ react-router-dom@^4.1.1, react-router-dom@^4.2.2:
     react-router "^4.2.0"
     warning "^3.0.0"
 
-react-router-transition@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-router-transition/-/react-router-transition-1.1.2.tgz#46c2c48ff14c88c8a94d5a562d8a58726ebcce7e"
+react-router-transition@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-router-transition/-/react-router-transition-1.1.3.tgz#e8dc1c3e6d097e8f12f4ca088e5da8894b4d78ae"
   dependencies:
     prop-types "^15.5.10"
     react "^15.6.1"

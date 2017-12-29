@@ -1,7 +1,8 @@
 import React, { PureComponent as Component } from 'react';
-import Img from 'react-image';
 import Lightbox from 'react-image-lightbox';
-import styles from './Work.css';
+import { Element } from 'react-scroll';
+import styles from './css/Work.css';
+import Project from './project';
 import helper from './helper';
 
 const { createProjects, consultProjects } = helper;
@@ -14,6 +15,7 @@ class Work extends Component {
       img: null,
       projects: [],
     };
+    this.openImage = this.openImage.bind(this);
   }
 
   componentWillMount() {
@@ -27,6 +29,9 @@ class Work extends Component {
     });
   }
 
+  openImage(img) {
+    this.setState({ openGallery: true, img });
+  }
   renderGallery() {
     const { openGallery, img } = this.state;
     return (
@@ -46,17 +51,16 @@ class Work extends Component {
     return (
       <div className={`${styles.root}`}>
         {this.renderGallery()}
-        <div className={styles.grid}>
+        <Element
+          className={styles.grid}
+          style={{ overflow: 'auto' }}
+        >
           {this.state.projects.map(img => (
-            <Img
-              key={img.id}
-              onClick={() => this.setState({ openGallery: true, img: img.src })}
-              src={img.thumbnail}
-              alt={img.alt}
-              className={`${styles.img} hvr-bob `}
-            />
-          ))}
-        </div>
+            <Element name={img.id}>
+              <Project key={img.id} data={img} open={this.openImage} />
+            </Element>
+        ))}
+        </Element>
       </div>
     );
   }

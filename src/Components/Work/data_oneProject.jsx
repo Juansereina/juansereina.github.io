@@ -1,0 +1,191 @@
+const data = {
+  project: {
+    id: 57270341,
+    name: 'Incevo',
+    published_on: 1506732649,
+    created_on: 1506732190,
+    modified_on: 1507144931,
+    url: 'https:\/\/www.behance.net\/gallery\/57270341\/Incevo',
+    privacy: 'public',
+    fields: ['Dise\u00f1o interactivo', 'Programaci\u00f3n', 'Interfaz y exp. de usuario'],
+    covers: {
+      404: 'https:\/\/mir-s3-cdn-cf.behance.net\/projects\/404\/8a006757270341.Y3JvcCw1MzcsNDIwLDQ1Myw1MA.jpg', 202: 'https:\/\/mir-s3-cdn-cf.behance.net\/projects\/202\/8a006757270341.Y3JvcCw1MzcsNDIwLDQ1Myw1MA.jpg', 230: 'https:\/\/mir-s3-cdn-cf.behance.net\/projects\/230\/8a006757270341.Y3JvcCw1MzcsNDIwLDQ1Myw1MA.jpg', 115: 'https:\/\/mir-s3-cdn-cf.behance.net\/projects\/115\/8a006757270341.Y3JvcCw1MzcsNDIwLDQ1Myw1MA.jpg', original: 'https:\/\/mir-s3-cdn-cf.behance.net\/projects\/original\/8a006757270341.Y3JvcCw1MzcsNDIwLDQ1Myw1MA.jpg',
+    },
+    mature_content: 0,
+    mature_access: 'allowed',
+    owners: [{
+      id: 9228073,
+      first_name: 'Juan Jose',
+      last_name: 'Rendon',
+      username: 'juancho217',
+      city: 'Cali',
+      state: '',
+      country: 'Colombia',
+      location: 'Cali, Colombia',
+      company: '',
+      occupation: 'Student ',
+      created_on: 1414112843,
+      url: 'https:\/\/www.behance.net\/juancho217',
+      images: {
+        50: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/50\/d516df9228073.59bb787eaa612.jpg', 100: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/100\/d516df9228073.59bb787eaa612.jpg', 115: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/115\/d516df9228073.59bb787eaa612.jpg', 230: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/230\/d516df9228073.59bb787eaa612.jpg', 138: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/138\/d516df9228073.59bb787eaa612.jpg', 276: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/276\/d516df9228073.59bb787eaa612.jpg',
+      },
+      display_name: 'Juan Jose Rendon',
+      fields: ['Interaction Design', 'UI\/UX', 'Graphic Design'],
+      has_default_image: 0,
+      website: '',
+      stats: {
+        followers: 1, following: 14, appreciations: 15, views: 156, comments: 0,
+      },
+    }, {
+      id: 11826001,
+      first_name: 'Juan Sebastian',
+      last_name: 'Reina Estupi\u00f1an',
+      username: 'Juanse2296',
+      city: 'Cali',
+      state: '',
+      country: 'Colombia',
+      location: 'Cali, Colombia',
+      company: '',
+      occupation: '',
+      created_on: 1424637279,
+      url: 'https:\/\/www.behance.net\/Juanse2296',
+      images: {
+        50: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/50\/e10d0b11826001.59cdd33ac26cc.png', 100: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/100\/e10d0b11826001.59cdd33ac26cc.png', 115: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/115\/e10d0b11826001.59cdd33ac26cc.png', 230: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/230\/e10d0b11826001.59cdd33ac26cc.png', 138: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/138\/e10d0b11826001.59cdd33ac26cc.png', 276: 'https:\/\/mir-s3-cdn-cf.behance.net\/user\/276\/e10d0b11826001.59cdd33ac26cc.png',
+      },
+      display_name: 'Juan Sebastian Reina Estupi\u00f1an',
+      fields: ['Typography', 'Interaction Design', 'Graphic Design'],
+      has_default_image: 0,
+      website: '',
+      stats: {
+        followers: 1, following: 10, appreciations: 6, views: 34, comments: 0,
+      },
+    }, {
+      id: 12874605,
+      first_name: 'H\u00e9ndel',
+      last_name: 'Cuartas Silva',
+      username: 'hendelcuartas',
+      city: 'Cali',
+      state: '',
+      country: 'Colombia',
+      location: 'Cali, Colombia',
+      company: '',
+      occupation: '',
+      created_on: 1428541661,
+      url: 'https:\/\/www.behance.net\/hendelcuartas',
+      images: { 50: 'https:\/\/a5.behance.net\/58f131dd9c62ff7d4740bf9d7a1cefc1953e88dc\/img\/profile\/no-image-50.jpg?cb=264615658', 115: 'https:\/\/a5.behance.net\/58f131dd9c62ff7d4740bf9d7a1cefc1953e88dc\/img\/profile\/no-image-115.jpg?cb=264615658', 138: 'https:\/\/a5.behance.net\/58f131dd9c62ff7d4740bf9d7a1cefc1953e88dc\/img\/profile\/no-image-138.jpg?cb=264615658' },
+      display_name: 'H\u00e9ndel Cuartas Silva',
+      fields: [],
+      has_default_image: 1,
+      website: '',
+      stats: {
+        followers: 0, following: 1, appreciations: 7, views: 67, comments: 0,
+      },
+    }],
+    stats: { views: 27, appreciations: 6, comments: 1 },
+    conceived_on: 1506729600,
+    canvas_width: 1400,
+    tags: ['programming ', 'design', 'interactive design', 'programaci\u00f3n', 'Experiencia de usuario', 'dise\u00f1o interactivo', 'dise\u00f1o', 'instalaci\u00f3n interactiva'],
+    description: 'Incevo es una instalaci\u00f3n interactiva desarrollada para ser mostrada en el museo la tertulia de la ciudad de Cali, Colombia. Esta permite a un m\u00e1ximo de 4 usuario interactuar con la instalaci\u00f3n por medio de un tracking de movimiento que genera un juego colaborativo.      ',
+    editor_version: 5,
+    allow_comments: 1,
+    modules: [{
+      id: 337214201,
+      project_id: 57270341,
+      type: 'image',
+      full_bleed: 1,
+      alignment: 'center',
+      caption_alignment: 'left',
+      src: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/6478f057270341.59cee89f52077.jpg',
+      sizes: {
+        disp: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/6478f057270341.59cee89f52077.jpg', max_1240: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/hd\/6478f057270341.59cee89f52077.jpg', max_1920: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/fs\/6478f057270341.59cee89f52077.jpg', max_1200: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/max_1200\/6478f057270341.59cee89f52077.jpg', 1400: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/1400\/6478f057270341.59cee89f52077.jpg', original: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/source\/6478f057270341.59cee89f52077.jpg',
+      },
+      dimensions: {
+        disp: { width: 600, height: 417 }, max_1240: { width: 1240, height: 861 }, max_1920: { width: 1440, height: 1000 }, max_1200: { width: 1200, height: 833 }, 1400: { width: 1400, height: 972 }, original: { width: 1440, height: 1000 },
+      },
+      width: 600,
+      height: 417,
+    }, {
+      id: 337214203,
+      project_id: 57270341,
+      type: 'image',
+      full_bleed: 1,
+      alignment: 'center',
+      caption_alignment: 'left',
+      src: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/b37b9157270341.59cee89f52576.jpg',
+      sizes: {
+        disp: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/b37b9157270341.59cee89f52576.jpg', max_1240: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/hd\/b37b9157270341.59cee89f52576.jpg', max_1920: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/fs\/b37b9157270341.59cee89f52576.jpg', max_1200: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/max_1200\/b37b9157270341.59cee89f52576.jpg', 1400: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/1400\/b37b9157270341.59cee89f52576.jpg', original: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/source\/b37b9157270341.59cee89f52576.jpg',
+      },
+      dimensions: {
+        disp: { width: 600, height: 417 }, max_1240: { width: 1240, height: 861 }, max_1920: { width: 1440, height: 1000 }, max_1200: { width: 1200, height: 833 }, 1400: { width: 1400, height: 972 }, original: { width: 1440, height: 1000 },
+      },
+      width: 600,
+      height: 417,
+    }, {
+      id: 337214195, project_id: 57270341, type: 'embed', full_bleed: 1, alignment: 'center', caption_alignment: 'left', embed: '<iframe width="1280" height="720" src="https:\/\/www.youtube.com\/embed\/QeUljal7T8Q">\r\n<\/iframe>', original_embed: '<iframe width="1280" height="720" src="https:\/\/www.youtube.com\/embed\/QeUljal7T8Q">\r\n<\/iframe>', width: 600, height: 338, original_width: 1280, original_height: 720, width_unit: 'px',
+    }, {
+      id: 337214711,
+      project_id: 57270341,
+      type: 'image',
+      full_bleed: 1,
+      alignment: 'center',
+      caption_alignment: 'left',
+      src: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/12d09d57270341.59ceea61d2d39.jpg',
+      sizes: {
+        disp: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/disp\/12d09d57270341.59ceea61d2d39.jpg', max_1240: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/hd\/12d09d57270341.59ceea61d2d39.jpg', max_1920: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/fs\/12d09d57270341.59ceea61d2d39.jpg', max_1200: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/max_1200\/12d09d57270341.59ceea61d2d39.jpg', 1400: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/1400\/12d09d57270341.59ceea61d2d39.jpg', original: 'https:\/\/mir-s3-cdn-cf.behance.net\/project_modules\/source\/12d09d57270341.59ceea61d2d39.jpg',
+      },
+      dimensions: {
+        disp: { width: 600, height: 148 }, max_1240: { width: 1240, height: 305 }, max_1920: { width: 1440, height: 354 }, max_1200: { width: 1200, height: 295 }, 1400: { width: 1400, height: 344 }, original: { width: 1440, height: 354 },
+      },
+      width: 600,
+      height: 148,
+    }, {
+      id: 337214709, project_id: 57270341, type: 'text', full_bleed: 0, alignment: 'center', caption_alignment: 'left', text: '<div class="sub-title" style="text-align:center;">Conoce m\u00e1s en: <a href="https:\/\/incevo.wordpress.com\/" target="_blank">Incevo Blog<\/a><br><\/div>', text_plain: 'Conoce m\u00e1s en: Incevo Blog',
+    }, {
+      id: 337214197, project_id: 57270341, type: 'text', full_bleed: 0, alignment: 'center', caption_alignment: 'left', text: '<div>\u00a1Thanks For Watching \/ Gracias Por Ver!<\/div>', text_plain: '\u00a1Thanks For Watching \/ Gracias Por Ver!',
+    }],
+    short_url: 'http:\/\/be.net\/gallery\/57270341\/Incevo',
+    copyright: { license: 'cc by-nc-nd', description: 'Attribution-NonCommercial-NoDerivs', license_id: 1 },
+    tools: [{
+      id: 185308071,
+      title: 'Adobe Illustrator',
+      category: '9',
+      category_label: 'Software',
+      category_id: 9,
+      synonym: {
+        tag_id: 185308071, name: 'illustrator', title: 'Adobe Illustrator', url: 'https:\/\/www.adobe.com\/products\/illustrator.html?promoid=HZG8X32C&mv=other', download_url: 'https:\/\/www.adobe.com\/products\/illustrator.html?promoid=HZG8X32C&mv=other', gallery_url: 'https:\/\/www.behance.net\/search?tools=185308071&sdid=TG8SLM8J&mv=other', authenticated: 1, type: 1, icon_url: 'https:\/\/a5.behance.net\/58f131dd9c62ff7d4740bf9d7a1cefc1953e88dc\/img\/project\/tools\/1x\/illustrator.png', icon_url_2x: 'https:\/\/a5.behance.net\/58f131dd9c62ff7d4740bf9d7a1cefc1953e88dc\/img\/project\/tools\/2x\/illustrator.png',
+      },
+      approved: '1',
+      url: '\/search?tools=185308071',
+    }, {
+      id: 157153, title: 'Eclipse IDE', category: '9', category_label: 'Software', category_id: 9, synonym: null, approved: '1', url: '\/search?tools=157153',
+    }, {
+      id: 5780, title: 'Java', category: '11', category_label: 'Online App', category_id: 11, synonym: null, approved: '1', url: '\/search?tools=5780',
+    }],
+    styles: {
+      text: {
+        title: {
+          font_family: 'arial,helvetica,sans-serif', font_weight: 'bold', color: '#191919', text_align: 'left', line_height: '1.1em', font_size: '36px', text_decoration: 'none', font_style: 'normal', display: 'inline', text_transform: 'none',
+        },
+        subtitle: {
+          font_family: 'arial,helvetica,sans-serif', font_weight: 'normal', color: '#a4a4a4', text_align: 'left', line_height: '1.4em', font_size: '20px', text_decoration: 'none', font_style: 'normal', display: 'inline', text_transform: 'none',
+        },
+        paragraph: {
+          font_family: 'arial,helvetica,sans-serif', font_weight: 'bold', color: '#696969', text_align: 'center', line_height: '1.4em', font_size: '28px', text_decoration: 'none', font_style: 'normal', display: 'inline', text_transform: 'none',
+        },
+        caption: {
+          font_family: 'arial,helvetica,sans-serif', font_weight: 'normal', color: '#a4a4a4', text_align: 'left', line_height: '1.4em', font_size: '14px', text_decoration: 'none', font_style: 'italic', display: 'block', text_transform: 'none',
+        },
+        link: {
+          font_family: 'arial,helvetica,sans-serif', font_weight: 'normal', color: '#1769FF', text_align: 'left', line_height: '1.4em', font_size: '12px', text_decoration: 'none', font_style: 'normal', display: 'inline', text_transform: 'none',
+        },
+      },
+      background: { color: 'FFFFFF' },
+      spacing: { project: { top_margin: 80 }, modules: { bottom_margin: 0 } },
+      dividers: { display: 'none' },
+    },
+    creator_id: 9228073,
+  },
+  http_code: 200,
+};
+
+export default data;

@@ -4,6 +4,7 @@ const createProjects = _projects => new Promise((res, rej) => {
   const projects = _projects.map((project) => {
     const newProject = {
       id: project.id,
+      url: project.url,
       thumbnail: project.covers['404'],
       src: project.covers.original,
       alt: project.name,

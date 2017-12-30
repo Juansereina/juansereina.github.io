@@ -9,13 +9,18 @@ const propTypes = {
   open: PropTypes.func.isRequired,
 };
 
+const openToBehance = (url) => {
+  const win = window.open(url, '_blank');
+  win.focus();
+};
+
 const project = ({ data, open }) => (
   <div className={`${styles.imgContainer}`}>
     <div className={`${styles.infoContainer}`}>
       <h3 className={`${styles.title}`}>{data.alt}</h3>
       <div className={`${styles.buttonContainer}`}>
         <span className={`${styles.description}`}>Juan Sebastián</span>
-        <button className={`${styles.btn}`}>See on Behance</button>
+        <button className={`${styles.btn}`} onClick={() => openToBehance(data.url)} >See on Behance</button>
       </div>
     </div>
     <Img

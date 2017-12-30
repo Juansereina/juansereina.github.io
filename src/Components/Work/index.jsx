@@ -4,8 +4,9 @@ import { Element } from 'react-scroll';
 import styles from './css/Work.css';
 import Project from './project';
 import helper from './helper';
+import data from './data';
 
-const { createProjects, consultProjects } = helper;
+const { createProjects } = helper;
 
 class Work extends Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class Work extends Component {
   }
 
   componentWillMount() {
-    consultProjects().then(res => this.fillProjects(res));
+    // consultProjects().then(res => this.fillProjects(res));
+    this.fillProjects(data.projects);
   }
 
   async fillProjects(_projects) {
@@ -56,8 +58,8 @@ class Work extends Component {
           style={{ overflow: 'auto' }}
         >
           {this.state.projects.map(img => (
-            <Element name={img.id}>
-              <Project key={img.id} data={img} open={this.openImage} />
+            <Element key={img.id} name={String(img.id)}>
+              <Project data={img} open={this.openImage} />
             </Element>
         ))}
         </Element>

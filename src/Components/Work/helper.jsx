@@ -17,7 +17,8 @@ const createProjects = _projects => new Promise((res, rej) => {
 });
 
 const consultProjects = () => new Promise((res, rej) => {
-  const url = 'https://www.behance.net/v2/users/Juanse2296/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
+  // const url = 'https://www.behance.net/v2/users/Juanse2296/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
+  const url = '';
   jsonp(url, null, (err, data) => {
     if (err) {
       rej(new Error('Error consulting projects on Behance'));
@@ -26,6 +27,18 @@ const consultProjects = () => new Promise((res, rej) => {
   });
 });
 
+const consultOneProject = id => new Promise((res, rej) => {
+  // const url = `https://www.behance.net/v2/projects/${id}?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u`;
+  const url = '';
+  jsonp(url, null, (err, data) => {
+    if (err) {
+      rej(new Error('Error consulting a project on Behance'));
+    }
+    res(data);
+  });
+});
 
-export default { createProjects, consultProjects };
+consultOneProject(57270341).then(res => console.log('khe', res));
+
+export default { createProjects, consultProjects, consultOneProject };
 

@@ -2,10 +2,9 @@ import React, { PureComponent as Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import { Element } from 'react-scroll';
 import styles from './css/Work.css';
-import spinnerCss from './css/spinner.css'
+import spinnerCss from './css/spinner.css';
 import Project from './project';
 import helper from './helper';
-
 
 const {
   createProjects,

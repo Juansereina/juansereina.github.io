@@ -24,7 +24,7 @@ const project = ({ data, open }) => (
       </div>
     </div>
     <Img
-      onClick={() => open(data.src)}
+      onClick={() => open(data.id)}
       src={data.thumbnail}
       alt={data.alt}
       className={`${styles.img}`}

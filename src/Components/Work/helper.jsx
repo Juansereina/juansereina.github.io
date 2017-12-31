@@ -39,7 +39,22 @@ const consultOneProject = id => new Promise((res, rej) => {
   });
 });
 
-consultOneProject(57270341).then(res => console.log('khe', res));
+const extractImages = obj => new Promise((res, rej) => {
+  const images = obj.project.modules.filter((module) => {
+    if (module.sizes) return true;
+    return false;
+  }).map((module) => {
+    let image = null;
+    if (module.sizes) { image = module.sizes.original; } else rej(new Error('Empty Value'));
+    return image;
+  });
+  res(images);
+});
 
-export default { createProjects, consultProjects, consultOneProject };
+export default {
+  createProjects,
+  consultProjects,
+  consultOneProject,
+  extractImages,
+};
 

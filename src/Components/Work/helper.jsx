@@ -2,7 +2,7 @@ import jsonp from 'jsonp';
 import dataLocal from './data';
 import dataOneProject from './data_oneProject';
 
-const local = true;
+const local = false;
 
 const createProjects = _projects => new Promise((res, rej) => {
   const projects = _projects.map((project) => {

@@ -11,13 +11,13 @@ function generate() {
           collapseWhitespace: true,
           collapseInlineTagWhitespace: true,
           removeComments: true,
-          removeRedundantAttributes: true
+          removeRedundantAttributes: true,
         },
         hash: true,
         template: path.resolve(__dirname, '../src/index.html'),
       }),
       new ExtractTextPlugin({
-        filename: '[name]_[contenthash].css',
+        filename: 'css/app_[contenthash].css',
         disable: false,
         allChunks: true,
       }),

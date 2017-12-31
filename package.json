@@ -7,13 +7,13 @@
   "license": "MIT",
   "scripts": {
     "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
-    "build:server": "",
+    "build:server": "babel server -s -d ./",
     "build": "npm run build:client && npm run build:server",
     "clean": "rm -rf dist",
-    "dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",
-    "prod": "npm run build && npm run server",
-    "server": "nodemon ./bin/dev",
-    "start": "npm run dev"
+    "client:dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",
+    "prod": "npm run build && node ./bin/prod",
+    "server:dev": "nodemon ./bin/dev",
+    "start": "npm run client:dev"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -39,6 +39,7 @@
     "react-toastify": "^3.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",

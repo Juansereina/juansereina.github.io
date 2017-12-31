@@ -1,6 +1,6 @@
 import jsonp from 'jsonp';
-import dataLocal from './data';
-import dataOneProject from './data_oneProject';
+import dataLocal from '../../../data/data';
+import dataOneProject from '../../../data/data_oneProject';
 
 const local = false;
 

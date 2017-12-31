@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 const accountNodemailer = {
   user: process.env.ACCOUNT_NODEMAILER,
   password: process.env.PASSWORD_NODEMAILER,

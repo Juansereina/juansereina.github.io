@@ -1,4 +1,5 @@
 import React, { PureComponent as Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import styles from './css/Contact.css';
 import Form from './Form/';
 import Map from './Map';
@@ -7,6 +8,9 @@ import animate from '../Common/animate.css';
 import Message from './message';
 
 const { isEmpty, post, validateMessageValues } = Helpers;
+
+const notify = message => toast.info(message, { position: 'top-left' });
+const notifyError = message => toast.error(message, { position: 'top-left' });
 
 export class Contact extends Component {
   constructor(props) {
@@ -33,21 +37,31 @@ export class Contact extends Component {
     e.preventDefault();
     const context = this;
     const message = { ...this.state.message };
-    const validResult = await validateMessageValues(message);
-    const result = await isEmpty(validResult);
-    this.setState({ loading: true });
-    await post(result).then(() => {
-      context.setState({
-        loading: false,
-        animation: `${animate.animated} ${animate.fadeOutRight}`,
-      });
-      setTimeout(() => {
+    try {
+      const validResult = await validateMessageValues(message);
+      const result = await isEmpty(validResult);
+      this.setState({ loading: true });
+      await post(result).then((res) => {
+        if (res.status === 404) {
+          context.setState({
+            loading: false,
+          });
+          return notifyError('Error sending, check your connection');
+        }
         context.setState({
-          feedback: true,
+          loading: false,
+          animation: `${animate.animated} ${animate.fadeOutRight}`,
         });
-      }, 1000);
-    })
-      .catch(err => err);
+        setTimeout(() => {
+          context.setState({
+            feedback: true,
+          });
+        }, 1000);
+      })
+        .catch(err => err);
+    } catch (err) {
+      notify('information is missing');
+    }
   }
 
   messageFeedBack() {
@@ -56,6 +70,8 @@ export class Contact extends Component {
         <Message text="Thanks for the message, I'll answer you as soon as possible!" icon="thumbs-up" />
       </div>);
   }
+
+
   renderForm() {
     return (
       <div className={`${styles.sub_root} ${this.state.animation}`}>
@@ -74,6 +90,7 @@ export class Contact extends Component {
       <div className={`${styles.root} `}>
         {!this.state.feedback && this.renderForm()}
         {this.state.feedback && this.messageFeedBack()}
+        <ToastContainer newestOnTop />
         <Map />
       </div>);
   }

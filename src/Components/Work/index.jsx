@@ -4,10 +4,13 @@ import { Element } from 'react-scroll';
 import styles from './css/Work.css';
 import Project from './project';
 import helper from './helper';
-import data from './data';
-import dataProject from './data_oneProject';
 
-const { createProjects, extractImages } = helper;
+const {
+  createProjects,
+  extractImages,
+  consultProjects,
+  consultOneProject,
+} = helper;
 
 class Work extends Component {
   constructor(props) {
@@ -21,14 +24,8 @@ class Work extends Component {
     this.openOneProject = this.openOneProject.bind(this);
   }
 
-  /* <Lightbox
-              mainSrc={img}
-              onCloseRequest={() => this.setState({ openGallery: false, img: null })}
-            /> */
-
   componentWillMount() {
-    // consultProjects().then(res => this.fillProjects(res));
-    this.fillProjects(data.projects);
+    consultProjects().then(res => this.fillProjects(res));
   }
 
   async fillProjects(_projects) {
@@ -39,7 +36,8 @@ class Work extends Component {
   }
 
   async openOneProject(id) {
-    const images = await extractImages(dataProject);
+    const result = await consultOneProject(id);
+    const images = await extractImages(result);
     this.setState({ openGallery: true, images });
   }
   renderGallery() {

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../server/services/index.js"],"names":["mail"],"mappings":";;;;;;AAAA;;;;;;kBAEe;AACbA;AADa,C","file":"index.js","sourcesContent":["import mail from './mail';\r\n\r\nexport default {\r\n  mail,\r\n};\r\n\r\n"]}

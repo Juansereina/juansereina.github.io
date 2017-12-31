@@ -2,6 +2,7 @@
 import React from 'react';
 import Img from 'react-image';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 import styles from './css/Project.css';
 
 const propTypes = {
@@ -23,12 +24,14 @@ const project = ({ data, open }) => (
         <button className={`${styles.btn}`} onClick={() => openToBehance(data.url)} >See on Behance</button>
       </div>
     </div>
-    <Img
-      onClick={() => open(data.id)}
-      src={data.thumbnail}
-      alt={data.alt}
-      className={`${styles.img}`}
-    />
+    <LazyLoad height={200}>
+      <Img
+        onClick={() => open(data.id)}
+        src={data.thumbnail}
+        alt={data.alt}
+        className={`${styles.img}`}
+      />
+    </LazyLoad>
   </div>
 );
 

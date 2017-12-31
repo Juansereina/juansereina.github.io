@@ -2,8 +2,10 @@ import React, { PureComponent as Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import { Element } from 'react-scroll';
 import styles from './css/Work.css';
+import spinnerCss from './css/spinner.css'
 import Project from './project';
 import helper from './helper';
+
 
 const {
   createProjects,
@@ -16,6 +18,7 @@ class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       openGallery: false,
       photoIndex: 0,
       images: null,
@@ -32,6 +35,7 @@ class Work extends Component {
     const projects = await createProjects(_projects);
     this.setState({
       projects,
+      loading: false,
     });
   }
 
@@ -67,20 +71,27 @@ class Work extends Component {
     );
   }
 
+  renderElements() {
+    return (
+      <Element
+        className={styles.grid}
+        style={{ overflow: 'auto' }}
+      >
+        {this.state.projects.map(img => (
+          <Element key={img.id} name={String(img.id)}>
+            <Project data={img} open={this.openOneProject} />
+          </Element>
+        ))}
+      </Element>
+    );
+  }
   render() {
+    const { loading } = this.state;
     return (
       <div className={`${styles.root}`}>
+        {loading && <div className={`${spinnerCss.spinner}`}> <div className={`${spinnerCss.loader}`}>Loading...</div></div>}
         {this.renderGallery()}
-        <Element
-          className={styles.grid}
-          style={{ overflow: 'auto' }}
-        >
-          {this.state.projects.map(img => (
-            <Element key={img.id} name={String(img.id)}>
-              <Project data={img} open={this.openOneProject} />
-            </Element>
-        ))}
-        </Element>
+        {!loading && this.renderElements()}
       </div>
     );
   }

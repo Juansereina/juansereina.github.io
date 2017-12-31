@@ -14,4 +14,8 @@ api.post('/send', validateMessage, (req, res) => {
   });
 });
 
+api.get('/server', (req, res) => {
+  res.send('server working :)');
+});
+
 export default api;

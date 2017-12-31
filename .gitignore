@@ -30,6 +30,3 @@ node_modules
 #Environment variables
 .env
 
-#Distribution and Data folder
-dist
-data

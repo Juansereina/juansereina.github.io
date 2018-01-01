@@ -35,5 +35,8 @@ var DIST_DIR = _path2.default.join(__dirname, '../dist');
 if (env === 'production') DIST_DIR = _path2.default.join(__dirname, './dist');
 app.use(_express2.default.static(DIST_DIR));
 app.use('/api', _routes2.default);
+app.get('*', function (req, res) {
+  res.redirect('/');
+});
 exports.default = app;
 //# sourceMappingURL=app.js.map

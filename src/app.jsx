@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
-
+import Favicon from 'react-favicon';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Work from './Components/Work';
@@ -11,6 +11,7 @@ import Background from './Components/p5';
 const App = () => (
   <div>
     <Background />
+    <Favicon url="assets/favicons/favicon.ico" />
     <Navbar />
     <AnimatedSwitch
       atEnter={{ opacity: 0 }}

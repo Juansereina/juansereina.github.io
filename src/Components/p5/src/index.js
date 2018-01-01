@@ -1,5 +1,4 @@
 import Circle from './Circle';
-// import background from '../../../assets/Images/background.png';
 
 export default function sketch(p) {
   let circles = [];

@@ -7,9 +7,9 @@ const { mail } = services;
 const { validateMessage } = middlewares.mail;
 
 api.post('/send', validateMessage, (req, res) => {
-  const { subject } = req.body;
+  const { Subject } = req.body;
   const text = req.body;
-  mail.newMessage(subject, text).then(() => {
+  mail.newMessage(Subject, text).then(() => {
     res.send('Message sent!');
   });
 });

@@ -6,6 +6,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
+  module: {
+    noParse: /(mapbox-gl)\.js$/,
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),

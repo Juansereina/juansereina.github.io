@@ -7,9 +7,11 @@ import Home from './Components/Home';
 import Work from './Components/Work';
 import Contact from './Components/Contact';
 import Background from './Components/p5';
+import Meta from './Components/Common/meta';
 
 const App = () => (
   <div>
+    <Meta />
     <Background />
     <Favicon url="assets/favicons/favicon.ico" />
     <Navbar />

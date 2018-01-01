@@ -24,10 +24,10 @@ var validateMessage = _middlewares2.default.mail.validateMessage;
 
 
 api.post('/send', validateMessage, function (req, res) {
-  var subject = req.body.subject;
+  var Subject = req.body.Subject;
 
   var text = req.body;
-  mail.newMessage(subject, text).then(function () {
+  mail.newMessage(Subject, text).then(function () {
     res.send('Message sent!');
   });
 });

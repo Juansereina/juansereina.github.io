@@ -6,7 +6,7 @@ const cssModules = 'module&localIdentName=[name]__[local]___[hash:base64:5]';
 
 module.exports = {
   rules: [
-    { test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: [{ loader: `css-loader?${cssModules}`, options: { minimize: true } }] }), exclude: path.resolve(__dirname, 'node_modules') },
+    { test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: `css-loader?${cssModules}` }), exclude: path.resolve(__dirname, 'node_modules') },
     { test: /(\.js|jsx)$/, exclude: /node_modules/, loaders: ['babel-loader'] },
     { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file-loader' },
     { test: /\.(woff|woff2)$/, use: 'url-loader?prefix=font/&limit=5000' },

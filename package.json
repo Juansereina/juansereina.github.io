@@ -11,7 +11,7 @@
     "build": "npm run build:client && npm run build:server",
     "clean": "rm -rf dist",
     "client:dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",
-    "prod": "npm run build && nodemon ./bin/prod",
+    "prod":   "npm run build && nodemon ./bin/prod",
     "server:dev": "nodemon ./bin/dev",
     "start": "node ./index.js"
   },
@@ -69,5 +69,6 @@
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

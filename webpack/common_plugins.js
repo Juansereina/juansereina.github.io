@@ -6,7 +6,7 @@ function generate() {
   const plugins = {
     object: [
       new HtmlWebpackPlugin({
-        title: 'Portfolio Juanse2296',
+        title: 'Juan Sebastián Reina',
         minify: {
           collapseWhitespace: true,
           collapseInlineTagWhitespace: true,

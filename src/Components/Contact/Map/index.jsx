@@ -36,6 +36,7 @@ class App extends Component {
       popupInfo: null,
       MAPBOX_TOKEN: 'pk.eyJ1IjoianVhbnNlMjI5NiIsImEiOiJjajlhbTdjNjEweWY4MndsZ2p2cHM0c3RtIn0.U8uD3-sKlhqmCRtJJ2hv2w',
     };
+    this.updateViewport = this.updateViewport.bind(this);
   }
 
   componentDidMount() {
@@ -81,15 +82,15 @@ class App extends Component {
   renderPopup() {
     const { popupInfo } = this.state;
     return popupInfo && (
-    <Popup
-      tipSize={5}
-      anchor="top"
-      longitude={popupInfo.longitude}
-      latitude={popupInfo.latitude}
-      onClose={() => this.setState({ popupInfo: null })}
-    >
-      <CityInfo info={popupInfo} />
-    </Popup>
+      <Popup
+        tipSize={5}
+        anchor="top"
+        longitude={popupInfo.longitude}
+        latitude={popupInfo.latitude}
+        onClose={() => this.setState({ popupInfo: null })}
+      >
+        <CityInfo info={popupInfo} />
+      </Popup>
     );
   }
 
@@ -106,7 +107,7 @@ class App extends Component {
           { CITIES.map(this.renderCityMarker.bind(this)) }
           { this.renderPopup()}
           <div style={navStyle} >
-            <NavigationControl onViewportChange={() => this.updateViewport.bind(this)} />
+            <NavigationControl onViewportChange={() => this.updateViewport} />
           </div>
         </MapGL>
       </div>

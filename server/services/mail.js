@@ -7,7 +7,7 @@ const newMessage = async (subject, text) => {
     const send = await sendMessage(message);
     return send;
   } catch (err) {
-    return console.log(err);
+    return err;
   }
 };
 

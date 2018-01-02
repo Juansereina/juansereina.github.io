@@ -29,6 +29,8 @@ api.post('/send', validateMessage, function (req, res) {
   var text = req.body;
   mail.newMessage(Subject, text).then(function () {
     res.send('Message sent!');
+  }).catch(function (err) {
+    return res.status(500).send(err);
   });
 });
 

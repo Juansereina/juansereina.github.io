@@ -11,7 +11,7 @@ api.post('/send', validateMessage, (req, res) => {
   const text = req.body;
   mail.newMessage(Subject, text).then(() => {
     res.send('Message sent!');
-  });
+  }).catch(err => res.status(500).send(err));
 });
 
 api.get('/server', (req, res) => {

@@ -1,6 +1,6 @@
 import Circle from './Circle';
 
-export default function sketch(p) {
+export default function sketch(app) {
   let circles = [];
   let widthSize = 0;
 
@@ -8,21 +8,21 @@ export default function sketch(p) {
     return (Math.random() * (max - min)) + min;
   }
   function createCircle(y) {
-    const x = getRandomArbitrary(1, p.width - 1);
-    const circle = new Circle(p, p.createVector(x, y));
+    const x = getRandomArbitrary(1, app.width - 1);
+    const circle = new Circle(app, app.createVector(x, y));
     circles.push(circle);
   }
 
   function circlesCycle() {
-    p.noStroke();
+    app.noStroke();
     circles.forEach((circle) => {
-      circle.draw(p);
+      circle.draw(app);
     });
   }
 
-  p.setup = () => {
+  app.setup = () => {
     widthSize = window.innerWidth;
-    p.createCanvas(window.innerWidth, window.innerHeight);
+    app.createCanvas(window.innerWidth, window.innerHeight);
   };
   function circlesLength() {
     if (widthSize < 430) {
@@ -33,19 +33,19 @@ export default function sketch(p) {
 
   setInterval(() => {
     if (circles.length < circlesLength()) {
-      const y = getRandomArbitrary(1, p.height - 1);
+      const y = getRandomArbitrary(1, app.height - 1);
       createCircle(y);
     }
   }, 100);
 
-  p.draw = () => {
-    p.background(32, 37, 48, 95);
+  app.draw = () => {
+    app.background(32, 37, 48, 95);
     // p.background(img,95);
     circlesCycle();
   };
 
-  p.windowResized = () => {
-    p.resizeCanvas(window.innerWidth, window.innerHeight);
+  app.windowResized = () => {
+    app.resizeCanvas(window.innerWidth, window.innerHeight);
     circles = [];
   };
 }

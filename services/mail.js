@@ -45,7 +45,7 @@ var newMessage = function () {
           case 10:
             _context.prev = 10;
             _context.t0 = _context['catch'](0);
-            return _context.abrupt('return', console.log(_context.t0));
+            return _context.abrupt('return', _context.t0);
 
           case 13:
           case 'end':

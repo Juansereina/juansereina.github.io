@@ -1,0 +1,1 @@
+{"version":3,"sources":["../server/middlewares/index.js"],"names":["middlewares","mail"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAMA,cAAc;AAClBC;AADkB,CAApB;;kBAIeD,W","file":"index.js","sourcesContent":["import mail from './mail';\r\n\r\nconst middlewares = {\r\n  mail,\r\n};\r\n\r\nexport default middlewares;\r\n"]}

@@ -1,6 +1,6 @@
 import Helpers from './helpers';
 
-const { drawObject, drawLine } = Helpers.draw;
+const { drawElements } = Helpers;
 const {
   changeColor,
   mouseEffect,
@@ -25,7 +25,7 @@ class Circle {
   draw(app) {
     const posX = this.mousePosition(app);
     const properties = this.gettingPropertiesChanges(app, posX);
-    this.drawElements(properties);
+    drawElements(properties);
     this.move(app);
     this.changeEffects(app);
   }
@@ -53,10 +53,7 @@ class Circle {
       visible: this.visible,
     };
   }
-  drawElements(properties) {
-    drawObject(properties);
-    drawLine(properties);
-  }
+
   move(app) {
     if (this.pos.y < 1) this.pos.y = app.height;
     this.pos.y = changeValue(this.pos.y, 0, this.velocity);

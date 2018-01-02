@@ -27,8 +27,10 @@ const drawLine = (properties) => {
   app.pop();
 };
 
-export default {
-  drawObject,
-  drawLine,
+const drawElements = (properties) => {
+  drawObject(properties);
+  drawLine(properties);
 };
+
+export default drawElements;
 

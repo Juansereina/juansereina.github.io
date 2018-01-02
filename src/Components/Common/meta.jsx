@@ -22,9 +22,7 @@ const Meta = () => (
       <meta property="og:image:alt" content="Juan Sebastian Interactive Media Designer" />
       <meta
         property="og:description"
-        content=" Juan Sebastian interactive media designer
-                  passionate about the development of interactive
-                  elements, design and dance :)"
+        content="Juan Sebastian interactive media designer passionate about the development of interactive elements, design and dance :)"
       />
       <meta property="og:locale" content="es_CO" />
     </Helmet>

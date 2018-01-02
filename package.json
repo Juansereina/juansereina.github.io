@@ -11,9 +11,10 @@
     "build": "npm run build:client && npm run build:server",
     "clean": "rm -rf dist",
     "client:dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",
-    "prod":   "npm run build && nodemon ./bin/prod",
+    "prod": "npm run build && nodemon ./bin/prod",
     "server:dev": "nodemon ./bin/dev",
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "test": "jest --coverage --watch"
   },
   "dependencies": {
     "@quentin-sommer/react-useragent": "^1.2.4",

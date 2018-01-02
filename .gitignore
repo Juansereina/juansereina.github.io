@@ -30,3 +30,5 @@ node_modules
 #Environment variables
 .env
 
+#Idea folder
+.idea

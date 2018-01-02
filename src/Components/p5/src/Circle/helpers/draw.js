@@ -1,24 +1,25 @@
-const drawObject = (properties, dis) => {
+const drawObject = (properties) => {
   const {
-    app, x, y, color, opacity, size,
+    app, x, y, color, opacity, size, distance,
   } = properties;
 
   let newSize = size;
-  if (dis < 100) {
-    newSize += app.map(dis, 100, 0, 0, size * 1.5);
+  if (distance < 100) {
+    newSize += app.map(distance, 100, 0, 0, size * 1.5);
   }
-  app.fill(color, opacity);
+  app.noStroke();
+  app.fill(color[0], color[1], color[2], opacity);
   app.ellipseMode(app.CENTER);
   app.ellipse(x, y, newSize, newSize);
 };
 
-const drawLine = (properties, dis) => {
+const drawLine = (properties) => {
   const {
-    app, x, y, color, opacity,
+    app, x, y, color, opacity, distance,
   } = properties;
   app.push();
-  if (dis < 100 && opacity > 50) {
-    const opacityLine = app.map(dis, 100, 0, 0, 255);
+  if (distance < 100 && opacity > 50) {
+    const opacityLine = app.map(distance, 100, 0, 0, 255);
     app.stroke(color, opacityLine);
     app.strokeWeight(0.5);
     app.line(x, y, app.mouseX, app.mouseY);

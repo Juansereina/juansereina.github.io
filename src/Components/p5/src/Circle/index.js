@@ -1,69 +1,65 @@
 import Helpers from './helpers';
 
 const { drawObject, drawLine } = Helpers.draw;
-const { changeColor } = Helpers.controlEffects;
+const {
+  changeColor,
+  mouseEffect,
+  changeOpacity,
+  timeEffects,
+} = Helpers.controlEffects;
+const { getRandomArbitrary, calculateDistance, changeValue } = Helpers.math;
 
 class Circle {
-  constructor(app, pos) {
-    this.x = pos.x;
-    this.y = pos.y;
-    this.size = this.getRandomArbitrary(0.75, 3);
-    this.tempoSize = this.size;
-    this.velocity = this.getRandomArbitrary(0.1, 0.5);
-    this.opacity = this.getRandomArbitrary(50, 255);
+  constructor(pos) {
+    this.pos = pos;
     this.visible = true;
-    this.change = true;
-    this.timeVisible = app.ceil(this.getRandomArbitrary(600, 300));
-    this.timeColor = app.ceil(this.getRandomArbitrary(600, 1200));
-    this.color = [100, 100, 100];
-    this.dif = this.getRandomArbitrary(1, 30);
+    this.chooseColor = true;
+    this.color = [255, 255, 255];
+    this.size = getRandomArbitrary(0.75, 3);
+    this.opacity = getRandomArbitrary(50, 255);
+    this.velocity = getRandomArbitrary(0.1, 0.5);
+    this.timeVisible = Math.round(getRandomArbitrary(600, 300));
+    this.timeColor = Math.round(getRandomArbitrary(600, 1200));
+    this.offset = getRandomArbitrary(1, 30);
   }
-
   draw(app) {
-    let posX = this.x;
-    posX += (app.map(app.mouseX, 0, app.width, 0, this.dif) * -1);
-    const dis = this.calculateDist(app, posX);
-    this.color = changeColor(false, this.color);
-    const properties = {
+    const posX = this.mousePosition(app);
+    const properties = this.gettingPropertiesChanges(app, posX);
+    this.drawElements(properties);
+    this.move(app);
+    this.changeEffects(app);
+  }
+  mousePosition(app) {
+    let posX = this.pos.x;
+    posX += mouseEffect(app, this.offset);
+    return posX;
+  }
+  changeEffects(app) {
+    this.chooseColor = timeEffects(app, this.chooseColor, this.timeColor);
+    this.visible = timeEffects(app, this.visible, this.timeVisible);
+    this.opacity = changeOpacity(this.visible, this.opacity);
+    this.color = changeColor(this.chooseColor, this.color);
+  }
+  gettingPropertiesChanges(app, posX) {
+    const distance = calculateDistance(app, { x: posX, y: this.pos.y });
+    return {
       app,
+      distance,
       x: posX,
-      y: this.y,
+      y: this.pos.y,
       opacity: this.opacity,
       color: this.color,
       size: this.size,
       visible: this.visible,
     };
-    drawObject(properties, dis);
-    drawLine(properties, dis);
-    if (this.move()) this.y = app.height;
-    this.timeEffects(app);
-  } 
-
-  calculateDist(app, posX) {
-    return app.dist(posX, this.y, app.mouseX, app.mouseY);
   }
-
-  changeOpacity(value) {
-    this.opacity += value;
+  drawElements(properties) {
+    drawObject(properties);
+    drawLine(properties);
   }
-  move() {
-    this.y -= this.velocity;
-    if (this.y < 0) return true;
-    return false;
-  }
-
-  getRandomArbitrary(min, max) {
-    return (Math.random() * (max - min)) + min;
-  }
-
-
-  timeEffects(app) {
-    if (app.frameCount % this.timeColor === 0) {
-      this.change = !this.change;
-    }
-    if (app.frameCount % this.timeVisible === 0) {
-      this.visible = !this.visible;
-    }
+  move(app) {
+    if (this.pos.y < 1) this.pos.y = app.height;
+    this.pos.y = changeValue(this.pos.y, 0, this.velocity);
   }
 }
 

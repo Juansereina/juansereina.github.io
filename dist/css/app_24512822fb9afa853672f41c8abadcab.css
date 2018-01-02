@@ -74,7 +74,7 @@
     }
 
 }
-.Home__root___2JBvD {
+.home__root___1V5GQ {
     position: absolute;
     padding-left: 50px;
     box-sizing: border-box;
@@ -90,7 +90,7 @@ strong {
     color: #01c0bb;
 }
 
-.Home__text___2C5kv {
+.home__text___2m_XE {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ strong {
 /* ------------------Mobile version ---------------------*/
 
 @media all and (max-width: 425px) {
-    .Home__root___2JBvD {
+    .home__root___1V5GQ {
         padding-left: 0;
     }
 }
@@ -2097,4 +2097,4 @@ strong {
         padding-left: 0;
     }
 }
-/*# sourceMappingURL=app_7ab40d46769db9253a6f4e189f8fe729.css.map*/
+/*# sourceMappingURL=app_24512822fb9afa853672f41c8abadcab.css.map*/

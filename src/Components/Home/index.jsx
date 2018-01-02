@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Home.css';
-import Logo from './Logo';
+import styles from './home.css';
+import Logo from './logo';
 import animate from '../Common/animate.css';
 
 const Home = () => (

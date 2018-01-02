@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Logo.css';
-import hover from '../Common/hover.css'
+import Styles from './Logo.css';
+import Hover from '../Common/hover.css';
 
 const propTypes = {
   effect: PropTypes.string.isRequired,
@@ -14,14 +14,14 @@ class Section extends Component {
     super(props);
     this.state = {
       load: 0,
-      effect: [props.effect, `${hover.bob}`],
+      effect: [props.effect, `${Hover.bob}`],
     };
     setTimeout(() => { this.setState({ load: 1 }); }, 2000);
   }
   render() {
     return (
       <div >
-        <img className={`${this.state.effect[this.state.load]} ${styles.image}`} src={this.props.img} alt={this.props.description} />
+        <img className={`${this.state.effect[this.state.load]} ${Styles.image}`} src={this.props.img} alt={this.props.description} />
       </div>
     );
   }

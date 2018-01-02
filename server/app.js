@@ -10,7 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const env = process.env.NODE_ENV || 'dev';
 let DIST_DIR = path.join(__dirname, '../dist');
-if (env === 'production') DIST_DIR = path.join(__dirname, './dist');
+if (env === 'production') {
+  DIST_DIR = path.join(__dirname, './dist');
+}
 app.use(express.static(DIST_DIR));
 app.use('/api', api);
 app.get('*', (req, res) => {

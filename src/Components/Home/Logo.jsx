@@ -5,7 +5,7 @@ import imgRight from '../../assets/Images/Logo/right.png';
 import imgBottom from '../../assets/Images/Logo/bottom.png';
 import styles from './Logo.css';
 import animate from '../Common/animate.css';
-import Section from './Logo_section';
+import Section from './logo_section';
 
 const Logo = () => (
   <div className={styles.root}>

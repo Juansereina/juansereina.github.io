@@ -12,7 +12,8 @@ module.exports = {
             "aspects": [ "noHref", "invalidHref", "preferButton" ]
           }],
           "import/no-extraneous-dependencies": 0,
-          "class-methods-use-this": 0
+          "class-methods-use-this": 0,
+          "no-undef": 0
       },
     globals: {
         "window": true,

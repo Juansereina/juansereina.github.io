@@ -4,7 +4,23 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const cssModules = 'module&localIdentName=[name]__[local]___[hash:base64:5]';
 module.exports = {
   rules: [
-    { test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: `css-loader?${cssModules}` }), exclude: path.resolve(__dirname, 'node_modules') },
+    {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          'postcss-loader',
+        ],
+      }),
+      exclude: path.resolve(__dirname, 'node_modules'),
+    },
     { test: /(\.js|jsx)$/, exclude: /node_modules/, loaders: ['babel-loader'] },
     { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file-loader' },
     { test: /\.(woff|woff2)$/, use: 'url-loader?prefix=font/&limit=5000' },
@@ -26,6 +42,7 @@ module.exports = {
               localIdentName: '[name]__[local]__[hash:base64:5]',
             },
           },
+          'sass-loader',
         ],
       }),
     },

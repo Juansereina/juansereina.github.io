@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
-import styles from './navbar.css';
+import styles from './navbar.scss';
 
 const defaultStyleIcon = `${styles.icon} hvr-forward`;
 

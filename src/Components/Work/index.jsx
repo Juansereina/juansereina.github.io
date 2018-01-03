@@ -1,8 +1,8 @@
 import React, { PureComponent as Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import { Element } from 'react-scroll';
-import styles from './css/Work.css';
-import spinnerCss from './css/spinner.css';
+import styles from './scss/work.scss';
+import spinnerCss from './scss/spinner.scss';
 import Project from './project';
 import helper from './helper';
 

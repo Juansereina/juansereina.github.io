@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import styles from './css/Contact.css';
 import Form from './Form/';
 import Map from './Map';
-import Helpers from './helpers';
+import Helpers from './Helpers';
 import animate from '../Common/animate.css';
 import Message from './message';
 

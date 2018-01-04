@@ -49,6 +49,9 @@ module.exports = merge(common, {
     new webpack.optimize.AggressiveMergingPlugin(),
     new PurifyCSSPlugin({
       paths: glob.sync(path.resolve(__dirname, '../src/*.html')),
+      purifyOptions: {
+        whitelist: ['*purify*'],
+      },
     }),
     // new BundleAnalyzerPlugin()
   ],

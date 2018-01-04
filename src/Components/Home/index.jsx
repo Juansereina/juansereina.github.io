@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './home.css';
+import styles from './scss/home.scss';
 import Logo from './logo';
-import animate from '../Common/animate.css';
+import animate from '../Common/animate.scss';
 
 const Home = () => (
   <div className={styles.root} >

@@ -42,7 +42,9 @@ module.exports = {
               localIdentName: '[name]__[local]__[hash:base64:5]',
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader', // compiles Sass to CSS
+          },
         ],
       }),
     },

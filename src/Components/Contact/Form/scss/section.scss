@@ -1,0 +1,35 @@
+@import '../../../Common/scss/mixin';
+
+.item {
+  color: $main-color;
+  margin: 1em;
+}
+
+.icon {
+  color: $main-color;
+}
+
+.input {
+  $size: 0.3125rem;
+  $min-size: 0.0625rem;
+  $border-color: rgba(255, 255, 255, 0.21);
+  align-items: center;
+  background-color: $form-color;
+  border: solid $min-size $border-color;
+  border-radius: $min-size*2;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  margin: $size $size 0 $size;
+  padding: $size ($size*2);
+  @include mq($phone-medium) {
+    align-items: center;
+    background-color: $form-color;
+    border: solid $min-size $border-color;
+    border-radius: $min-size*2;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    margin: $size $size 0 $size;
+  }
+}

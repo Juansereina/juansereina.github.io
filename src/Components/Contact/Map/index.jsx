@@ -9,8 +9,8 @@ import MapGL, {
 import CityPin from './city-pin';
 import CityInfo from './city-info';
 import CITIES from './cities.json';
-import styles from './Map.css';
-import animate from '../../Common/animate.css';
+import styles from './map.scss';
+import animate from '../../Common/animate.scss';
 
 const navStyle = {
   position: 'absolute',

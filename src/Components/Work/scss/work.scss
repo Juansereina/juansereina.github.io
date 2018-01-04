@@ -1,24 +1,23 @@
-.root{
+@import '../../Common/scss/mixin';
+
+.root {
+  $value: 0.3125rem;
+  min-height: 100vh;
+  padding: $value 0 ($value*10) ($value*9);
   position: absolute;
   width: 100%;
-  min-height: 100vh;
-  padding: 5px 0 50px 45px;
-}
-
-.grid{
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 305px));
-  grid-template-rows: repeat(auto-fill, minmax(210px, 230px)); 
-  justify-content: center;
-  grid-gap: 5px;
-}
-
-@media all and (max-width: 425px) {
-  .root {
-      padding-left: 0;
-      padding-top: 50px;
+  @include mq($phone-large) {
+    padding-left: 0;
+    padding-top: 3.125rem;
   }
 }
 
+.grid {
+  display: grid;
+  grid-gap: 0.3125rem;
+  grid-template-columns: repeat(auto-fill, minmax(18.125rem, 19.0625rem));
+  grid-template-rows: repeat(auto-fill, minmax(13.125rem, 14.375rem));
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}

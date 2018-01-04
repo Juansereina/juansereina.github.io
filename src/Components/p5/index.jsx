@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './src';
-import styles from './p5.css';
+import styles from './p5.scss';
 
 const style = {
   prop: 'vertical-align:top',

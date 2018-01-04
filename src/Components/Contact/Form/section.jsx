@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
-import styles from './css/section.css';
+import styles from './scss/section.scss';
 
 const propTypes = {
   id: PropTypes.string.isRequired,

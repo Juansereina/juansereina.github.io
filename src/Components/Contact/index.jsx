@@ -1,10 +1,10 @@
 import React, { PureComponent as Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import styles from './css/Contact.css';
+import styles from './scss/contact.scss';
 import Form from './Form/';
 import Map from './Map';
 import Helpers from './Helpers';
-import animate from '../Common/animate.css';
+import animate from '../Common/animate.scss';
 import Message from './message';
 
 const { isEmpty, post, validateMessageValues } = Helpers;
@@ -12,7 +12,7 @@ const { isEmpty, post, validateMessageValues } = Helpers;
 const notify = message => toast.info(message, { position: 'top-left' });
 const notifyError = message => toast.error(message, { position: 'top-left' });
 
-export class Contact extends Component {
+class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,7 +66,7 @@ export class Contact extends Component {
 
   messageFeedBack() {
     return (
-      <div className={`${styles.sub_root} ${this.state.feedbkackAnimation}`}>
+      <div className={`${styles.subroot} ${this.state.feedbkackAnimation}`}>
         <Message text="Thanks for the message, I'll answer you as soon as possible!" icon="thumbs-up" />
       </div>);
   }
@@ -74,7 +74,7 @@ export class Contact extends Component {
 
   renderForm() {
     return (
-      <div className={`${styles.sub_root} ${this.state.animation}`}>
+      <div className={`${styles.subroot} ${this.state.animation}`}>
         <Message text="Send me a message!" icon="hand-peace-o" />
         <Form
           handleChange={this.captureMessage}

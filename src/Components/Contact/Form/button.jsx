@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
-import styles from './css/button.css';
+import styles from './scss/button.scss';
 
 const propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -11,7 +11,7 @@ const propTypes = {
 const button = ({ loading, sendMessage }) => (
   <button className={`${styles.button} btn `} onClick={sendMessage} >
     {loading ? <FontAwesome name="cog" size="3x" spin className={`${styles.loading}`} />
-      : <h5 className={styles.textHover} >send</h5>}
+      : <h5 className={styles.texthover} >send</h5>}
   </button>
 );
 

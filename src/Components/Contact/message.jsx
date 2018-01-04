@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
-import styles from './css/Message.css';
+import styles from './scss/message.scss';
 
 const propTypes = {
   text: PropTypes.string.isRequired,

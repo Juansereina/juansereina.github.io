@@ -1,0 +1,26 @@
+@import '../../Common/scss/mixin';
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @include mq($phone-small) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+  }
+}
+
+.logtop {
+  display: flex;
+  @include mq($phone-small) {
+    width: 100%;
+  }
+}
+
+.image {
+  @include mq($phone-small) {
+    width: 95%;
+  }
+}

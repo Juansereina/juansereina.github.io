@@ -3,7 +3,7 @@ import React from 'react';
 import Img from 'react-image';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
-import styles from './css/Project.css';
+import styles from './scss/project.scss';
 
 const propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -16,10 +16,10 @@ const openToBehance = (url) => {
 };
 
 const project = ({ data, open }) => (
-  <div className={`${styles.imgContainer}`}>
-    <div className={`${styles.infoContainer}`}>
+  <div className={`${styles.imgcontainer}`}>
+    <div className={`${styles.infocontainer}`}>
       <h3 className={`${styles.title}`}>{data.alt}</h3>
-      <div className={`${styles.buttonContainer}`}>
+      <div className={`${styles.buttoncontainer}`}>
         <span className={`${styles.description}`}>Juan Sebastián</span>
         <button className={`${styles.btn}`} onClick={() => openToBehance(data.url)} >See on Behance</button>
       </div>

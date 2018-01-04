@@ -1,61 +1,73 @@
-.imgContainer {
+@import '../../Common/scss/mixin';
+
+.imgcontainer {
   background-color: #2c3f52;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   height: 100%;
   width: 100%;
-}
-.img {
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s;
-  grid-column: 1/ 4;
-  grid-row: 1/span 3;
-}
-.imgContainer:hover .img {
-  transform: translateY(-90px);
-}
-.infoContainer {
-  grid-column: 1/ 4;
-  grid-row: 3/span 3;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-}
-.title {
-  font-size: 1.5em;
-  margin: 0;
-  color: white;
-}
-.description {
-  color: aqua;
+
+  &:hover .img {
+    transform: translateY(-5.625rem);
+  }
 }
 
-.description:before {
-  content: "by ";
+.img {
+  cursor: pointer;
+  grid-column: 1/ 4;
+  grid-row: 1/span 3;
+  height: 100%;
+  transition: transform 0.4s;
+  width: 100%;
 }
-.buttonContainer {
+
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/ 4;
+  grid-row: 3/span 3;
+  padding: 0 1.25rem;
+}
+
+.title {
+  color: $main-color;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.description {
+  color: $light-blue;
+}
+
+.description::before {
+  content: 'by ';
+}
+
+.buttoncontainer {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .btn {
-  border-width: 0;
-  outline: none;
-  border-radius: 2px;
+  $value: 0.3125rem;
   background-color: #0057ff;
-  color: #ecf0f1;
-  transition: background-color 0.3s;
+  border-radius: 0.125rem;
+  border-width: 0;
+  color: $main-color;
   font-size: 1em;
-  height: 30px;
-  padding: 5px;
-  margin: 5px;
-}
+  height: $value*6;
+  margin: $value;
+  outline: none;
+  padding: $value;
+  transition: background-color 0.3s;
 
-.btn:hover,
-.btn:focus {
-  background-color: #0341bd;
+  &:hover {
+    background-color: #0341bd;
+  }
+
+  &:focus {
+    background-color: #0341bd;
+  }
 }

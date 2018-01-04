@@ -1,9 +1,12 @@
+const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -44,5 +47,9 @@ module.exports = merge(common, {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
+    new PurifyCSSPlugin({
+      paths: glob.sync(path.resolve(__dirname, '../src/*.html')),
+    }),
+    // new BundleAnalyzerPlugin()
   ],
 });

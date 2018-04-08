@@ -1,10 +1,23 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "Juanse2296 Portfolio",
   "main": "index.js",
   "author": "Juanse2296",
-  "license": "MIT",
+  "license": "ISC",
+  "keywords": [
+    "juanse2296",
+    "portfolio",
+    "react",
+    "sass",
+    "node",
+    "full",
+    "stack"
+  ],
+  "bugs": {
+    "url": "https://github.com/Juanse2296/portfolio/issues"
+  },
+  "homepage": "https://juansebastianreina.herokuapp.com",
   "scripts": {
     "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
     "build:server": "babel server -s -d ./dist/ && node ./bin/prod",
@@ -66,6 +79,7 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^22.4.3",
+    "offline-plugin": "^4.9.0",
     "postcss-loader": "^2.1.3",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",

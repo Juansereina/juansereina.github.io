@@ -7,6 +7,7 @@ const common = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const PurifyCSSPlugin = require('purifycss-webpack');
+const OfflinePlugin = require('offline-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -14,30 +15,22 @@ module.exports = merge(common, {
     noParse: /(mapbox-gl)\.js$/,
   },
   plugins: [
+    new OfflinePlugin({
+      caches: 'all',
+      AppCache: false,
+      ServiceWorker: {
+        minify: false, 
+      },
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-      },
-      output: {
-        comments: false,
-      },
-      exclude: [/\.min\.js$/gi],
-    }),
     new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true
+    }),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
@@ -53,6 +46,6 @@ module.exports = merge(common, {
         whitelist: ['*purify*'],
       },
     }),
-    // new BundleAnalyzerPlugin()
+     new BundleAnalyzerPlugin()
   ],
 });

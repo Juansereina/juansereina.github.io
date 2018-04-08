@@ -2,7 +2,6 @@ import React, { PureComponent as Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './scss/contact.scss';
 import Form from './Form/';
-import Map from './Map';
 import Helpers from './Helpers';
 import animate from '../Common/animate.scss';
 import Message from './message';
@@ -91,7 +90,6 @@ class Contact extends Component {
         {!this.state.feedback && this.renderForm()}
         {this.state.feedback && this.messageFeedBack()}
         <ToastContainer newestOnTop />
-        <Map />
       </div>);
   }
 }

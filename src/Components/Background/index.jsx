@@ -1,5 +1,6 @@
 import React from 'react';
 import * as THREE from 'three';
+import styles from './background.scss'
 
 export default class Scene extends React.Component {
   constructor(props) {
@@ -8,9 +9,6 @@ export default class Scene extends React.Component {
       width: window.innerWidth,
       height: window.innerHeight,
     };
-    this.start = this.start.bind(this);
-    this.stop = this.stop.bind(this);
-    this.animate = this.animate.bind(this);
   }
 
   componentDidMount() {
@@ -23,17 +21,15 @@ export default class Scene extends React.Component {
       size: 5,
     });
 
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 4;
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 3000);
+    camera.position.z = 1000;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0xff3c5d, 0.0008);
+    scene.fog = new THREE.FogExp2(0x00FFFF, 0.0008);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setClearColor('#000000');
     renderer.setSize(width, height);
-
-    //------
 
     const geometry = new THREE.Geometry();
 
@@ -47,6 +43,11 @@ export default class Scene extends React.Component {
 
     for (let i = 0; i < 5; i++) {
       particles = new THREE.PointCloud(geometry, pMaterial);
+
+      particles.rotation.x = Math.random() * 6;
+			particles.rotation.y = Math.random() * 6;
+			particles.rotation.z = Math.random() * 6;
+
       scene.add(particles);
     }
 
@@ -64,17 +65,17 @@ export default class Scene extends React.Component {
     window.removeEventListener('resize', this.updateDimensions);
   }
 
-  start() {
+  start = () => {
     if (!this.frameId) {
       this.frameId = requestAnimationFrame(this.animate);
     }
   }
 
-  stop() {
+  stop = () => {
     cancelAnimationFrame(this.frameId);
   }
 
-  animate() {
+  animate = () => {
     const time = Date.now() * 0.00005;
     this.camera.position.x += (0 - this.camera.position.x) * 0.05;
     this.camera.position.y += (-0 - this.camera.position.y) * 0.05;
@@ -97,6 +98,7 @@ export default class Scene extends React.Component {
     const { width, height } = this.state;
     return (
       <div
+      className={styles.root}
         style={{ width, height }}
         ref={(mount) => {
           this.mount = mount;

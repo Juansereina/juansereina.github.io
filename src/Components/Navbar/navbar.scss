@@ -3,7 +3,7 @@
 .root {
   $size-w: 3.125rem;
   align-items: center;
-  background-color: $depp-blue;
+  background-color: transparentize($depp-blue, 0.4) ;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,9 @@
   position: absolute;
   width: $size-w;
   z-index: 3;
+  border-right: 1px solid transparentize(#fff, 0.8); 
   @include mq($phone-large) {
-    background-color: $depp-blue;
+    border-bottom: 1px solid transparentize(#fff, 0.8); 
     flex-direction: row;
     height: $size-w;
     min-height: $size-w;

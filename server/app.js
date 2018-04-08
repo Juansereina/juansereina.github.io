@@ -18,4 +18,4 @@ app.use('/api', api);
 app.get('*', (req, res) => {
   res.redirect('/');
 });
-export default app;
+module.exports = app;

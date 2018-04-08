@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
-    "build:server": "babel server -s -d ./ && node ./bin/prod",
+    "build:server": "babel server -s -d ./dist/ && node ./bin/prod",
     "build": "npm run build:client && npm run build:server",
     "clean": "rm -rf dist",
     "client:dev": "webpack-dev-server -w --env --config ./webpack/webpack.dev.js",

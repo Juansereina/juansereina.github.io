@@ -16,9 +16,12 @@ const nodemailerOptions = {
   privateKey: process.env.PRIVATEKEY_NODEMAILER,
 };
 
-export default {
+const env = process.env.NODE_ENV || 'dev';
+
+module.exports = {
   port,
   accountNodemailer,
   nodemailerOptions,
+  env
 };
 

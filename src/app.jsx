@@ -7,12 +7,14 @@ import Home from './Components/Home';
 import Work from './Components/Work';
 import Contact from './Components/Contact';
 import Meta from './Components/Common/Head_tags';
+import Background from './Components/Background';
 
 const App = () => (
   <div>
     <Meta />
     <Favicon url="assets/favicons/favicon.ico" />
     <Navbar />
+    <Background />
     <AnimatedSwitch
       atEnter={{ opacity: 0 }}
       atLeave={{ opacity: 0 }}

@@ -7,24 +7,27 @@ function generate() {
     object: [
       new HtmlWebpackPlugin({
         title: 'Juan Sebastián Reina',
-        minify: {
-          collapseWhitespace: true,
-          collapseInlineTagWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-        },
         hash: true,
         template: path.resolve(__dirname, '../src/index.html'),
       }),
       new ExtractTextPlugin({
         filename: 'css/app_.css', // waiting for fix [contenthash] 
         disable: false,
-        allChunks: true,
+ //YA        allChunks: true,
       }),
     ],
   };
   return plugins;
 }
+
+/*
+minify: {
+          collapseWhitespace: true,
+          collapseInlineTagWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+        },
+*/
 
 module.exports = {
   generate,

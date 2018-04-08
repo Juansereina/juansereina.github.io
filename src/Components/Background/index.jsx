@@ -1,70 +1,117 @@
 import React from 'react';
-import React3 from 'react-three-renderer';
 import * as THREE from 'three';
-import ReactDOM from 'react-dom';
 
-export default class Simple extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+export default class Scene extends React.Component {
+  constructor(props) {
+    super(props);
 
-    // construct the position vector here, because if we use 'new' within render,
-    // React will think that things have changed when they have not.
-    this.cameraPosition = new THREE.Vector3(0, 0, 5);
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+    this.animate = this.animate.bind(this);
+  }
 
-    this.state = {
-      cubeRotation: new THREE.Euler(),
-    };
+  componentDidMount() {
+    const width = this.mount.clientWidth;
+    const height = this.mount.clientHeight;
+    const particleCount = 100;
+    let particles = new THREE.Geometry();
+    const pMaterial = new THREE.PointCloudMaterial({
+      color: 0xffffff,
+      size: 5,
+    });
 
-    this._onAnimate = () => {
-      // we will get this callback every frame
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 
-      // pretend cubeRotation is immutable.
-      // this helps with updates and pure rendering.
-      // React will be sure that the rotation has now updated.
-      this.setState({
-        cubeRotation: new THREE.Euler(
-          this.state.cubeRotation.x + 0.1,
-          this.state.cubeRotation.y + 0.1,
-          0
-        ),
-      });
-    };
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0xff3c5d, 0.0008);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const form = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
+    const cube = new THREE.Mesh(form, material);
+
+    camera.position.z = 4;
+    scene.add(cube);
+    renderer.setClearColor('#000000');
+    renderer.setSize(width, height);
+
+    //------
+
+    const geometry = new THREE.Geometry();
+
+    for (let i = 0; i < particleCount; i++) {
+      const vertex = new THREE.Vector3();
+      vertex.x = Math.random() * 2000 - 1000;
+      vertex.y = Math.random() * 2000 - 1000;
+      vertex.z = Math.random() * 2000 - 1000;
+      geometry.vertices.push(vertex);
+    }
+
+    for (let i = 0; i < 5; i++) {
+      particles = new THREE.PointCloud(geometry, pMaterial);
+      scene.add(particles);
+    }
+
+    this.scene = scene;
+    this.camera = camera;
+    this.renderer = renderer;
+    this.cube = cube;
+    this.particles = particles;
+    this.mount.appendChild(this.renderer.domElement);
+    this.start();
+  }
+
+  componentWillUnmount() {
+    this.stop();
+    this.mount.removeChild(this.renderer.domElement);
+  }
+
+  start() {
+    if (!this.frameId) {
+      this.frameId = requestAnimationFrame(this.animate);
+    }
+  }
+
+  stop() {
+    cancelAnimationFrame(this.frameId);
+  }
+
+  animate() {
+
+    const time = Date.now() * 0.00005;
+
+    this.camera.position.x += (0 - this.camera.position.x) * 0.05;
+    this.camera.position.y += (-0 - this.camera.position.y) * 0.05;
+    this.camera.lookAt(this.scene.position);
+    for (let i = 0; i < this.scene.children.length; i++) {
+      const object = this.scene.children[i];
+
+      // if ( object instanceof THREE.PointCloud ) {
+
+      object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
+
+      //	}
+    }
+
+    // /-----------------
+    this.renderScene();
+    this.frameId = window.requestAnimationFrame(this.animate);
+  }
+
+  renderScene() {
+    this.renderer.render(this.scene, this.camera);
   }
 
   render() {
-    const width = window.innerWidth; // canvas width
-    const height = window.innerHeight; // canvas height
-
-    return (<React3
-      mainCamera="camera" // this points to the perspectiveCamera which has the name set to "camera" below
-      width={width}
-      height={height}
-
-      onAnimate={this._onAnimate}
-    >
-      <scene>
-        <perspectiveCamera
-          name="camera"
-          fov={75}
-          aspect={width / height}
-          near={0.1}
-          far={1000}
-
-          position={this.cameraPosition}
-        />
-        <mesh
-          rotation={this.state.cubeRotation}
-        >
-          <boxGeometry
-            width={1}
-            height={1}
-            depth={1}
-          />
-          <meshBasicMaterial
-            color={0x00ff00}
-          />
-        </mesh>
-      </scene>
-    </React3>);
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    return (
+      <div
+        style={{ width: w, height: h }}
+        ref={(mount) => {
+          this.mount = mount;
+        }}
+      />
+    );
   }
 }

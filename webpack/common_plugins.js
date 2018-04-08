@@ -17,7 +17,7 @@ function generate() {
         template: path.resolve(__dirname, '../src/index.html'),
       }),
       new ExtractTextPlugin({
-        filename: 'css/app_[contenthash].css',
+        filename: 'css/app_.css', // waiting for fix [contenthash] 
         disable: false,
         allChunks: true,
       }),

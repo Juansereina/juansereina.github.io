@@ -4,7 +4,10 @@ import * as THREE from 'three';
 export default class Scene extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
     this.animate = this.animate.bind(this);
@@ -21,17 +24,12 @@ export default class Scene extends React.Component {
     });
 
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.z = 4;
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0xff3c5d, 0.0008);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    const form = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
-    const cube = new THREE.Mesh(form, material);
-
-    camera.position.z = 4;
-    scene.add(cube);
     renderer.setClearColor('#000000');
     renderer.setSize(width, height);
 
@@ -41,9 +39,9 @@ export default class Scene extends React.Component {
 
     for (let i = 0; i < particleCount; i++) {
       const vertex = new THREE.Vector3();
-      vertex.x = Math.random() * 2000 - 1000;
-      vertex.y = Math.random() * 2000 - 1000;
-      vertex.z = Math.random() * 2000 - 1000;
+      vertex.x = (Math.random() * 2000) - 1000;
+      vertex.y = (Math.random() * 2000) - 1000;
+      vertex.z = (Math.random() * 2000) - 1000;
       geometry.vertices.push(vertex);
     }
 
@@ -55,15 +53,15 @@ export default class Scene extends React.Component {
     this.scene = scene;
     this.camera = camera;
     this.renderer = renderer;
-    this.cube = cube;
-    this.particles = particles;
     this.mount.appendChild(this.renderer.domElement);
     this.start();
+    window.addEventListener('resize', this.updateDimensions);
   }
 
   componentWillUnmount() {
     this.stop();
     this.mount.removeChild(this.renderer.domElement);
+    window.removeEventListener('resize', this.updateDimensions);
   }
 
   start() {
@@ -77,37 +75,29 @@ export default class Scene extends React.Component {
   }
 
   animate() {
-
     const time = Date.now() * 0.00005;
-
     this.camera.position.x += (0 - this.camera.position.x) * 0.05;
     this.camera.position.y += (-0 - this.camera.position.y) * 0.05;
     this.camera.lookAt(this.scene.position);
     for (let i = 0; i < this.scene.children.length; i++) {
       const object = this.scene.children[i];
-
-      // if ( object instanceof THREE.PointCloud ) {
-
       object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
-
-      //	}
     }
-
-    // /-----------------
     this.renderScene();
     this.frameId = window.requestAnimationFrame(this.animate);
   }
-
+  updateDimensions = () => {
+    this.renderer.setSize( window.innerWidth, window.innerHeight );
+  }
   renderScene() {
     this.renderer.render(this.scene, this.camera);
   }
 
   render() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const { width, height } = this.state;
     return (
       <div
-        style={{ width: w, height: h }}
+        style={{ width, height }}
         ref={(mount) => {
           this.mount = mount;
         }}

@@ -1,5 +1,6 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const rules = require("./rules");
 
 module.exports ={ 
@@ -17,6 +18,7 @@ module.exports ={
       new ExtractTextPlugin({
         filename: "css/app_.css", // waiting for fix [contenthash]
         disable: false
-      })
+      }),
+     new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/favicon.png"))
     ]
 };

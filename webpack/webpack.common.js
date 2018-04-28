@@ -1,4 +1,5 @@
 const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const rules = require("./rules");
 const plugins = require("./common_plugins");
 
@@ -13,5 +14,10 @@ module.exports ={
       filename: "index.bundle.js"
     },
     module: rules,
-    plugins: plugins.generate().object
+    plugins: [
+      new ExtractTextPlugin({
+        filename: "css/app_.css", // waiting for fix [contenthash]
+        disable: false
+      })
+    ]
 };

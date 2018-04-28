@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   hot: true,
   inline: true,
-  contentBase: path.resolve(__dirname, '../dist/build'),
+  contentBase: path.resolve(__dirname, '../build'),
   historyApiFallback: true,
   compress: true,
   open: true,

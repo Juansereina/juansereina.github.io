@@ -8,13 +8,17 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const OfflinePlugin = require('offline-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
-  module: {
-    noParse: /(mapbox-gl)\.js$/,
-  },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Juan Sebastián Reina',
+      hash: true,
+      template: path.resolve(__dirname, '../src/index.html'),
+      filename: '../index.html'
+    }),
     new OfflinePlugin({
       caches: 'all',
       AppCache: false,

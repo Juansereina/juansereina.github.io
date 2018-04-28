@@ -19,10 +19,10 @@
   },
   "homepage": "https://juansereina.github.io",
   "scripts": {
-    "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
+    "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js --env prod",
     "build": "npm run build:client",
-    "clean": "rm -rf docs",
-    "client:dev": "webpack-dev-server -w --env  --mode development --config ./webpack/webpack.dev.js",
+    "clean": "rm -rf build",
+    "client:dev": "webpack-dev-server -w --mode development --config ./webpack/webpack.dev.js",
     "prod": "npm run build && node ./index.js",
     "server:dev": "nodemon ./bin/dev",
     "start": "node index.js",

@@ -17,12 +17,11 @@
   "bugs": {
     "url": "https://github.com/Juanse2296/portfolio/issues"
   },
-  "homepage": "https://juansebastianreina.herokuapp.com",
+  "homepage": "https://juansereina.github.io",
   "scripts": {
     "build:client": "npm run clean && webpack --config ./webpack/webpack.prod.js",
-    "build:server": "babel server -s -d ./dist/ && node ./bin/prod",
-    "build": "npm run build:client && npm run build:server",
-    "clean": "rm -rf dist",
+    "build": "npm run build:client",
+    "clean": "rm -rf docs",
     "client:dev": "webpack-dev-server -w --env  --mode development --config ./webpack/webpack.dev.js",
     "prod": "npm run build && node ./index.js",
     "server:dev": "nodemon ./bin/dev",

@@ -1,7 +1,6 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const rules = require("./rules");
-const plugins = require("./common_plugins");
 
 module.exports ={ 
     resolve: {

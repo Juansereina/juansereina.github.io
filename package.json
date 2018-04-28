@@ -27,7 +27,9 @@
     "prod": "npm run build && node ./index.js",
     "server:dev": "nodemon ./bin/dev",
     "start": "node index.js",
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage --watch",
+    "predeploy": "npm run build:client",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@quentin-sommer/react-useragent": "^1.2.5",

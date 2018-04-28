@@ -2,15 +2,16 @@ import React from 'react';
 import styles from './scss/home.scss';
 import Logo from './logo';
 import animate from '../Common/animate.scss';
+import { Animated } from "react-animated-css";
 
 const Home = () => (
   <div className={styles.root} >
     <Logo className={styles.logo} />
-    <span className={`${styles.text} ${animate.animated} ${animate.fadeIn} `}>
-      <h5 className="hvr-rotate">Hi, my name is <strong>Juan Sebastián</strong></h5>
-      <h5 className="hvr-rotate">I'm a <strong>Interactive Media Designer</strong></h5>
-      <h5 className="hvr-rotate">and <strong>Web Developer</strong> :D</h5>
-    </span>
+    <Animated className={`${styles.text}`}  animationIn="slideInUp" animationOut="fadeOut" isVisible={true}>
+      <h5>Hi, my name is <strong className={styles.strongWord}>Juan Sebastián</strong></h5>
+      <h5>I'm a <strong className={styles.strongWord}>Interactive Media Designer</strong></h5>
+      <h5>and <strong className={styles.strongWord}>Web Developer</strong> :D</h5>
+    </Animated>
   </div>);
 
 export default Home;

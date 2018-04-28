@@ -17,14 +17,6 @@ module.exports = merge(common, {
       title: 'Juan Sebastián Reina',
       hash: true,
       template: path.resolve(__dirname, '../src/index.html'),
-      filename: '../index.html'
-    }),
-    new OfflinePlugin({
-      caches: 'all',
-      AppCache: false,
-      ServiceWorker: {
-        minify: false, 
-      },
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),

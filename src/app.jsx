@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
-import Favicon from 'react-favicon';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Work from './Components/Work';
@@ -10,9 +9,8 @@ import Meta from './Components/Common/Head_tags';
 import Background from './Components/Background';
 
 const App = () => (
-  <div>
+  <React.Fragment>
     <Meta />
-    <Favicon url="assets/favicons/favicon.ico" />
     <Navbar />
     <Background />
     <AnimatedSwitch
@@ -26,7 +24,7 @@ const App = () => (
       {<Route path="/work" component={Work} />}
       <Route path="/contact" component={Contact} />
     </AnimatedSwitch>
-  </div>);
+  </React.Fragment>);
 
 
 export default App;

@@ -28,10 +28,10 @@ const NavBar = ({ props }) =>{
         </NavLink>
       </div>
       <div className={styles.social}>
-        <a href="https://www.behance.net/Juanse2296" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.behance.net/Juansereina" target="_blank" rel="noopener noreferrer">
           <FontAwesome name="behance" className={defaultStyleIcon} />
         </a>
-        <a href="https://github.com/Juanse2296" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Juansereina" target="_blank" rel="noopener noreferrer">
           <FontAwesome name="github" className={defaultStyleIcon} />
         </a>
         <a href="https://twitter.com/Juanse2296" target="_blank" rel="noopener noreferrer">

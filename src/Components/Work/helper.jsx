@@ -18,7 +18,7 @@ const createProjects = _projects => new Promise((res, rej) => {
 });
 
 const consultProjects = () => new Promise((res, rej) => {
-  const url = 'https://www.behance.net/v2/users/Juanse2296/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
+  const url = 'https://www.behance.net/v2/users/Juansereina/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
   jsonp(url, null, (err, data) => {
     if (err) {
       rej(new Error('Error consulting projects on Behance'));

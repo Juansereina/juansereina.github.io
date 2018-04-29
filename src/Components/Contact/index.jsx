@@ -32,34 +32,19 @@ class Contact extends Component {
     this.setState({ message });
   }
 
-  async sendMessage(e) {
-   // e.preventDefault();
-    const context = this;
+  async sendMessage(e, context) {
+    e.preventDefault();
     const message = { ...this.state.message };
+    console.log('hey',context);
+    context.current.submit();
     try {
       const validResult = await validateMessageValues(message);
       const result = await isEmpty(validResult);
       this.setState({ loading: true });
-     /*await post(result).then((res) => {
-        if (res.status === 404) {
-          context.setState({
-            loading: false,
-          });
-          return notifyError('Error sending, check your connection');
-        }
-        context.setState({
-          loading: false,
-          animation: `${animate.animated} ${animate.fadeOutRight}`,
-        });
-        setTimeout(() => {
-          context.setState({
-            feedback: true,
-          });
-        }, 1000);
-      })
-        .catch(err => err);*/
+
     } catch (err) {
-      notify('information is missing');
+      
+      notify(err.message);
     }
   }
 

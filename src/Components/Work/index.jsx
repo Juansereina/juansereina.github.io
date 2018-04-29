@@ -26,7 +26,7 @@ class Work extends Component {
     this.openOneProject = this.openOneProject.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     consultProjects().then(res => this.fillProjects(res));
   }
 

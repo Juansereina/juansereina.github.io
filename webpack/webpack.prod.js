@@ -42,6 +42,6 @@ module.exports = merge(common, {
         whitelist: ['*purify*'],
       },
     }),
-     new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
 });

@@ -12,7 +12,7 @@ const propTypes = {
 const Section = ({ animation, img, description }) => (
   <Animated animationIn={animation} animationOut="fadeOut" isVisible={true}>
     <img
-      className={`${Styles.image} ${animation} `}
+      className={`${Styles.image} ${animation} hvr-wobble-top`}
       src={img}
       alt={description}
     />

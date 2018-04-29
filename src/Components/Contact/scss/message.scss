@@ -4,14 +4,17 @@
   display: flex;
   justify-content: space-evenly;
   min-width: 20rem;
+  align-items: center;
 }
 
 .text {
   color: $main-color;
   font-size: 1.6em;
+  text-align: center;
 }
 
 .icon {
   color: #00ffef;
   margin-right: 0.5em;
+  font-size: 2rem;
 }

@@ -11,7 +11,7 @@ const propTypes = {
 const Message = ({ text, icon }) => (
   <div className={`${styles.message}`}>
     <span className={styles.text}> {text} </span>
-    <FontAwesome name={icon} size="2x" className={`${styles.icon}`} />
+    <FontAwesome name={icon} className={`${styles.icon}`} />
   </div>
 );
 

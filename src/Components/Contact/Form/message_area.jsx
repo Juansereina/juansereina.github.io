@@ -8,7 +8,7 @@ const propTypes = {
   handleChange: PropTypes.func.isRequired,
 };
 
-const meesageArea = ({ loading, handleChange }) => (
+const meesageArea = ({ loading, handleChange, name, type }) => (
   <div className={`${styles.input}`}>
     <FontAwesome name="comment" className={`${styles.icon} ${styles.item}`} />
     <textarea
@@ -17,6 +17,8 @@ const meesageArea = ({ loading, handleChange }) => (
       className={`materialize-textarea lighten-5 ${styles.item}`}
       onChange={handleChange}
       readOnly={loading}
+      name={name}
+      type={type}
     />
   </div>
 );

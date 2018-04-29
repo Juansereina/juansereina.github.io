@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 const button = ({ loading, sendMessage }) => (
-  <button className={`${styles.button} btn `} onClick={sendMessage} >
+  <button className={`${styles.button} btn `} onClick={sendMessage} type="submit">
     {loading ? <FontAwesome name="cog" size="3x" spin className={`${styles.loading}`} />
       : <h5 className={styles.texthover} >send</h5>}
   </button>

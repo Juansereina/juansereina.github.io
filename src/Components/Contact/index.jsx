@@ -33,14 +33,14 @@ class Contact extends Component {
   }
 
   async sendMessage(e) {
-    e.preventDefault();
+   // e.preventDefault();
     const context = this;
     const message = { ...this.state.message };
     try {
       const validResult = await validateMessageValues(message);
       const result = await isEmpty(validResult);
       this.setState({ loading: true });
-      await post(result).then((res) => {
+     /*await post(result).then((res) => {
         if (res.status === 404) {
           context.setState({
             loading: false,
@@ -57,7 +57,7 @@ class Contact extends Component {
           });
         }, 1000);
       })
-        .catch(err => err);
+        .catch(err => err);*/
     } catch (err) {
       notify('information is missing');
     }

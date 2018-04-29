@@ -15,10 +15,19 @@ const Section = ({
   icon,
   active,
   handleChange,
+  name,
+  type
 }) => (
   <div className={`${styles.input}`}>
     <FontAwesome name={icon} className={`${styles.icon} ${styles.item}`} />
-    <input placeholder={id} id={id} type="text" className={`${styles.item} validate`} onChange={handleChange} readOnly={active} />
+    <input 
+    placeholder={id} 
+    id={id} 
+    type={type}
+    className={`${styles.item} validate`} 
+    onChange={handleChange} 
+    readOnly={active} 
+    name={name} />
   </div>);
 
 Section.propTypes = propTypes;

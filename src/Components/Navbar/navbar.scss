@@ -25,18 +25,15 @@
   }
 }
 
-.logo {
+.home {
   flex: 1;
   @include mq($phone-large) {
-    display: none;
+    display: flex;
+    justify-content: center;
   }
 }
 
 .social {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: flex-end;
   @include mq($phone-large) {
     display: none;
   }
@@ -47,26 +44,10 @@
   flex: 3;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   @include mq($phone-large) {
     flex-direction: row;
     font-size: 1.25rem;
     justify-content: space-around;
   }
 }
-
-.icon {
-  color: $main-color;
-  margin: 0.5em 0; 
-  font-size: 1.3rem;
-  &:hover {
-    color: $light-blue;
-  }
-  &:active {
-    color: $light-blue;
-  }
-}
-.iconActive {
-  font-size: 1.8rem;
-  color: $neon;
-}
-

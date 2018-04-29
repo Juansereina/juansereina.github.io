@@ -1,0 +1,11 @@
+@import "../Components/Common/scss/mixin";
+.social {
+  display: none;
+  @include mq($phone-large) {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+  }
+}

@@ -1,0 +1,11 @@
+@import "../Common/scss/mixin";
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include mq($phone-large) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

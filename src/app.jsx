@@ -7,6 +7,7 @@ import Work from './Components/Work';
 import Contact from './Components/Contact';
 import Meta from './Components/Common/Head_tags';
 import Background from './Components/Background';
+import About from './Components/About'
 
 const App = () => (
   <React.Fragment>
@@ -20,7 +21,7 @@ const App = () => (
       className="switch-wrapper"
     >
       <Route path="/" exact component={Home} />
-      <Route path="/home" component={Home} />
+      <Route path="/about" component={About} />
       {<Route path="/work" component={Work} />}
       <Route path="/contact" component={Contact} />
     </AnimatedSwitch>

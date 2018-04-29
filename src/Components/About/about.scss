@@ -1,0 +1,42 @@
+@import '../Common/scss/mixin';
+.root{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.text{
+    color:white;
+    width: 32rem;
+    text-align: center;
+    font-size: 1.5rem;
+    @include mq($phone-large) {
+        width: 25rem;
+        font-size: 1.2rem;
+        padding: 0 .5rem;
+      }
+    @include mq($phone-small) {
+        width: 20rem;
+        font-size: 1.1rem;
+      }
+}
+.photo{
+    width:40rem;
+    height: auto;
+    opacity: .7;
+    @include mq($phone-large) {
+        width: 30rem;
+      }
+      @include mq($phone-small) {
+        width: 25rem;
+      }
+}
+.strongText{
+    color: $light-blue;
+}
+.link{
+    color: tomato;
+}

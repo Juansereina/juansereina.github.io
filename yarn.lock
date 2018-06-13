@@ -8061,9 +8061,9 @@ react-motion@^0.5.0:
     prop-types "^15.5.8"
     raf "^3.1.0"
 
-react-pdf@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-pdf/-/react-pdf-3.0.4.tgz#a9b485e8943c176173217b107c47d578983c16ba"
+react-pdf@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-pdf/-/react-pdf-3.0.5.tgz#989406cae67e8194328f4653d376dfcb5e77fe9d"
   dependencies:
     babel-runtime "^6.26.0"
     lodash.once "^4.1.1"

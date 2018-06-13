@@ -5964,9 +5964,9 @@ loglevelnext@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/loglevelnext/-/loglevelnext-1.0.3.tgz#0f69277e73bbbf2cd61b94d82313216bf87ac66e"
 
-logrocket@^0.6.10:
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.10.tgz#ed2b6c68b6555167e1be9f9a3fd5b3f359ced224"
+logrocket@^0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.6.12.tgz#4631cdd816d09298bdd1c2f62609138fffdb6a18"
 
 longest-streak@^2.0.1:
   version "2.0.2"

@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Animated } from "react-animated-css";
 import PropTypes from "prop-types";
 import Styles from "./scss/logo.scss";
-import Hover from "../Common/hover.scss";
 
 const propTypes = {
   img: PropTypes.string.isRequired,

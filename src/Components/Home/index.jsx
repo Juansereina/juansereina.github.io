@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './scss/home.scss';
 import Logo from './logo';
-import animate from '../Common/animate.scss';
 import { Animated } from "react-animated-css";
 
 const Home = () => (

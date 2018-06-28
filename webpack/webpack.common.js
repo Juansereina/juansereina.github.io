@@ -1,7 +1,9 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ManifestPlugin = require('webpack-manifest-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const rules = require("./rules");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports ={ 
     resolve: {
       extensions: [".js", ".jsx"],
@@ -19,6 +21,30 @@ module.exports ={
         filename: "css/app_[chunkhash].css",
         allChunks: true
       }),
-     new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/favicon.png"))
+      new HtmlWebpackPlugin({
+      title: 'Juan Sebastián Reina',
+      hash: true,
+      template: path.resolve(__dirname, '../src/index.html'),
+    }),
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      basePath: '/',
+      seed: {
+        "short_name": "Juansereina",
+        "name": "Juan Sebastián - Interactive Designer",
+        "start_url": "./index.html",
+        "description": "Personal Portfolio of Juan Sebastián Reina - DMI",
+        "display": "standalone",
+        "lang": "en-US",
+        "theme_color": "#02162b",
+        "background_color": "#000000",
+        "icons": [{
+          "src": "images/favicon.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }],
+      }
+    }),
+      new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/favicon.png"))
     ]
 };

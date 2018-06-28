@@ -5,18 +5,14 @@ const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const {
+  BundleAnalyzerPlugin
+} = require('webpack-bundle-analyzer');
 const PurifyCSSPlugin = require('purifycss-webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Juan Sebastián Reina',
-      hash: true,
-      template: path.resolve(__dirname, '../src/index.html'),
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
@@ -41,6 +37,7 @@ module.exports = merge(common, {
         whitelist: ['*purify*'],
       },
     }),
+    
     // new BundleAnalyzerPlugin()
   ],
 });

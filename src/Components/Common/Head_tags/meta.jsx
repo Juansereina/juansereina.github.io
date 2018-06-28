@@ -13,10 +13,12 @@ const Meta = () => (
     <meta property="og:image:height" content="500" />
     <meta property="og:image:alt" content="Juan Sebastian Interactive Media Designer" />
     <meta
-      property="og:description"
-      content={description}
+    property="og:description"
+    content={description}
     />
     <meta property="og:locale" content="es_CO" />
+    <meta name="theme-color" content="#02162b"/>
+    <meta name="Description" content="Personal Portfolio of Juan Sebastián Reina - DMI"/>
   </Helmet>
 );
 

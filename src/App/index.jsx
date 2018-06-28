@@ -4,7 +4,7 @@ import { AnimatedSwitch } from "react-router-transition";
 import Loadable from 'react-loadable';
 
 import Navbar from "../Components/Navbar";
-import Home from "../Components/Home";
+import Home from /* webpackPreload: true */"../Components/Home";
 import Meta from "../Components/Common/Head_tags";
 import Background from "../Components/Background";
 import Social from "../Components/Social";

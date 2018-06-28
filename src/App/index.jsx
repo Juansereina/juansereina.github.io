@@ -1,16 +1,31 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
+import Loadable from 'react-loadable';
+
 import Navbar from "../Components/Navbar";
 import Home from "../Components/Home";
-import Work from "../Components/Work";
-import Contact from "../Components/Contact";
 import Meta from "../Components/Common/Head_tags";
 import Background from "../Components/Background";
-import About from "../Components/About";
 import Social from "../Components/Social";
 import styles from "./app.scss";
 import MessageEmail from "../Components/Contact/thanks_message";
+
+function Loading() {
+  return <h3>Loading...</h3>;
+}
+const About = Loadable({
+  loader: () => import('../Components/About'),
+  loading: Loading
+});
+const Work = Loadable({
+  loader: () => import('../Components/Work'),
+  loading: Loading
+});
+const Contact = Loadable({
+  loader: () => import('../Components/Contact'),
+  loading: Loading
+});
 
 const App = () => (
   <React.Fragment>

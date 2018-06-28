@@ -1,7 +1,5 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const cssModules = 'module&localIdentName=[name]__[local]___[hash:base64:5]';
 module.exports = {
   rules: [
     {
@@ -42,7 +40,7 @@ module.exports = {
             },
           },
           {
-            loader: 'sass-loader', // compiles Sass to CSS
+            loader: 'sass-loader',
           },
         ],
       }),

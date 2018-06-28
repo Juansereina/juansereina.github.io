@@ -7,7 +7,7 @@ const defaultStyleIcon = `${styles.icon} hvr-forward`;
 const Social = () => (
   <div className={styles.root}>
     <SocialIcon
-      href="https://www.linkedin.com/in/juansereina/"
+      href="https://www.linkedin.com/in/Juansereina/"
       name="linkedin"
       styles={defaultStyleIcon}
     />
@@ -22,7 +22,7 @@ const Social = () => (
       styles={defaultStyleIcon}
     />
     <SocialIcon
-      href="https://twitter.com/Juanse2296"
+      href="https://twitter.com/Juanse_reina"
       name="twitter"
       styles={defaultStyleIcon}
     />

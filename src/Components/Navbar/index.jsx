@@ -1,44 +1,36 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import FontAwesome from "react-fontawesome";
 import styles from "./navbar.scss";
 import Social from "../Social";
-const defaultStyleIcon = `${styles.icon} hvr-forward`;
-const active = `${styles.iconActive} hvr-forward`;
+import NavIcon from "./navIcon";
+
+const iconsData = [
+  {
+    name:"home",
+    location:"/"
+  },
+  {
+    name:"user-secret",
+    location:"/about"
+  },
+  {
+    name:"code",
+    location:"/work"
+  },
+  {
+    name:"paper-plane",
+    location:"/contact"
+  }
+]
 
 const NavBar = props => {
   let currentLocation = window.location.hash;
   return (
     <nav className={styles.root}>
       <div className={styles.home}>
-        <NavLink to="/">
-          <FontAwesome
-            name="home"
-            className={currentLocation == "#/" ? active : defaultStyleIcon}
-          />
-        </NavLink>
+        <NavIcon name={iconsData[0].name} location={iconsData[0].location} currentLocation={currentLocation} />
       </div>
       <div className={styles.link}>
-        <NavLink to="/about">
-          <FontAwesome
-            name="user-secret"
-            className={currentLocation == "#/about" ? active : defaultStyleIcon}
-          />
-        </NavLink>
-        <NavLink to="/work">
-          <FontAwesome
-            name="code"
-            className={currentLocation == "#/work" ? active : defaultStyleIcon}
-          />
-        </NavLink>
-        <NavLink to="/contact">
-          <FontAwesome
-            name="paper-plane"
-            className={
-              currentLocation == "#/contact" ? active : defaultStyleIcon
-            }
-          />
-        </NavLink>
+      {iconsData.map((icon, index) => index !==0 ? (<NavIcon key={icon.name} name={icon.name} location={icon.location} currentLocation={currentLocation} />) : '')}
       </div>
       <div className={styles.social}>
         <Social />

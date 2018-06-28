@@ -1,5 +1,5 @@
 import React from "react";
-import spinnerCss from "./scss/spinner.scss";
+import spinnerCss from "./spinner.scss";
 
 const spinner = (props) => (
   <div className={props.root}>

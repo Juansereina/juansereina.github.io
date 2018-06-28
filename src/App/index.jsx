@@ -10,21 +10,19 @@ import Background from "../Components/Background";
 import Social from "../Components/Social";
 import styles from "./app.scss";
 import MessageEmail from "../Components/Contact/thanks_message";
+import Spinner from '../Components/Common/spinner';
 
-function Loading() {
-  return <h3>Loading...</h3>;
-}
 const About = Loadable({
   loader: () => import('../Components/About'),
-  loading: Loading
+  loading: Spinner
 });
 const Work = Loadable({
   loader: () => import('../Components/Work'),
-  loading: Loading
+  loading: Spinner
 });
 const Contact = Loadable({
   loader: () => import('../Components/Contact'),
-  loading: Loading
+  loading: Spinner
 });
 
 const App = () => (

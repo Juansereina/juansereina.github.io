@@ -7,7 +7,7 @@ import {
   branch,
   withProps,
 } from "recompose";
-import Spinner from "./spinner";
+import Spinner from "../Common/spinner";
 import helpers from "./helper";
 import styles from "./scss/work.scss";
 

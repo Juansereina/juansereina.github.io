@@ -1,32 +1,32 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
-import Loadable from 'react-loadable';
+import Loadable from "react-loadable";
 
 import Navbar from "../Components/Navbar";
-import Home from /* webpackPreload: true */"../Components/Home";
+import Home from /* webpackPreload: true */ "../Components/Home";
 import Meta from "../Components/Common/Head_tags";
 import Background from "../Components/Background";
 import Social from "../Components/Social";
 import styles from "./app.scss";
 import MessageEmail from "../Components/Contact/thanks_message";
-import Spinner from '../Components/Common/spinner';
+import Spinner from "../Components/Common/spinner";
 
 const About = Loadable({
-  loader: () => import('../Components/About'),
+  loader: () => import("../Components/About"),
   loading: Spinner
 });
 const Work = Loadable({
-  loader: () => import('../Components/Work'),
+  loader: () => import("../Components/Work"),
   loading: Spinner
 });
 const Contact = Loadable({
-  loader: () => import('../Components/Contact'),
+  loader: () => import("../Components/Contact"),
   loading: Spinner
 });
 
 const App = () => (
-  <React.Fragment>
+  <Fragment>
     <Meta />
     <Navbar />
     <Background />
@@ -40,13 +40,12 @@ const App = () => (
       <Route path="/about" component={About} />
       <Route path="/work" component={Work} />
       <Route path="/contact" component={Contact} />
-      <Route path="/thanks" component={MessageEmail}
-      />
+      <Route path="/thanks" component={MessageEmail} />
     </AnimatedSwitch>
     <div className={styles.social}>
       <Social />
     </div>
-  </React.Fragment>
+  </Fragment>
 );
 
 export default App;

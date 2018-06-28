@@ -4,6 +4,8 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const rules = require("./rules");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var OfflinePlugin = require('offline-plugin');
+
 module.exports ={ 
     resolve: {
       extensions: [".js", ".jsx"],
@@ -42,9 +44,14 @@ module.exports ={
           "src": "images/favicon.png",
           "sizes": "192x192",
           "type": "image/png"
+        },{
+          "src": "images/favicon.png",
+          "sizes": "512x512",
+          "type": "image/png"
         }],
       }
     }),
-      new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/favicon.png"))
+      new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/Images/favicon.png")),
+      new OfflinePlugin()
     ]
 };

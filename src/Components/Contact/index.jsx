@@ -55,6 +55,7 @@ class Contact extends Component {
   }
 
   render() {
+    
     return (
       <div className={`${styles.root} `}>
         {this.renderForm()}

@@ -1,31 +1,29 @@
 import React from "react";
-import FontAwesome from "react-fontawesome";
 import styles from "./social.scss";
 import SocialIcon from "./icon";
-const defaultStyleIcon = `${styles.icon} hvr-forward`;
+
+const iconsData = [
+  {
+    href: "https://www.linkedin.com/in/Juansereina",
+    name: "linkedin"
+  },
+  {
+    href: "https://www.behance.net/Juansereina",
+    name: "behance"
+  },
+  {
+    href: "https://github.com/Juansereina",
+    name: "github"
+  },
+  {
+    href: "https://twitter.com/Juanse_reina",
+    name: "twitter"
+  }
+];
 
 const Social = () => (
   <div className={styles.root}>
-    <SocialIcon
-      href="https://www.linkedin.com/in/Juansereina/"
-      name="linkedin"
-      styles={defaultStyleIcon}
-    />
-    <SocialIcon
-      href="https://www.behance.net/Juansereina"
-      name="behance"
-      styles={defaultStyleIcon}
-    />
-    <SocialIcon
-      href="https://github.com/Juansereina"
-      name="github"
-      styles={defaultStyleIcon}
-    />
-    <SocialIcon
-      href="https://twitter.com/Juanse_reina"
-      name="twitter"
-      styles={defaultStyleIcon}
-    />
+    {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={`${styles.icon} hvr-forward`} />)}
   </div>
 );
 

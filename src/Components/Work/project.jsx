@@ -2,7 +2,6 @@
 import React from 'react';
 import Img from 'react-image';
 import PropTypes from 'prop-types';
-import LazyLoad from 'react-lazyload';
 import styles from './scss/project.scss';
 
 const propTypes = {

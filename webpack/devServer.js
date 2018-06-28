@@ -7,6 +7,12 @@ module.exports = {
   historyApiFallback: true,
   compress: true,
   open: true,
+  overlay: {
+    warnings: true,
+    errors: true
+  },
   stats: 'errors-only',
-  headers: { 'Access-Control-Allow-Origin': '*' },
+  headers: {
+    'Access-Control-Allow-Origin': '*'
+  },
 };

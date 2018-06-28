@@ -1,4 +1,5 @@
 import jsonp from 'jsonp';
+import localData from '../../localdata/projects.json'
 
 const createProjects = _projects => new Promise((res, rej) => {
   const projects = _projects.map((project) => {
@@ -18,6 +19,9 @@ const createProjects = _projects => new Promise((res, rej) => {
 });
 
 const consultProjects = () => new Promise((res, rej) => {
+  if(process.env.NODE_ENV === 'development'){
+    res(localData.projects)
+  }
   const url = 'https://www.behance.net/v2/users/Juansereina/projects?client_id=pULi7ivaPknVuBz4MV6lFO3Kh8f4xO7u';
   jsonp(url, null, (err, data) => {
     if (err) {

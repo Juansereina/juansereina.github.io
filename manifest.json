@@ -45,11 +45,11 @@
   "/index.html": "index.html",
   "/sw.js": "sw.js",
   "/0.bundle.js.gz": "0.bundle.js.gz",
-  "/1.bundle.js.gz": "1.bundle.js.gz",
   "/3.bundle.js.gz": "3.bundle.js.gz",
   "/4.bundle.js.gz": "4.bundle.js.gz",
+  "/1.bundle.js.gz": "1.bundle.js.gz",
   "/sw.js.gz": "sw.js.gz",
-  "/2.bundle.js.gz": "2.bundle.js.gz",
   "/css/app_c25d6c97734687adb344.css.gz": "css/app_c25d6c97734687adb344.css.gz",
+  "/2.bundle.js.gz": "2.bundle.js.gz",
   "/main.bundle.js.gz": "main.bundle.js.gz"
 }

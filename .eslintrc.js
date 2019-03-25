@@ -3,7 +3,8 @@ module.exports = {
     "plugins": [
         "react",
         "jsx-a11y",
-        "import"
+        "import",
+        "react-hooks"
     ],
     rules:{
         "linebreak-style": 0,
@@ -14,7 +15,9 @@ module.exports = {
           "import/no-extraneous-dependencies": 0,
           "class-methods-use-this": 0,
           "no-undef": 0,
-          "no-plusplus": 0
+          "no-plusplus": ,
+          "react-hooks/rules-of-hooks": "error",
+          "react-hooks/exhaustive-deps": "warn"
       },
     globals: {
         "window": true,

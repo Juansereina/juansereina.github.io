@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
-import Loadable from "react-loadable";
-
 import Navbar from "../Components/Navbar";
 import Home from /* webpackPreload: true */ "../Components/Home";
 import Meta from "../Components/Common/Head_tags";
@@ -10,20 +8,10 @@ import Background from "../Components/Background";
 import Social from "../Components/Social";
 import styles from "./app.scss";
 import MessageEmail from "../Components/Contact/thanks_message";
-import Spinner from "../Components/Common/spinner";
-
-const About = Loadable({
-  loader: () => import("../Components/About"),
-  loading: Spinner
-});
-const Work = Loadable({
-  loader: () => import("../Components/Work"),
-  loading: Spinner
-});
-const Contact = Loadable({
-  loader: () => import("../Components/Contact"),
-  loading: Spinner
-});
+import About from "../Components/About"
+import Work from "../Components/Work"
+import Contact from "../Components/Contact"
+/* import Spinner from "../Components/Common/spinner"; */
 
 const App = () => (
   <Fragment>

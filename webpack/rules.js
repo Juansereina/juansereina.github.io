@@ -7,7 +7,13 @@ module.exports = {
       test: /\.(sa|sc|c)ss$/,
       use: [
         devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        'css-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: 'purify_[name]__[local]__[hash:base64:5]',
+          },
+        },
         'postcss-loader',
         'sass-loader',
       ],

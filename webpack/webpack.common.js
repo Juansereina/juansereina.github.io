@@ -1,10 +1,10 @@
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var ManifestPlugin = require('webpack-manifest-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const rules = require("./rules");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var OfflinePlugin = require('offline-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports ={ 
     resolve: {
@@ -19,9 +19,9 @@ module.exports ={
     },
     module: rules,
     plugins: [
-      new ExtractTextPlugin({
-        filename: "css/app_[chunkhash].css",
-        allChunks: true
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[id].css"
       }),
       new HtmlWebpackPlugin({
       title: 'Juan Sebastián Reina',

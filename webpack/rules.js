@@ -1,22 +1,16 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   rules: [
     {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: 'purify_[name]__[local]__[hash:base64:5]',
-            },
-          },
-          'postcss-loader',
-        ],
-      }),
+      test: /\.(sa|sc|c)ss$/,
+      use: [
+        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'css-loader',
+        'postcss-loader',
+        'sass-loader',
+      ],
       exclude: path.resolve(__dirname, 'node_modules'),
     },
     { test: /(\.js|jsx)$/, exclude: /node_modules/, loaders: ['babel-loader'] },
@@ -24,26 +18,6 @@ module.exports = {
     { test: /\.(woff|woff2)$/, use: 'url-loader?prefix=font/&limit=5000' },
     { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
     { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml' },
-    { test: /\.png$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'images/' } }] },
-    {
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: true,
-              importLoaders: 2,
-              localIdentName: 'purify_[name]__[local]__[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
-      }),
-    },
+    { test: /\.png$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'images/' } }] }
   ],
 };

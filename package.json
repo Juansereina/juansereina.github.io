@@ -17,6 +17,7 @@
   "homepage": "https://juansereina.github.io",
   "scripts": {
     "build": "rm -rf build && webpack --config ./webpack/webpack.prod.js --mode production",
+    "build-analyzer" : "set NODE_ANALYZER=true && npm run build",
     "start": "webpack-dev-server --mode development --config ./webpack/webpack.dev.js --hotOnly",
     "test": "jest --coverage --watch",
     "predeploy": "npm run build",

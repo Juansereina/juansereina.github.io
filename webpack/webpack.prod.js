@@ -16,7 +16,6 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
     new UglifyJSPlugin({
       cache: true,
       parallel: true,
@@ -37,7 +36,6 @@ module.exports = merge(common, {
         whitelist: ['*purify*'],
       },
     }),
-    
-    // new BundleAnalyzerPlugin()
-  ],
+    process.env.NODE_ANALYZER ? new BundleAnalyzerPlugin() : false
+  ].filter(Boolean),
 });

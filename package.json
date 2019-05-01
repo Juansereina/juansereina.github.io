@@ -42,7 +42,7 @@
     "react-scroll": "^1.7.8",
     "react-toastify": "^4.0.1",
     "snyk": "^1.88.0",
-    "three": "^0.102.0"
+    "three": "^0.104.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

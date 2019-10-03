@@ -17,7 +17,7 @@
   "homepage": "https://juansereina.github.io",
   "scripts": {
     "build": "rm -rf build && webpack --config ./webpack/webpack.prod.js --mode production",
-    "build-analyzer" : "set NODE_ANALYZER=true && npm run build",
+    "build-analyzer": "set NODE_ANALYZER=true && npm run build",
     "start": "webpack-dev-server --mode development --config ./webpack/webpack.dev.js --hotOnly",
     "test": "jest --coverage --watch",
     "predeploy": "npm run build",
@@ -41,7 +41,7 @@
     "react-router-transition": "^1.2.1",
     "react-scroll": "^1.7.8",
     "react-toastify": "^4.0.1",
-    "snyk": "^1.88.0",
+    "snyk": "^1.230.5",
     "three": "^0.102.0"
   },
   "devDependencies": {

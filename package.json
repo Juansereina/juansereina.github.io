@@ -37,7 +37,7 @@
     "react-image": "^2.1.1",
     "react-image-lightbox": "^5.1.0",
     "react-lazyload": "^2.3.0",
-    "react-router-dom": "^5.0.0",
+    "react-router-dom": "^5.0.1",
     "react-router-transition": "^1.2.1",
     "react-scroll": "^1.7.8",
     "react-toastify": "^4.0.1",

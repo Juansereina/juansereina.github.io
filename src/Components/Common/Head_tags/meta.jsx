@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 const description = 'Juan Sebastian interactive media designer passionate about the development of interactive elements, design and dance :)';
 const Meta = () => (
   <Helmet>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Juan Sebastian Reina" />
     <meta property="og:type" content="Interactive.WebDeveloper" />

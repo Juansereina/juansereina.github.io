@@ -1,9 +1,11 @@
 import React from 'react';
-import styles from './scss/home.scss';
+import Nav from '../Nav';
+import styles from './home.scss';
 
 const Home = () => (
-  <h1 className={styles.root} >
-    Home
-  </h1>);
+  <main>
+    <Nav />
+  </main>
+);
 
 export default Home;

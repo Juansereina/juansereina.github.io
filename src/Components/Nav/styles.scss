@@ -1,0 +1,30 @@
+@import '../Common/scss/mixin.scss';
+
+.root {
+  align-items: center;
+  display: flex;
+  height: rem(120);
+  margin: 0 rem(200);
+  max-width: rem(1440);
+
+  .logo {
+    color: $primary;
+    flex: 1;
+    font-weight: 700;
+  }
+
+  .list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+
+    .item {
+      color: $primary;
+      font-weight: 400;
+    }
+
+    .item:not(:last-child) {
+      margin: 0 rem(50);
+    }
+  }
+}

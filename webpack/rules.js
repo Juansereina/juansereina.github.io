@@ -13,7 +13,6 @@ module.exports = {
             modules: true,
           },
         },
-        'postcss-loader',
         'sass-loader',
       ],
       exclude: path.resolve(__dirname, 'node_modules'),

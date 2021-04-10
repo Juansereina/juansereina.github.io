@@ -2,9 +2,6 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
-const {
-  BundleAnalyzerPlugin
-} = require('webpack-bundle-analyzer');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -19,6 +16,5 @@ module.exports = merge(common, {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    process.env.NODE_ANALYZER ? new BundleAnalyzerPlugin() : false
   ].filter(Boolean),
 });

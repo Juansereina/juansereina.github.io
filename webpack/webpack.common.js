@@ -1,12 +1,10 @@
 const path = require("path");
 var ManifestPlugin = require('webpack-manifest-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const rules = require("./rules");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports ={ 
+module.exports ={
     resolve: {
       extensions: [".js", ".jsx"],
       modules: [path.resolve(__dirname, "../src"), "node_modules"]
@@ -35,7 +33,7 @@ module.exports ={
         "short_name": "Juansereina",
         "name": "Juan Sebastián - Interactive Designer",
         "start_url": "./index.html",
-        "description": "Personal Portfolio of Juan Sebastián Reina - DMI",
+        "description": "Personal Portfolio of Juan Sebastián Reina",
         "display": "standalone",
         "lang": "en-US",
         "theme_color": "#02162b",
@@ -51,7 +49,5 @@ module.exports ={
         }],
       }
     }),
-      new FaviconsWebpackPlugin(path.resolve(__dirname, "../src/assets/Images/favicon.png")),
-      new OfflinePlugin()
     ]
 };

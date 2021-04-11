@@ -1,10 +1,11 @@
 import React from 'react';
 import Nav from '../Nav';
-import styles from './home.scss';
+import Hero from '../Hero';
 
 const Home = () => (
   <main>
     <Nav />
+    <Hero />
   </main>
 );
 

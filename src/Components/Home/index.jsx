@@ -3,14 +3,18 @@ import Nav from '../Nav';
 import Hero from '../Hero';
 import About from '../About';
 import Footer from '../Footer';
+import Work from '../Work';
 
 const Home = () => (
-  <main>
+  <>
     <Nav />
-    <Hero />
-    <About />
+    <main>
+      <Hero />
+      <About />
+      <Work />
+    </main>
     <Footer />
-  </main>
+  </>
 );
 
 export default Home;

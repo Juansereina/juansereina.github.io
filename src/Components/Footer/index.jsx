@@ -4,6 +4,7 @@ import styles from './styles.scss';
 
 export default () => (
   <footer className={styles.root}>
+    <div className={styles.background}></div>
     <div className={styles.contaier}>
       <div className={styles.content}>
         <h1 className={styles.title}>Juan Sebastián Reina</h1>

@@ -1,0 +1,45 @@
+@import '../Common/scss/mixin.scss';
+
+.root {
+  display: grid;
+  grid-template-columns: 500px 500px;
+  justify-content: center;
+  counter-reset: my-sec-counter;
+  gap: rem(20);
+
+  .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    top: 0;
+
+    &Container {
+      position: relative;
+      height: max-content;
+
+      &::before {
+        display: block;
+        content: ' ';
+        width: 100%;
+        padding-top: 56.25%;
+      }
+    }
+  }
+
+  .title {
+    color: $primary;
+    margin-top: 0;
+  }
+
+  .text,
+  .item {
+    color: $typography-color;
+    font-weight: $font-light;
+  }
+
+  .item::marker {
+    content: '👨‍💻';
+  }
+}

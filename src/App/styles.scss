@@ -5,7 +5,16 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
 * {
   font-family: $font;
   line-height: 150%;
+}
+
+a {
+  text-decoration: none;
 }

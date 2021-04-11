@@ -1,9 +1,9 @@
-import React from 'react';
-import Social from '../Social';
-import styles from './styles.scss';
+import React from "react";
+import Social from "../Social";
+import styles from "./styles.scss";
 
-export default () => (
-  <footer className={styles.root}>
+export default ({ id }) => (
+  <footer id={id} className={styles.root}>
     <div className={styles.background}></div>
     <div className={styles.contaier}>
       <div className={styles.content}>

@@ -1,0 +1,35 @@
+@import '../Common/scss/mixin.scss';
+
+.root {
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+  padding: rem(40) 0;
+
+  .contaier {
+    max-width: rem(1440);
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    gap: rem(500);
+    justify-content: center;
+  }
+
+  .content {
+    color: $white;
+  }
+
+  .title,
+  .subtitle {
+    margin: 0;
+  }
+
+  .title {
+    font-weight: $font-regular;
+    margin-bottom: rem(10);
+  }
+
+  .subtitle {
+    font-weight: $font-light;
+  }
+}

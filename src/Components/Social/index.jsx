@@ -8,10 +8,6 @@ const iconsData = [
     name: "linkedin"
   },
   {
-    href: "https://www.behance.net/Juansereina",
-    name: "behance"
-  },
-  {
     href: "https://github.com/Juansereina",
     name: "github"
   },
@@ -23,7 +19,7 @@ const iconsData = [
 
 const Social = () => (
   <div className={styles.root}>
-    {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={`${styles.icon} hvr-forward`} />)}
+    {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={styles.icon} />)}
   </div>
 );
 

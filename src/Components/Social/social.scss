@@ -1,12 +1,12 @@
 @import "../Common/scss/mixin";
 
 .root {
+  align-items: flex-end;
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: flex-end;
-  @include mq($phone-large) {
-    flex-direction: row;
-    justify-content: space-evenly;
+
+  .icon {
+    color: $white;
+    font-size: rem(30);
+    margin-left: rem(20);
   }
 }

@@ -4,6 +4,7 @@ import Hero from "../Hero";
 import About from "../About";
 import Footer from "../Footer";
 import Work from "../Work";
+import BackToTop from "../BackToTop";
 
 const Home = () => (
   <>
@@ -14,6 +15,7 @@ const Home = () => (
       <Work id="work" />
     </main>
     <Footer id="contact" />
+    <BackToTop />
   </>
 );
 

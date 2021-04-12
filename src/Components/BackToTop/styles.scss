@@ -1,0 +1,23 @@
+@import '../Common/scss/mixin.scss';
+
+.root {
+  cursor: pointer;
+  background-color: $white;
+  padding: rem(10) rem(14);
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  opacity: 0;
+  transition: opacity .3s;
+  border-radius: 100%;
+  z-index: 1;
+  color: $primary;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  .icon {
+    height: rem(20);
+  }
+}

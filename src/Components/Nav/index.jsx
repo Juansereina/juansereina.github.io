@@ -18,10 +18,6 @@ export default () => {
 
   const handleClick = ({ target }) => {
     const { value } = target.attributes['data-value'];
-    visibleSection(value)
-  }
-
-  const visibleSection = (value) => {
     const element = document.getElementById(value);
     const offset = 50;
 

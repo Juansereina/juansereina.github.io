@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import styles from "./styles.scss";
 import imageOne from "../../Assets/image-1.jpg";
 import imageTwo from "../../Assets/image-2.jpg";
@@ -11,71 +12,55 @@ export default ({ id }) => (
     </div>
     <section className={styles.content}>
       <h3 className={styles.title}>
-        Huge - <span>Current job</span>
+        <FormattedMessage id="experience.huge" /> - <span>Current job</span>
       </h3>
       <p className={styles.text}>
-        Soy desarrollador web en proyectos para Google. Estoy encargado de
-        mantener e implementar nuevos diseños para mejorar la experiencia de
-        usuario en páginas y aplicaciones que reciben una gran cantidad de
-        visitas diarias, conservando un mínimo de accesibilidad (AA) y alto
-        nivel performance para poder llegar a usuarios en todo el mundo.
+        <FormattedMessage id="experience.huge.1" />
       </p>
       <ul className={styles.list}>
         <li className={styles.item}>
-          Desarrollo componentes para visualizar todo tipo de contenido
-          multimedia.
+          <FormattedMessage id="experience.huge.2" />
         </li>
         <li className={styles.item}>
-          Realizo pruebas de concepto para presentar propuestas al cliente.
+          <FormattedMessage id="experience.huge.3" />
         </li>
         <li className={styles.item}>
-          He liderado estrategias de pruebas en las aplicaciones.
+          <FormattedMessage id="experience.huge.4" />
         </li>
         <li className={styles.item}>
-          He reestructurado proyectos para mejorar la escalabilidad y
-          mantenibilidad del proyecto
+          <FormattedMessage id="experience.huge.5" />
         </li>
       </ul>
       <p className={styles.text}>
-        Mis herramientas mas utilizadas son HTML, CSS y JavaScript. En algunos
-        proyectos también he hecho uso de Preact, una versión mas ligera y libre
-        de Reactjs, TweenLite y Sass. También, participe en un proyecto que
-        utilizaba Svelte un framework de JavaScript.
+        <FormattedMessage id="experience.huge.6" />
       </p>
     </section>
     <section className={styles.content}>
-      <h3 className={styles.title}>PSL</h3>
+      <h3 className={styles.title}>
+        <FormattedMessage id="experience.psl" />
+      </h3>
       <p className={styles.text}>
-        Trabaje como desarrollador web utilizando tecnologías como React, Redux,
-        PostCss, Sass y Webpack. Mis herramientas principales son HTML, CSS y
-        JavaScript con las que desarrolle soluciones para los clientes.
+        <FormattedMessage id="experience.psl.1" />
       </p>
       <ul className={styles.list}>
         <li className={styles.item}>
-          Desarrolle componentes reutilizares en React y PostCss.
+          <FormattedMessage id="experience.psl.2" />
         </li>
         <li className={styles.item}>
-          Realice mejoras en la estructura de los proyectos para mejorar
-          escalabilidad.
+          <FormattedMessage id="experience.psl.3" />
         </li>
         <li className={styles.item}>
-          Aplique técnicas avanzadas de pruebas y automatización de análisis
-          estático de código.
+          <FormattedMessage id="experience.psl.4" />
         </li>
         <li className={styles.item}>
-          Contribuí a la definición del manejo y estructura de datos en una app.
+          <FormattedMessage id="experience.psl.5" />
         </li>
         <li className={styles.item}>
-          Optimicé el uso de CSS y aplique las mejoras visuales del resultado de
-          una investigación de experiencia de usuario hecho por el equipo de
-          diseño.
+          <FormattedMessage id="experience.psl.6" />
         </li>
       </ul>
       <p className={styles.text}>
-        En los proyectos aplique conceptos como Box Model, CSS Module,
-        WebComponents, Global State, Responsive Design y las ulitmas
-        especificaciones de JavaScript. Adicionalmente, trabaje con metodologías
-        ágiles como Scrum.
+        <FormattedMessage id="experience.psl.7" />
       </p>
     </section>
     <div className={styles.imageContainer}>
@@ -85,25 +70,26 @@ export default ({ id }) => (
       <img src={imageThree} className={styles.image} />
     </div>
     <section className={styles.content}>
-      <h3 className={styles.title}>Freelance</h3>
+      <h3 className={styles.title}>
+        <FormattedMessage id="experience.freelance" />
+      </h3>
       <p className={styles.text}>
-        Trabaje en proyectos de start ups como TuPeludo.
+        <FormattedMessage id="experience.freelance.1" />
+
       </p>
       <ul className={styles.list}>
         <li className={styles.item}>
-          Desarrollé una web donde los usuario podían solicitar un servicio de
-          paseador de mascotas.
+          <FormattedMessage id="experience.freelance.2" />
         </li>
         <li className={styles.item}>
-          Atomatice el proceso de registro de los paseadores de moscotas.
+          <FormattedMessage id="experience.freelance.3" />
         </li>
         <li className={styles.item}>
-          Contrui componentes reutilizables usando Reactjs.
+          <FormattedMessage id="experience.freelance.4" />
         </li>
       </ul>
       <p className={styles.text}>
-        Las herramientas principales de desarrollo eran Reactjs, Sass, Redux y
-        Firebase.
+        <FormattedMessage id="experience.freelance.5" />
       </p>
     </section>
   </div>

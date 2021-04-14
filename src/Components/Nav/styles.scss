@@ -2,11 +2,13 @@
 
 .root {
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr minmax(auto, 724px) minmax(auto, 300px) 1fr;
   height: rem(120);
   margin: 0 auto;
-  padding: 0 rem(200);
-  max-width: rem(1440);
+  /* padding: 0 rem(200); */
+  /* max-width: rem(1440); */
   position: sticky;
   top: 0;
   background-color: $white;
@@ -22,22 +24,24 @@
     color: $primary;
     flex: 1;
     font-weight: 700;
+    grid-column: 2;
   }
 
   .list {
     display: flex;
     list-style: none;
     margin: 0;
+    grid-column: 3;
+    padding: 0;
 
     .item {
       color: $primary;
       font-weight: 400;
-      margin: 0 rem(30);
       cursor: pointer;
     }
 
-    .item:last-child {
-      margin-right: 0;
+    .item:nth-child(2){
+      margin: 0 clamp(10px, 2vw, rem(32));
     }
   }
 }

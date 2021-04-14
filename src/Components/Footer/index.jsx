@@ -10,7 +10,7 @@ export default ({ id }) => (
         <h1 className={styles.title}>Juan Sebastián Reina</h1>
         <h2 className={styles.subtitle}>FrontEnd Developer</h2>
       </div>
-      <Social />
+      <Social className={styles.social} />
     </div>
   </footer>
 );

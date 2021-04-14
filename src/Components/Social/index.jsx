@@ -17,8 +17,8 @@ const iconsData = [
   }
 ];
 
-const Social = () => (
-  <div className={styles.root}>
+const Social = ({ className }) => (
+  <div className={`${styles.root} ${className}`}>
     {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={styles.icon} />)}
   </div>
 );

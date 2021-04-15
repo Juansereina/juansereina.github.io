@@ -3,16 +3,25 @@
 .root {
   .contaier {
     background-color: $secondary;
-    width: 100%;
     display: grid;
     grid-auto-flow: column;
-    padding: rem(40) 0 rem(30);
+    padding: rem(40) rem(30) rem(30);
     grid-template-columns: 1fr minmax(auto, 724px) minmax(auto, 300px) 1fr;
+    row-gap: rem(10);
+
+    @include mq($bk-s) {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
   }
 
   .content {
     color: $white;
     grid-column: 2;
+
+    @include mq($bk-s) {
+      grid-column: 1;
+    }
   }
 
   .title,
@@ -21,17 +30,17 @@
   }
 
   .title {
-    font-weight: $font-regular;
     margin-bottom: rem(10);
-  }
-
-  .subtitle {
-    font-weight: $font-light;
   }
 
   .social {
     grid-column: 3;
     justify-content: flex-end;
+
+    @include mq($bk-s) {
+      grid-column: 1;
+      justify-content: flex-start;
+    }
   }
 
   .background {

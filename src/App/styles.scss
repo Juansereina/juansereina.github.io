@@ -18,3 +18,41 @@ html {
 a {
   text-decoration: none;
 }
+
+p {
+  font-size: rem(18);
+
+  @include mq($bk-m) {
+    font-size: rem(16);
+  }
+
+  @include mq($bk-s) {
+    font-size: rem(14);
+  }
+}
+
+h1 {
+  font-size: rem(42);
+  font-weight: $font-bold;
+
+  @include mq($bk-m) {
+    font-size: rem(38);
+  }
+
+  @include mq($bk-s) {
+    font-size: rem(34);
+  }
+}
+
+h2{
+  font-weight: $font-light;
+  font-size: rem(38);
+
+  @include mq($bk-m) {
+    font-size: rem(34);
+  }
+
+  @include mq($bk-s) {
+    font-size: rem(30);
+  }
+}

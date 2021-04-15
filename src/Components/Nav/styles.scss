@@ -7,13 +7,17 @@
   grid-template-columns: 1fr minmax(auto, 724px) minmax(auto, 300px) 1fr;
   height: rem(120);
   margin: 0 auto;
-  /* padding: 0 rem(200); */
-  /* max-width: rem(1440); */
+  padding: 0 rem(30);
   position: sticky;
   top: 0;
   background-color: $white;
   z-index: 2;
   transition: box-shadow .5s;
+
+  @include mq($bk-s) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 
   &Shadow {
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
@@ -25,6 +29,10 @@
     flex: 1;
     font-weight: 700;
     grid-column: 2;
+
+    @include mq($bk-s) {
+      display: none;
+    }
   }
 
   .list {
@@ -34,6 +42,10 @@
     grid-column: 3;
     padding: 0;
 
+    @include mq($bk-s) {
+      grid-column: 1;
+    }
+
     .item {
       color: $primary;
       font-weight: 400;
@@ -41,7 +53,7 @@
     }
 
     .item:nth-child(2){
-      margin: 0 clamp(10px, 2vw, rem(32));
+      margin: 0 clamp(10px, 6vw, rem(32));
     }
   }
 }

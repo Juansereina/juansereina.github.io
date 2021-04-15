@@ -11,6 +11,26 @@
     width: 100%;
     height: $background-height;
     clip-path: polygon(0 0, 10% 10%, 100% 100%, 0 100%);
+
+    @include mq($bk-m) {
+      $background-height: rem(80);
+      height: $background-height;
+    }
+
+    @include mq($bk-s) {
+      $background-height: rem(60);
+      height: $background-height;
+    }
+  }
+
+  @include mq($bk-m) {
+    $background-height: rem(80);
+    margin-top: - $background-height;
+  }
+
+  @include mq($bk-s) {
+    $background-height: rem(60);
+    margin-top: - $background-height;
   }
 
   .backgroundBottom  {
@@ -19,11 +39,14 @@
 
   .text {
     margin: 0;
-    font-size: rem(18);
     line-height: rem(36);
     font-weight: $font-light;
     max-width: rem(1024);
     text-align: center;
+
+    @include mq($bk-m) {
+      text-align: left;
+    }
   }
 
   .content {
@@ -34,6 +57,6 @@
     position: relative;
     background-color: $secondary;
     z-index: 1;
-    height: rem(360);
+    padding: rem(30);
   }
 }

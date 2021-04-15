@@ -13,7 +13,7 @@ const data = {
 
 
 const App = () => {
-  const language = 'es' // navigator.language.split(/[-_]/)[0];
+  const language = navigator.language.split(/[-_]/)[0];
 
   return  (
     <IntlProvider locale={language} messages={data[language]}>

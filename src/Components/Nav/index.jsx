@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import styles from './styles.scss';
 
 export default () => {
@@ -33,9 +34,9 @@ export default () => {
     <nav className={styles.root} ref={ref}>
       <span className={styles.logo} onClick={handleClick} data-value="hero">&#60;JSR&#62;</span>
       <ul className={styles.list}>
-        <li className={styles.item} onClick={handleClick} data-value="about">About</li>
-        <li className={styles.item} onClick={handleClick} data-value="work">Work Experience</li>
-        <li className={styles.item} onClick={handleClick} data-value="contact">Contact</li>
+        <li className={styles.item} onClick={handleClick} data-value="about"><FormattedMessage id="nav.about" /></li>
+        <li className={styles.item} onClick={handleClick} data-value="work"><FormattedMessage id="nav.work" /></li>
+        <li className={styles.item} onClick={handleClick} data-value="contact"><FormattedMessage id="nav.contact" /></li>
       </ul>
     </nav>
   );

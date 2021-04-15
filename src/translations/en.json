@@ -1,5 +1,9 @@
 {
   "about": "Hi I’m Juanse, graduated as designer and web developer as my current profession with over 4 years of experience using HTML, CSS and JavaScript as my programming tools, I’m based on Sabaneta, Colombia. I have good and active knowledge of React, Redux, Webpack and the ecosystem around these technologies. I have good communication skills, I’ve work in multiple projects with different people from many different places and cultures. I have very  good English level and I’ve used agile methodologies such as Scrum and Kanban. My development knowledge and design knowledge allow me to transform designs and ideas from my partners and I into a digital product like web/app",
+  "nav.about": "About",
+  "nav.work": "Work Experience",
+  "nav.contact": "Contact",
+  "download": "Dwonload CV",
   "experience.huge": "Huge",
   "experience.huge.1": "I’m web developer for Google. I’m in charge of maintaining and implementing new design feature to improve the user experience in different websites and web apps that have a high volumen of users per day, also, I have to keep high accessibility standards and performance in order to be accessible around the world.",
   "experience.huge.2": "I develop reusable and responsive components to visualize different multimedia content.",

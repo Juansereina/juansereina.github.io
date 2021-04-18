@@ -41,7 +41,7 @@
     }
 
     &:hover {
-      color: var(--secondary);
+      color: var(--nav-text-hover);
     }
   }
 
@@ -62,7 +62,7 @@
     transition: color .2s ease-in-out;
 
     &::after {
-      background-color: var(--secondary);
+      background-color: var(--nav-text-hover);
       content: ' ';
       display: block;
       height: rem(2);
@@ -72,7 +72,7 @@
     }
 
     &:hover {
-      color: var(--secondary);
+      color: var(--nav-text-hover);
     }
 
     &:hover::after {

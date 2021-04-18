@@ -6,17 +6,14 @@ import locale_en from "../translations/en.json";
 import locale_es from "../translations/es.json";
 import './styles.scss';
 
-const data = {
-  'es': locale_es,
-  'en': locale_en
-};
-
-
 const App = () => {
   const language = navigator.language.split(/[-_]/)[0];
+  const isSpanish = language === 'es';
+  const locale = isSpanish ? language : 'en';
+  const messages = isSpanish ? locale_es : locale_en;
 
   return  (
-    <IntlProvider locale={language} messages={data[language]}>
+    <IntlProvider locale={locale} messages={messages}>
       <Meta />
       <Home />
     </IntlProvider>

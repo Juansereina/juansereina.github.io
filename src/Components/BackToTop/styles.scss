@@ -1,17 +1,21 @@
 @import '../Common/scss/mixin.scss';
 
 .root {
-  cursor: pointer;
   background-color: $white;
+  border-radius: 100%;
+  bottom: 5%;
+  color: $primary;
+  cursor: pointer;
+  opacity: 0;
   padding: rem(10) rem(14);
   position: fixed;
   right: 5%;
-  bottom: 5%;
-  opacity: 0;
   transition: opacity .3s;
-  border-radius: 100%;
   z-index: 1;
-  color: $primary;
+
+  &:hover {
+    color: $secondary;
+  }
 
   &.visible {
     opacity: 1;

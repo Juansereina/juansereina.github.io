@@ -1,12 +1,13 @@
-$primary: #5439DC;
-$secondary: #2C2060;
+@import '../scss/functions.scss';
+
+$primary: #5439dc;
+$secondary: #2c2060;
 $typography-color: #707070;
-$white: white;
-$html-font-size: 16px;
-$font: 'Kumbh Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+$white: #fff;
+$font: 'Kumbh Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
 $font-regular: 400;
 $font-bold: 700;
 $font-light: 300;
-$bk-l: 1024px;
-$bk-m: 830px;
-$bk-s: 600px;
+$bk-l: rem(1024);
+$bk-m: rem(830);
+$bk-s: rem(600);

@@ -9,7 +9,7 @@ export default () => {
     const scrollCallBack = () => {
       // sets the boxshadow at the bottom of the nav
       const isNavAtTop = window.scrollY === 0;
-      ref.current.classList.toggle(styles.rootShadow, !isNavAtTop);
+      ref.current.classList.toggle(styles.shadow, !isNavAtTop);
     }
 
     window.addEventListener('scroll', scrollCallBack)

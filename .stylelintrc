@@ -6,6 +6,7 @@
     }],
     "indentation": [2],
     "number-leading-zero": null,
-    "unit-whitelist": ["em", "rem", "%", "s", "fr", "vh", "deg"]
+    "unit-whitelist": ["em", "rem", "%", "s", "fr", "vh", "vw", "deg"],
+    "max-nesting-depth": 2
   }
 }

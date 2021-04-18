@@ -47,11 +47,11 @@
     font-weight: $font-light;
   }
 
-  .item::marker {
-    content: '👨‍💻';
-  }
-
   .item {
     margin-bottom: rem(10);
+
+    &::marker {
+      content: '👨‍💻 \00a0';
+    }
   }
 }

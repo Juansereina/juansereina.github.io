@@ -2,58 +2,82 @@
 
 .root {
   align-items: center;
+  background-color: $white;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 1fr minmax(auto, 724px) minmax(auto, 300px) 1fr;
+  grid-template-columns: 1fr minmax(auto, rem(724)) minmax(auto, rem(300)) 1fr;
   height: rem(120);
   margin: 0 auto;
   padding: 0 rem(30);
   position: sticky;
   top: 0;
-  background-color: $white;
-  z-index: 2;
   transition: box-shadow .5s;
+  z-index: 2;
 
   @include mq($bk-s) {
     grid-template-columns: 1fr;
     justify-items: center;
   }
 
-  &Shadow {
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+  &.shadow {
+    box-shadow: 0 rem(3) rem(5) 0 rgba(0, 0, 0, .1);
   }
 
   .logo {
-    cursor: pointer;
     color: $primary;
+    cursor: pointer;
     flex: 1;
-    font-weight: 700;
+    font-weight: $font-bold;
     grid-column: 2;
+    transition: color .2s ease-in-out;
 
     @include mq($bk-s) {
       display: none;
+    }
+
+    &:hover {
+      color: $secondary;
     }
   }
 
   .list {
     display: flex;
+    grid-column: 3;
     list-style: none;
     margin: 0;
-    grid-column: 3;
     padding: 0;
 
     @include mq($bk-s) {
       grid-column: 1;
     }
+  }
 
-    .item {
-      color: $primary;
-      font-weight: 400;
-      cursor: pointer;
+  .item {
+    color: $primary;
+    cursor: pointer;
+    font-weight: 400;
+    transition: color .2s ease-in-out;
+
+    &::after {
+      background-color: $secondary;
+      content: ' ';
+      display: block;
+      height: rem(2);
+      margin: 0 auto;
+      transition: width .2s ease-in-out;
+      width: 0;
     }
 
-    .item:nth-child(2){
-      margin: 0 clamp(10px, 6vw, rem(32));
+    &:hover {
+      color: $secondary;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      margin: 0 clamp(rem(10), 6vw, rem(32));
     }
   }
 }

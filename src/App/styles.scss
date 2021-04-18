@@ -44,9 +44,9 @@ h1 {
   }
 }
 
-h2{
-  font-weight: $font-light;
+h2 {
   font-size: rem(38);
+  font-weight: $font-light;
 
   @include mq($bk-m) {
     font-size: rem(34);
@@ -55,4 +55,8 @@ h2{
   @include mq($bk-s) {
     font-size: rem(30);
   }
+}
+
+strong {
+  font-weight: $font-bold;
 }

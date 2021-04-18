@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const description = 'Juan Sebastian interactive media designer passionate about the development of interactive elements, design and dance :)';
 const Meta = () => (
   <Helmet>
     <meta charSet="UTF-8" />
@@ -13,13 +12,9 @@ const Meta = () => (
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="500" />
     <meta property="og:image:alt" content="Juan Sebastian - FrontEnd developer" />
-    <meta
-    property="og:description"
-    content={description}
-    />
-    <meta property="og:locale" content="es_CO" />
-    <meta name="theme-color" content="#02162b"/>
-    <meta name="Description" content="Personal Portfolio of Juan Sebastián Reina - DMI"/>
+    <meta property="og:description" content="Juansereina interactive media designer and FrontEnd developer" />
+    <meta property="og:locale" content="es-CO" />
+    <meta name="theme-color" content="#5439dc"/>
   </Helmet>
 );
 

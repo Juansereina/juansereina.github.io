@@ -25,6 +25,6 @@ module.exports = {
     { test: /\.(woff|woff2)$/, use: 'url-loader?prefix=font/&limit=5000' },
     { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
     { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml' },
-    { test: /\.(jp|pn)g$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'images/' } }] }
+    { test: /\.(jpg|png|webp)$/, use: [{ loader: 'file-loader', options: { name: '[name].[ext]', outputPath: 'images/' } }] }
   ],
 };

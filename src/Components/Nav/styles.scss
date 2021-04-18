@@ -30,6 +30,7 @@
     font-weight: var(--font-bold);
     grid-column: 2;
     transition: color .2s ease-in-out;
+    width: max-content;
 
     @include mq($bk-m) {
       font-size: rem(28);

@@ -1,9 +1,9 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import styles from "./styles.scss";
-import imageOne from "../../Assets/image-1.jpg";
-import imageTwo from "../../Assets/image-2.jpg";
-import imageThree from "../../Assets/image-3.jpg";
+import imageOne from "../../Assets/image-1.webp";
+import imageTwo from "../../Assets/image-2.webp";
+import imageThree from "../../Assets/image-3.webp";
 
 export default ({ id }) => {
   const formatValues = { strong: chunk => <strong>{chunk}</strong> }
@@ -11,7 +11,7 @@ export default ({ id }) => {
   return (
     <div id={id} className={styles.root}>
       <div className={styles.imageContainer}>
-        <img src={imageOne} className={styles.image} />
+        <img src={imageOne} className={styles.image} alt="A cup of coffee and a keyboard" />
       </div>
       <section className={styles.content}>
         <h3 className={styles.title}>
@@ -67,10 +67,10 @@ export default ({ id }) => {
         </p>
       </section>
       <div className={styles.imageContainer}>
-        <img src={imageTwo} className={styles.image} values={formatValues}/>
+        <img src={imageTwo} className={styles.image} values={formatValues} alt="Screenshot of Visual Studio Code"/>
       </div>{" "}
       <div className={styles.imageContainer}>
-        <img src={imageThree} className={styles.image} values={formatValues}/>
+        <img src={imageThree} className={styles.image} values={formatValues} alt="A Mac laptop computer" />
       </div>
       <section className={styles.content}>
         <h3 className={styles.title}>

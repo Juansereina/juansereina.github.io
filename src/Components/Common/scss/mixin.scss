@@ -6,9 +6,3 @@
     @content;
   }
 }
-
-@mixin dark ($arg) {
-  @media (prefers-color-scheme: dark) {
-    @content;
-  }
-}

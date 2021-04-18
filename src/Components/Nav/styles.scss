@@ -2,7 +2,7 @@
 
 .root {
   align-items: center;
-  background-color: var(--white);
+  background-color: var(--tertiary);
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr minmax(auto, rem(724)) minmax(auto, rem(300)) 1fr;

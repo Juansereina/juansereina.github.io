@@ -1,10 +1,11 @@
-@import '../scss/functions.scss';
+@import '../Scss/functions';
 
 :root {
   --primary: #5439dc;
   --secondary: #2c2060;
   --typography-color: #707070;
-  --white: #fff;
+  --typography-color-secondary: #fff;
+  --tertiary: #fff;
   --font: 'Kumbh Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
   --font-regular: 400;
   --font-bold: 700;

@@ -4,7 +4,7 @@
   display: flex;
 
   .icon {
-    color: var(--white);
+    color: var(--typography-color-secondary);
     font-size: rem(30);
     margin-left: rem(20);
 
@@ -15,7 +15,7 @@
     }
 
     &::after {
-      background-color: var(--white);
+      background-color: var(--tertiary);
       content: ' ';
       display: block;
       height: rem(2);

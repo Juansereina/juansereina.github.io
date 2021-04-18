@@ -1,6 +1,7 @@
 @import '../Components/common/Scss/mixin';
 
 body {
+  background-color: var(--tertiary);
   margin: 0;
   padding: 0;
 }
@@ -13,6 +14,7 @@ html {
 * {
   font-family: var(--font);
   line-height: 150%;
+  transition: all .2s ease-in-out;
 }
 
 a {
@@ -59,4 +61,13 @@ h2 {
 
 strong {
   font-weight: var(--font-bold);
+}
+
+:global {
+  .dark {
+    --primary: #00f8f8;
+    --secondary: #03989e;
+    --typography-color: #fff;
+    --tertiary: #000;
+  }
 }

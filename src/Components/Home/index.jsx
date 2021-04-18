@@ -5,6 +5,8 @@ import About from "../About";
 import Footer from "../Footer";
 import Work from "../Work";
 import BackToTop from "../BackToTop";
+import DarkMode from "../DarkMode";
+import styles from './styles.scss';
 
 const Home = () => (
   <>
@@ -15,7 +17,10 @@ const Home = () => (
       <Work id="work" />
     </main>
     <Footer id="contact" />
-    <BackToTop />
+    <div className={styles.buttons}>
+      <BackToTop />
+      <DarkMode />
+    </div>
   </>
 );
 

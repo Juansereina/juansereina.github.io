@@ -37,6 +37,7 @@
   }
 
   .text {
+    color: var(--typography-color-secondary);
     font-weight: var(--font-light);
     line-height: rem(36);
     margin: 0;
@@ -50,7 +51,7 @@
   .content {
     align-items: center;
     background-color: var(--secondary);
-    color: var(--white);
+    color: var(--tertiary);
     display: grid;
     gap: rem(15);
     grid-template-columns: minmax(auto, rem(650));

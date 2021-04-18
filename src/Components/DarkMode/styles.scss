@@ -1,0 +1,39 @@
+@import '../Common/Scss/mixin';
+
+.root {
+  $size: 16;
+
+  align-items: center;
+  background-color: var(--tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: rem(40);
+  justify-content: center;
+  width: rem(40);
+
+  .sun,
+  .moon {
+    background-color: var(--primary);
+    border-radius: 50%;
+    height: rem($size);
+    position: relative;
+    width: rem($size);
+
+    &::after {
+      background-color: var(--tertiary);
+      border-radius: 50%;
+      content: '';
+      height: rem($size - 5);
+      left: rem(-($size * .1));
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      width: rem($size - 5);
+    }
+  }
+
+  .sun::after {
+    content: none;
+  }
+}

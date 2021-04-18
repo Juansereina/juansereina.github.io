@@ -16,7 +16,7 @@
   }
 
   .content {
-    color: var(--white);
+    color: var(--tertiary);
     grid-column: 2;
 
     @include mq($bk-s) {
@@ -26,6 +26,7 @@
 
   .title,
   .subtitle {
+    color: var(--typography-color-secondary);
     margin: 0;
   }
 

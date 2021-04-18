@@ -1,16 +1,13 @@
 @import '../common/Scss/mixin';
 
 .root {
-  background-color: var(--white);
+  background-color: var(--tertiary);
   border-radius: 100%;
   bottom: 5%;
   color: var(--primary);
   cursor: pointer;
   opacity: 0;
   padding: rem(10) rem(14);
-  position: fixed;
-  right: 5%;
-  transition: opacity .3s;
   z-index: 1;
 
   &:hover {

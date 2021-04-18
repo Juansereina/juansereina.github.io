@@ -21,9 +21,9 @@
   ],
   "/main.js": "main.bundle.js",
   "/main.js.map": "main.bundle.js.map",
-  "/images/JuanReina.png": "images/JuanReina.png",
-  "/images/image-1.jpg": "images/image-1.jpg",
-  "/images/image-2.jpg": "images/image-2.jpg",
-  "/images/image-3.jpg": "images/image-3.jpg",
+  "/images/JuanReina.webp": "images/JuanReina.webp",
+  "/images/image-1.webp": "images/image-1.webp",
+  "/images/image-2.webp": "images/image-2.webp",
+  "/images/image-3.webp": "images/image-3.webp",
   "/index.html": "index.html"
 }

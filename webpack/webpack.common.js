@@ -22,7 +22,7 @@ module.exports ={
         chunkFilename: "[id].css"
       }),
       new HtmlWebpackPlugin({
-      title: 'Juan Sebastián Reina',
+      title: 'Juan Sebastián Reina - Portfolio',
       hash: true,
       template: path.resolve(__dirname, '../src/index.html'),
     }),
@@ -33,11 +33,11 @@ module.exports ={
         "short_name": "Juansereina",
         "name": "Juan Sebastián - Interactive Designer",
         "start_url": "./index.html",
-        "description": "Personal Portfolio of Juan Sebastián Reina",
+        "description": "Juan Sebastián Reina - Personal Portfolio",
         "display": "standalone",
         "lang": "en-US",
-        "theme_color": "#02162b",
-        "background_color": "#000000",
+        "theme_color": "#5439dc",
+        "background_color": "#fff",
         "icons": [{
           "src": "images/favicon.png",
           "sizes": "192x192",

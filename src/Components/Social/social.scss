@@ -15,7 +15,7 @@
     }
 
     &::after {
-      background-color: var(--tertiary);
+      background-color: var(--typography-color-secondary);
       content: ' ';
       display: block;
       height: rem(2);

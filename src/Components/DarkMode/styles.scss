@@ -33,6 +33,13 @@
     }
   }
 
+  &:hover {
+    .sun,
+    .moon {
+      background-color: var(--secondary);
+    }
+  }
+
   .sun::after {
     content: none;
   }

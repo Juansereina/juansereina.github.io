@@ -15,14 +15,11 @@
     margin-top: - $background-height;
   }
 
-  .bottom {
-    transform: rotate(180deg);
-  }
-
   .background {
     background-color: var(--primary);
     clip-path: polygon(0 0, 10% 10%, 100% 100%, 0 100%);
     height: $background-height;
+    margin-bottom: rem(-1);
     width: 100%;
 
     @include mq($bk-m) {
@@ -31,9 +28,15 @@
     }
 
     @include mq($bk-s) {
-      $background-height: rem(60);
+      $background-height: rem(50);
       height: $background-height;
     }
+  }
+
+  .bottom {
+    margin-bottom: 0;
+    margin-top: rem(-1);
+    transform: rotate(180deg);
   }
 
   .text {
@@ -51,6 +54,7 @@
   .content {
     align-items: center;
     background-color: var(--secondary);
+    border: rem(1) solid var(--secondary);
     color: var(--tertiary);
     display: grid;
     gap: rem(15);

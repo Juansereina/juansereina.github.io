@@ -14,7 +14,7 @@ export default () => {
   }
 
   useEffect(() => {
-    const storedMode = JSON.parse(localStorage.getItem(darkMode));
+    const storedMode = JSON.parse(localStorage.getItem(darkMode)) || isActive;
 
     document.querySelector('body').classList.toggle('dark', isDarkMode && storedMode);
   });

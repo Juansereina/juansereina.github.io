@@ -1,10 +1,10 @@
-@import '../Common/scss/mixin.scss';
+@import '../common/Scss/mixin';
 
 .root {
-  background-color: $white;
+  background-color: var(--white);
   border-radius: 100%;
   bottom: 5%;
-  color: $primary;
+  color: var(--primary);
   cursor: pointer;
   opacity: 0;
   padding: rem(10) rem(14);
@@ -14,7 +14,7 @@
   z-index: 1;
 
   &:hover {
-    color: $secondary;
+    color: var(--secondary);
   }
 
   &.visible {

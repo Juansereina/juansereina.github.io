@@ -1,8 +1,8 @@
-@import '../Common/scss/mixin.scss';
+@import '../common/Scss/mixin';
 
 .root {
   .container {
-    background-color: $secondary;
+    background-color: var(--secondary);
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr minmax(auto, rem(724)) minmax(auto, rem(300)) 1fr;
@@ -16,7 +16,7 @@
   }
 
   .content {
-    color: $white;
+    color: var(--white);
     grid-column: 2;
 
     @include mq($bk-s) {
@@ -44,7 +44,7 @@
   }
 
   .background {
-    background-color: $primary;
+    background-color: var(--primary);
     clip-path: polygon(0 0, 10% 10%, 100% 100%, 0 100%);
     height: rem(120);
     width: 100%;

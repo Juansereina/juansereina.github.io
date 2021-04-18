@@ -1,8 +1,8 @@
-@import '../Common/scss/mixin.scss';
+@import '../common/Scss/mixin';
 
 .root {
   align-items: center;
-  background-color: $white;
+  background-color: var(--white);
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr minmax(auto, rem(724)) minmax(auto, rem(300)) 1fr;
@@ -15,7 +15,6 @@
   z-index: 2;
 
   @include mq($bk-s) {
-    grid-template-columns: 1fr;
     justify-items: center;
   }
 
@@ -24,42 +23,45 @@
   }
 
   .logo {
-    color: $primary;
+    color: var(--primary);
     cursor: pointer;
     flex: 1;
-    font-weight: $font-bold;
+    font-size: rem(30);
+    font-weight: var(--font-bold);
     grid-column: 2;
     transition: color .2s ease-in-out;
 
+    @include mq($bk-m) {
+      font-size: rem(28);
+    }
+
     @include mq($bk-s) {
-      display: none;
+      font-size: rem(24);
     }
 
     &:hover {
-      color: $secondary;
+      color: var(--secondary);
     }
   }
 
   .list {
-    display: flex;
+    column-gap: clamp(rem(10), 6vw, rem(32));
+    display: grid;
+    grid-auto-flow: column;
     grid-column: 3;
     list-style: none;
     margin: 0;
     padding: 0;
-
-    @include mq($bk-s) {
-      grid-column: 1;
-    }
   }
 
   .item {
-    color: $primary;
+    color: var(--primary);
     cursor: pointer;
     font-weight: 400;
     transition: color .2s ease-in-out;
 
     &::after {
-      background-color: $secondary;
+      background-color: var(--secondary);
       content: ' ';
       display: block;
       height: rem(2);
@@ -69,15 +71,17 @@
     }
 
     &:hover {
-      color: $secondary;
+      color: var(--secondary);
     }
 
     &:hover::after {
       width: 100%;
     }
+  }
 
-    &:nth-child(2) {
-      margin: 0 clamp(rem(10), 6vw, rem(32));
+  .item:nth-child(3) {
+    @include mq($bk-s) {
+      display: none;
     }
   }
 }

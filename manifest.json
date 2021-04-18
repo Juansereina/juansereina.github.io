@@ -2,11 +2,11 @@
   "short_name": "Juansereina",
   "name": "Juan Sebastián - Interactive Designer",
   "start_url": "./index.html",
-  "description": "Personal Portfolio of Juan Sebastián Reina",
+  "description": "Juan Sebastián Reina - Personal Portfolio",
   "display": "standalone",
   "lang": "en-US",
-  "theme_color": "#02162b",
-  "background_color": "#000000",
+  "theme_color": "#5439dc",
+  "background_color": "#fff",
   "icons": [
     {
       "src": "images/favicon.png",

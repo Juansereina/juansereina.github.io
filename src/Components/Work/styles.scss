@@ -1,10 +1,10 @@
-@import '../Common/scss/mixin.scss';
+@import '../common/Scss/mixin';
 
 .root {
   display: grid;
-  grid-template-columns: 502px 502px;
-  justify-content: center;
   gap: rem(20);
+  grid-template-columns: repeat(2, rem(502));
+  justify-content: center;
 
   @include mq($bk-l) {
     grid-template-columns: 1fr;
@@ -16,35 +16,35 @@
   }
 
   .image {
-    position: absolute;
     height: 100%;
-    width: 100%;
     object-fit: cover;
     object-position: center;
+    position: absolute;
     top: 0;
+    width: 100%;
 
     &Container {
-      position: relative;
       height: max-content;
+      position: relative;
 
       &::before {
-        display: block;
         content: ' ';
-        width: 100%;
+        display: block;
         padding-top: 56.25%;
+        width: 100%;
       }
     }
   }
 
   .title {
-    color: $primary;
+    color: var(--primary);
     margin-top: 0;
   }
 
   .text,
   .item {
-    color: $typography-color;
-    font-weight: $font-light;
+    color: var(--typography-color);
+    font-weight: var(--font-light);
   }
 
   .item {

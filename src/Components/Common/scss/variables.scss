@@ -1,13 +1,17 @@
 @import '../scss/functions.scss';
 
-$primary: #5439dc;
-$secondary: #2c2060;
-$typography-color: #707070;
-$white: #fff;
-$font: 'Kumbh Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-$font-regular: 400;
-$font-bold: 700;
-$font-light: 300;
+:root {
+  --primary: #5439dc;
+  --secondary: #2c2060;
+  --typography-color: #707070;
+  --white: #fff;
+  --font: 'Kumbh Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-regular: 400;
+  --font-bold: 700;
+  --font-light: 300;
+}
+
+// Breakpoints
 $bk-l: rem(1024);
 $bk-m: rem(830);
 $bk-s: rem(600);

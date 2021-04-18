@@ -1,4 +1,4 @@
-@import '../Components/Common/scss/mixin.scss';
+@import '../Components/common/Scss/mixin';
 
 body {
   margin: 0;
@@ -11,7 +11,7 @@ html {
 }
 
 * {
-  font-family: $font;
+  font-family: var(--font);
   line-height: 150%;
 }
 
@@ -33,7 +33,7 @@ p {
 
 h1 {
   font-size: rem(42);
-  font-weight: $font-bold;
+  font-weight: var(--font-bold);
 
   @include mq($bk-m) {
     font-size: rem(38);
@@ -46,7 +46,7 @@ h1 {
 
 h2 {
   font-size: rem(38);
-  font-weight: $font-light;
+  font-weight: var(--font-light);
 
   @include mq($bk-m) {
     font-size: rem(34);
@@ -58,5 +58,5 @@ h2 {
 }
 
 strong {
-  font-weight: $font-bold;
+  font-weight: var(--font-bold);
 }

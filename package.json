@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Juansereina Portfolio",
   "main": "index.html",
   "author": "Juansereina",
@@ -9,7 +9,8 @@
     "juansereina",
     "portfolio",
     "react",
-    "sass"
+    "sass",
+    "webpack"
   ],
   "bugs": {
     "url": "https://github.com/Juansereina/portfolio/issues"

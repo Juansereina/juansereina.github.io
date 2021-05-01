@@ -15,6 +15,8 @@ const Meta = () => (
     <meta property="og:description" content="Juansereina interactive media designer and FrontEnd developer" />
     <meta property="og:locale" content="es-CO" />
     <meta name="theme-color" content="#5439dc"/>
+    <meta name="keywords" content="HTML, CSS, JavaScript, React, Developer, Frontend, CV, Curriculum Vitae, Portfolio" />
+    <meta name="author" content="Juansereina" />
   </Helmet>
 );
 

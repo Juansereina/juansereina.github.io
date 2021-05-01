@@ -37,6 +37,7 @@
   .social {
     grid-column: 3;
     justify-content: flex-end;
+    list-style: none;
 
     @include mq($bk-s) {
       grid-column: 1;

@@ -5,7 +5,7 @@ import styles from "./styles.scss";
 export default ({ id }) => {
 
   const formatValues = {
-    emoji: chunk => <span className={styles.emoji}>{chunk}</span>,
+    emoji: chunk => <span className={styles.emoji} aria-hidden="true">{chunk}</span>,
     strong: chunk => <strong>{chunk}</strong>
   }
 

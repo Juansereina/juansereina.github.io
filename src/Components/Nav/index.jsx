@@ -30,13 +30,31 @@ export default () => {
     });
   }
 
+  const handleKey = ({ keyCode, target }) => {
+    if(keyCode === 13) {
+      handleClick({ target });
+    }
+  }
+
   return (
     <nav className={styles.root} ref={ref}>
-      <span className={styles.logo} onClick={handleClick} data-value="hero">&#60;JSR&#62;</span>
+      <FormattedMessage id="nav.home">
+      { text => <span
+                  tabIndex="0"
+                  aria-label={text}
+                  role="link" className={styles.logo}
+                  onClick={handleClick}
+                  onKeyUp={handleKey}
+                  data-value="hero">
+                    &#60;JSR&#62;
+                </span>
+      }
+      </FormattedMessage>
+      <span tabIndex="0" className={styles.skip} onClick={handleClick} onKeyUp={handleKey} data-value="about"><FormattedMessage id="nav.skip" /></span>
       <ul className={styles.list}>
-        <li className={styles.item} onClick={handleClick} data-value="about"><FormattedMessage id="nav.about" /></li>
-        <li className={styles.item} onClick={handleClick} data-value="work"><FormattedMessage id="nav.work" /></li>
-        <li className={styles.item} onClick={handleClick} data-value="contact"><FormattedMessage id="nav.contact" /></li>
+        <li tabIndex="0" className={styles.item} onClick={handleClick} onKeyUp={handleKey} data-value="about" role="link"><FormattedMessage id="nav.about" /></li>
+        <li tabIndex="0" className={styles.item} onClick={handleClick} onKeyUp={handleKey} data-value="work" role="link"><FormattedMessage id="nav.work" /></li>
+        <li tabIndex="0" className={styles.item} onClick={handleClick} onKeyUp={handleKey} data-value="contact" role="link"><FormattedMessage id="nav.contact" /></li>
       </ul>
     </nav>
   );

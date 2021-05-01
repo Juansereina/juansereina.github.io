@@ -1,9 +1,13 @@
 {
   "about.1": "Hola soy Juanse, <strong>diseñador</strong> <emoji>👨‍🎨</emoji> y <strong>desarrollador web</strong> <emoji>👨‍💻</emoji> de profesión con más de 4 años de experiencia utilizando <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong> como mis herramientas de trabajo <emoji>🛠</emoji>. Tengo un conocimiento actualizado de <strong>React</strong>, <strong>Redux</strong>, <strong>Webpack</strong> y el ecosistema al rededor de estas tecnologías",
   "about.2": "Tengo buenas habilidades de comunicación, un nivel de inglés avanzado <emoji>🤓</emoji> y he trabajo con metodologías como <strong>Scrum</strong> y <strong>Kanban</strong>. Mis habilidades en desarrollo y conocimientos de diseño me permiten convertir diseños e ideas creativas en producto digitales como web/aplicaciones. <emoji>🚀</emoji>",
+  "nav.home": "Inicio",
   "nav.about": "Sobre mi",
   "nav.work": "Experiencia",
   "nav.contact": "Contacto",
+  "nav.skip": "Saltar al contenido",
+  "nav.top": "Ir arriba",
+  "nav.dark": "Modo oscuro",
   "download": "Hoja de vida",
   "experience.huge": "Huge",
   "experience.huge.1": "Soy desarrollador web en proyectos para <strong>Google</strong>. Estoy encargado de <strong>mantener</strong> e <strong>implementar</strong> nuevos diseños para mejorar la <strong>experiencia de usuario</strong> en páginas y aplicaciones que reciben una gran cantidad de visitas diarias, conservando la <strong>accesibilidad</strong> y alto nivel <strong>rendimiento</strong> para poder llegar a usuarios en todo el mundo.",

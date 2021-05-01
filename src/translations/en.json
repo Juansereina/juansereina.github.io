@@ -1,9 +1,13 @@
 {
   "about.1": "Hi I’m Juanse, I’m a <strong>designer</strong> <emoji>👨‍🎨</emoji> and <strong>web developer</strong> <emoji>👨‍💻</emoji> as my current profession with over 4 years of experience using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> as my programming tools <emoji>🛠</emoji>. I have an active knowledge of <strong>React</strong>, <strong>Redux</strong>, <strong>Webpack</strong>, and the ecosystem around these technologies.",
   "about.2": "I have good communication skills and a very good English level <emoji>🤓</emoji> and I’ve used agile methodologies such as <strong>Scrum</strong> and <strong>Kanban</strong>. My development knowledge and design knowledge allow me to transform designs and creative ideas into digital products like web/apps. <emoji>🚀</emoji>",
+  "nav.home": "Home",
   "nav.about": "About",
   "nav.work": "Work Experience",
   "nav.contact": "Contact",
+  "nav.skip": "Skip to content",
+  "nav.top": "Back to top",
+  "nav.dark": "Dark mode",
   "download": "Download CV",
   "experience.huge": "Huge",
   "experience.huge.1": "I’m Web Developer for <strong>Google</strong>. I’m in charge of <strong>maintaining</strong> and <strong>implementing</strong> new design feature to improve the <strong>user experience</strong> in different websites and web apps that have a high volume of users per day, also, I have to keep high <strong>accessibility</strong> standards and <strong>performance</strong> in order to be accessible around the world.",

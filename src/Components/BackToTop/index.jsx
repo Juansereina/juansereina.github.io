@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import FontAwesome from "react-fontawesome";
+import { FormattedMessage } from 'react-intl';
 import styles from './styles.scss';
 
 export default () => {
@@ -9,6 +10,12 @@ export default () => {
       top: 0,
       behavior: 'smooth'
     });
+  }
+
+  const handleKey = ({ keyCode, target }) => {
+    if(keyCode === 13) {
+      handleClick({ target });
+    }
   }
 
   useEffect(() => {
@@ -23,7 +30,20 @@ export default () => {
     return () => window.removeEventListener('scroll', scrollCallBack);
   });
 
-  return <div onClick={handleClick} className={styles.root} data-value="hero" ref={ref}>
-    <FontAwesome name="arrow-up"/>
-  </div>;
+  return (
+    <FormattedMessage id="nav.top">
+      {
+        text => <div aria-label={text}
+                     onClick={handleClick}
+                     onKeyUp={handleKey}
+                     className={styles.root}
+                     data-value="hero"
+                     ref={ref}
+                     role="button"
+                     tabIndex="0">
+                 <FontAwesome name="arrow-up"/>
+                </div>
+      }
+    </FormattedMessage>
+  );
 }

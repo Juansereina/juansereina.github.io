@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from 'react-intl';
 import styles from "./social.scss";
 import SocialIcon from "./icon";
 
@@ -18,9 +19,13 @@ const iconsData = [
 ];
 
 const Social = ({ className }) => (
-  <div className={`${styles.root} ${className}`}>
-    {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={styles.icon} />)}
-  </div>
+  <FormattedMessage id="nav.contact">
+    {
+      text => <ul className={`${styles.root} ${className}`} aria-label={text}>
+                {iconsData.map((icon, index) => <SocialIcon key={index + icon.name} {...icon} styles={styles.icon} />)}
+             </ul>
+    }
+  </FormattedMessage>
 );
 
 export default Social;

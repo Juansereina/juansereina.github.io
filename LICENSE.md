@@ -1,2 +1,2 @@
 
-Copyright (C) Juanse2296
+Copyright (C) Juansereina

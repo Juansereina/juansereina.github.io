@@ -1,9 +1,10 @@
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import styles from './styles.scss';
-import imageOne from '../../Assets/image-1.webp';
-import imageTwo from '../../Assets/image-2.webp';
-import imageThree from '../../Assets/image-3.webp';
+import imageLeanTech from '../../Assets/lean-tech.webp';
+import imageHuge from '../../Assets/image-1.webp';
+import imagePsl from '../../Assets/image-2.webp';
+import imageFreelance from '../../Assets/image-3.webp';
 
 const formatValues = { strong: (chunk) => <strong>{chunk}</strong> };
 const getExperience = (value, target) => {
@@ -35,14 +36,16 @@ const Work = ({ experience, isCurrent, image }) => {
           <FormattedMessage id={summary} values={formatValues} />
         </p>
         <ul className={styles.list}>
-          {list.map(
-            (item, index) =>
-              index !== last && (
+          {list.map((item, index) => {
+            const lastItem = list.length - 1;
+            return (
+              index !== lastItem && (
                 <li key={`item-${index}`} className={styles.item}>
                   <FormattedMessage id={item} values={formatValues} />
                 </li>
               )
-          )}
+            );
+          })}
         </ul>
         <p className={styles.text}>
           <FormattedMessage id={lastText} values={formatValues} />
@@ -55,9 +58,10 @@ const Work = ({ experience, isCurrent, image }) => {
 export default ({ id }) => {
   return (
     <div id={id} className={styles.root}>
-      <Work experience="huge" image={imageOne} isCurrent />
-      <Work experience="psl" image={imageTwo} />
-      <Work experience="freelance" image={imageThree} />
+      <Work experience="lean" image={imageLeanTech} isCurrent />
+      <Work experience="huge" image={imageHuge} />
+      <Work experience="psl" image={imagePsl} />
+      <Work experience="freelance" image={imageFreelance} />
     </div>
   );
 };

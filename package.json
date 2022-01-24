@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Juansereina/portfolio/issues"
   },
-  "homepage": "https://juansereina.github.io",
+  "homepage": "https://juansereina.com",
   "scripts": {
     "build": "rm -rf build && webpack --config ./webpack/webpack.prod.js --mode production",
     "build-analyzer": "set NODE_ANALYZER=true && npm run build",

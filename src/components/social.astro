@@ -1,0 +1,13 @@
+---
+export interface Props {
+  classes?: string;
+}
+
+const { classes } = Astro.props;
+---
+
+<div class={`text-white flex gap-4 ${classes} max-w-max`}>
+  <i class="fa-brands fa-linkedin"></i>
+  <i class="fa-brands fa-twitter"></i>
+  <i class="fa-brands fa-github"></i>
+</div>

@@ -1,12 +1,11 @@
 ---
 export interface Props {
   classes: string;
-  text: string;
 }
 
-const { classes, text } = Astro.props;
+const { classes } = Astro.props;
 ---
 
 <h3 class={`text-lg text-white ${classes}`}>
-  {text}
+  <slot />
 </h3>

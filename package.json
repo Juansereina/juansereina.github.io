@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "description": "Juansereina Portfolio",
+  "author": "Juansereina",
+  "license": "ISC",
+  "keywords": [
+    "juansereina",
+    "portfolio",
+    "Astro"
+  ],
+  "homepage": "https://juansereina.com",
+  "type": "module",
+  "version": "3.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.0.18"
+  }
+}

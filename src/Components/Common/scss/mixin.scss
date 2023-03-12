@@ -1,8 +1,0 @@
-@import './variables';
-@import './functions';
-
-@mixin mq ($arg) {
-  @media all and (max-width: $arg) {
-    @content;
-  }
-}

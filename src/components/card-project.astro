@@ -1,4 +1,5 @@
 ---
+import P from './p.astro';
 export interface Props {
   title: string;
   href: string;
@@ -9,9 +10,9 @@ const { href, title } = Astro.props;
 
 <li class="w-full bg-white bg-opacity-10 p-2 rounded">
   <a href={href} class="w-full text-white flex items-center">
-    <p class="flex-1">
+    <P classes="flex-1">
       {title}
-    </p>
+    </P>
     <i class="fa-solid fa-circle-arrow-right"></i>
   </a>
 </li>

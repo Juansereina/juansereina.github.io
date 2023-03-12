@@ -2,25 +2,19 @@
 import Layout from '../layouts/general.astro';
 import Blog from '../components/card-blog.astro';
 import Project from '../components/card-project.astro';
-import H2 from '../components/h-2.astro';
+import H2 from '../components/h2.astro';
 import H1 from '../components/h1.astro';
+import P from '../components/p.astro';
 import Social from '../components/social.astro';
+import Nav from '../components/nav.astro';
 ---
 
 <Layout title="Juansereina">
-  <nav class="text-lg sm:text-xl flex font-medium mb-10">
-    <span
-      class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300 flex-1"
-      >Juansereina</span
-    >
-    <ul class="text-white flex gap-4">
-      <li>Blog</li>
-    </ul>
-  </nav>
-  <main class="mb-8">
+  <Nav />
+  <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
-    <div class="text-white mb-8">
-      <H1 classes="text-center mb-4">
+    <div class="text-white mb-8 sm:mb-10">
+      <H1 classes="text-center md:text-start mb-4 md:mb-6">
         Hola, soy
         <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300"
@@ -28,22 +22,26 @@ import Social from '../components/social.astro';
         >
         👋
       </H1>
-      <p class="max-w-md mb-4">
+      <P classes="max-w-md mb-4 md:mb-6">
         Soy <strong>Web Developer</strong>, aquí comparto algunas ideas sobre
         cosas creativas con código, libros y temas de mi interes 🤪 🍔
-      </p>
-      <Social classes="text-2xl" />
+      </P>
+      <Social />
     </div>
     <!-- End -->
     <!-- Post -->
     <div class="flex items-baseline">
-      <H2 text="Últimos" strongText="Posts" classes="flex flex-1 mb-4" />
+      <H2
+        text="Últimos"
+        strongText="Posts"
+        classes="flex flex-1 mb-4 md:mb-6"
+      />
       <span class="text-white">
         Ver todos
         <i class="fa-solid fa-circle-arrow-right text-sm"></i>
       </span>
     </div>
-    <ul class="flex flex-col gap-4 mb-8">
+    <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       <Blog title="Mi primer blog" href="/#" />
       <Blog title="Otro blog" href="/#" />
       <Blog title="Este fue un buen intento" href="/#" />
@@ -61,7 +59,7 @@ import Social from '../components/social.astro';
     <!-- End -->
   </main>
   <footer>
-    <hr class="mb-4" />
-    <Social classes="text-2xl ml-auto" />
+    <hr class="mb-4 md:mb-6" />
+    <Social classes="ml-auto" />
   </footer>
 </Layout>

@@ -5,6 +5,7 @@ import Project from '../components/card-project.astro';
 import H2 from '../components/h2.astro';
 import H1 from '../components/h1.astro';
 import P from '../components/p.astro';
+import A from '../components/a.astro';
 import Social from '../components/social.astro';
 import Nav from '../components/nav.astro';
 ---
@@ -14,7 +15,7 @@ import Nav from '../components/nav.astro';
   <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
     <div class="text-white mb-8 sm:mb-10">
-      <H1 classes="text-center md:text-start mb-4 md:mb-6">
+      <H1 classes="text-center md:text-start mb-4 md:mb-6 lg:mb-8">
         Hola, soy
         <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300"
@@ -22,7 +23,7 @@ import Nav from '../components/nav.astro';
         >
         👋
       </H1>
-      <P classes="max-w-md mb-4 md:mb-6">
+      <P classes="max-w-md mb-4 md:mb-6 lg:mb-8">
         Soy <strong>Web Developer</strong>, aquí comparto algunas ideas sobre
         cosas creativas con código, libros y temas de mi interes 🤪 🍔
       </P>
@@ -34,12 +35,14 @@ import Nav from '../components/nav.astro';
       <H2
         text="Últimos"
         strongText="Posts"
-        classes="flex flex-1 mb-4 md:mb-6"
+        classes="flex flex-1 mb-4 md:mb-6 lg:mb-8"
       />
-      <span class="text-white">
-        Ver todos
-        <i class="fa-solid fa-circle-arrow-right text-sm"></i>
-      </span>
+      <A href="">
+        <span class="text-white">
+          Ver todos
+          <i class="fa-solid fa-circle-arrow-right text-sm"></i>
+        </span>
+      </A>
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       <Blog title="Mi primer blog" href="/#" />
@@ -59,7 +62,7 @@ import Nav from '../components/nav.astro';
     <!-- End -->
   </main>
   <footer>
-    <hr class="mb-4 md:mb-6" />
+    <hr class="mb-4 md:mb-6 lg:mb-8" />
     <Social classes="ml-auto" />
   </footer>
 </Layout>

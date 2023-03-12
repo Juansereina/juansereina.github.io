@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from '../layouts/general.astro';
+import Card from '../components/card-blog.astro';
 import H2 from '../components/h-2.astro';
 ---
 
@@ -21,7 +21,8 @@ import H2 from '../components/h-2.astro';
         Hola, soy <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300"
           >Juansereina</span
-        >👋
+        >
+        👋
       </h1>
       <p class="max-w-md mt-8">
         Soy <strong>Web Developer</strong>, aquí comparto algunas ideas sobre
@@ -35,11 +36,19 @@ import H2 from '../components/h-2.astro';
       </div>
     </div>
     <div class="mt-14 flex items-baseline">
-      <H2 text="Últimos post" classes="flex flex-1" />
-      <span class="text-white"
-        >Ver todos <i class="fa-solid fa-circle-arrow-right text-base"
-        ></i></span
-      >
+      <H2 text="Últimos" strongText="Post" classes="flex flex-1" />
+      <span class="text-white">
+        Ver todos
+        <i class="fa-solid fa-circle-arrow-right text-base"></i>
+      </span>
+    </div>
+    <ul class="flex gap-4 mt-4">
+      <Card title="Mi primer blog" href="/#" />
+      <Card title="Otro blog" href="/#" />
+      <Card title="Este fue un buen intento" href="/#" />
+    </ul>
+    <div class="mt-14">
+      <H2 text="Más recientes" strongText="Proyectos" classes="flex flex-1" />
     </div>
   </main>
 </Layout>

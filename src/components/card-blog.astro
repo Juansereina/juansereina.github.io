@@ -1,4 +1,5 @@
 ---
+import H3 from './h3.astro';
 export interface Props {
   title: string;
   href: string;
@@ -8,16 +9,14 @@ const { href, title } = Astro.props;
 ---
 
 <li class="w-ful text-gray-400">
-  <a href={href} class="w-full">
+  <a href={href} class="w-full text-sm">
     <img
-      class="w-full rounded mb-4"
+      class="w-full rounded mb-2"
       src="https://placehold.co/600x400"
       alt=""
     />
-    <time class="" datetime="2018-07-07T20:00:00">Noviembre 5, 2021</time>
+    <time datetime="2018-07-07T20:00:00">Noviembre 5, 2021</time>
     <span>— 6 min read</span>
-    <h3 class="mt-4 text-2xl text-white">
-      {title}
-    </h3>
+    <H3 classes="mt-2" text={title} />
   </a>
 </li>

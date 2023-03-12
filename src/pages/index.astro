@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/general.astro';
 import Blog from '../components/card-blog.astro';
 import Project from '../components/card-project.astro';
@@ -8,6 +9,8 @@ import P from '../components/p.astro';
 import A from '../components/a.astro';
 import Social from '../components/social.astro';
 import Nav from '../components/nav.astro';
+
+const blogs = await getCollection('blog');
 ---
 
 <Layout title="Juansereina">
@@ -45,9 +48,11 @@ import Nav from '../components/nav.astro';
       </A>
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
-      <Blog title="Mi primer blog" href="/#" />
-      <Blog title="Otro blog" href="/#" />
-      <Blog title="Este fue un buen intento" href="/#" />
+      {
+        blogs.map((blog) => (
+          <Blog title={blog.data.title} href={`/${blog.slug}`} />
+        ))
+      }
     </ul>
     <!-- End -->
     <!-- Projects -->

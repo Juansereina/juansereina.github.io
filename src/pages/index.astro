@@ -10,6 +10,12 @@ import A from '../components/common/a.astro';
 import Social from '../components/social.astro';
 
 const blogs = await getCollection('blog');
+const projects = [
+  {
+    title: 'Protérmico',
+    link: 'https://www.behance.net/gallery/66596359/Protermico-Project',
+  },
+];
 ---
 
 <Layout title="Juansereina">
@@ -58,9 +64,7 @@ const blogs = await getCollection('blog');
       <H2 text="Más recientes" strongText="Proyectos" classes="flex flex-1" />
     </div>
     <ul class="mt-4 flex flex-col gap-1">
-      <Project title="Prime" href="" />
-      <Project title="Prueba" href="" />
-      <Project title="Otra prueba" href="" />
+      {projects.map(({ title, link }) => <Project title={title} href={link} />)}
     </ul>
     <!-- End -->
   </main>

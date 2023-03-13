@@ -8,13 +8,11 @@ import H1 from '../components/common/h1.astro';
 import P from '../components/common/p.astro';
 import A from '../components/common/a.astro';
 import Social from '../components/social.astro';
-import Nav from '../components/nav.astro';
 
 const blogs = await getCollection('blog');
 ---
 
 <Layout title="Juansereina">
-  <Nav />
   <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
     <div class="text-white mb-8 sm:mb-10">
@@ -66,8 +64,4 @@ const blogs = await getCollection('blog');
     </ul>
     <!-- End -->
   </main>
-  <footer>
-    <hr class="mb-4 md:mb-6 lg:mb-8" />
-    <Social classes="ml-auto" />
-  </footer>
 </Layout>

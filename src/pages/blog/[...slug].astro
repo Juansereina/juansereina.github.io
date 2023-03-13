@@ -38,9 +38,14 @@ const { Content } = await entry.render();
     @apply text-white text-base sm:text-lg lg:sm:text-xl;
   }
 
+  pre {
+    @apply p-4 rounded;
+  }
+
   h1,
   h2,
-  p {
+  p,
+  pre {
     @apply mb-6 md:mb-8 lg:mb-10;
   }
 </style>

@@ -1,6 +1,6 @@
 ---
 title: Hola mi morchis
-isDraft: true
+draft: true
 ---
 
 # Por qué llueve tanto en Sabaneta

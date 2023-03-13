@@ -53,8 +53,14 @@ const projects = [
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       {
-        blogs.map((blog) => (
-          <Blog title={blog.data.title} href={`/blog/${blog.slug}`} />
+        blogs.map(({ data, slug }) => (
+          <Blog
+            title={data.title}
+            alt={data.image.alt}
+            src={data.image.src}
+            href={`/blog/${slug}`}
+            publishedAt={data.publishedAt}
+          />
         ))
       }
     </ul>

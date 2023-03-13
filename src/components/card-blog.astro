@@ -3,18 +3,19 @@ import H3 from './common/h3.astro';
 export interface Props {
   title: string;
   href: string;
+  src: string;
+  alt: string;
+  publishedAt: string;
 }
 
-const { href, title } = Astro.props;
+const { href, title, src, alt, publishedAt } = Astro.props;
+
+console.log({ publishedAt });
 ---
 
 <li class="w-ful text-gray-400">
   <a href={href} class="w-full text-sm sm:text-base">
-    <img
-      class="w-full rounded mb-2"
-      src="https://placehold.co/600x400"
-      alt=""
-    />
+    <img class="w-full rounded mb-2" src={src} alt={alt} />
     <time datetime="2018-07-07T20:00:00">Noviembre 5, 2021</time>
     <span>— 6 min read</span>
     <H3 classes="mt-2">{title}</H3>

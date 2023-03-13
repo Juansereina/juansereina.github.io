@@ -1,22 +1,28 @@
 ---
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
 import H3 from './common/h3.astro';
 export interface Props {
   title: string;
   href: string;
   src: string;
   alt: string;
-  publishedAt: string;
+  publishedAt: Date;
 }
 
 const { href, title, src, alt, publishedAt } = Astro.props;
 
-console.log({ publishedAt });
+const formatDate = (date: Date) => {
+  const dateFormat = 'dd MMM, yyyy';
+
+  return format(date, dateFormat, { locale: es });
+};
 ---
 
 <li class="w-ful text-gray-400">
   <a href={href} class="w-full text-sm sm:text-base">
     <img class="w-full rounded mb-2" src={src} alt={alt} />
-    <time datetime="2018-07-07T20:00:00">Noviembre 5, 2021</time>
+    <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
     <span>— 6 min read</span>
     <H3 classes="mt-2">{title}</H3>
   </a>

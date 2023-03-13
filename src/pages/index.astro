@@ -50,7 +50,7 @@ const blogs = await getCollection('blog');
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       {
         blogs.map((blog) => (
-          <Blog title={blog.data.title} href={`/${blog.slug}`} />
+          <Blog title={blog.data.title} href={`/blog/${blog.slug}`} />
         ))
       }
     </ul>

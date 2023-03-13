@@ -16,6 +16,14 @@ const projects = [
     link: 'https://www.behance.net/gallery/66596359/Protermico-Project',
   },
 ];
+
+function readingTime(post: string) {
+  const WORDS_PER_MINUTE = 200;
+  const regex = /\w+/g;
+  const wordCount = post.match(regex)?.length || 0;
+
+  return Math.ceil(wordCount / WORDS_PER_MINUTE);
+}
 ---
 
 <Layout title="Juansereina">
@@ -53,15 +61,18 @@ const projects = [
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       {
-        blogs.map(({ data, slug }) => (
-          <Blog
-            title={data.title}
-            alt={data.image.alt}
-            src={data.image.src}
-            href={`/blog/${slug}`}
-            publishedAt={data.publishedAt}
-          />
-        ))
+        blogs.map(({ data, slug, body }) => {
+          return (
+            <Blog
+              title={data.title}
+              alt={data.image.alt}
+              src={data.image.src}
+              href={`/blog/${slug}`}
+              publishedAt={data.publishedAt}
+              readingTime={readingTime(body)}
+            />
+          );
+        })
       }
     </ul>
     <!-- End -->

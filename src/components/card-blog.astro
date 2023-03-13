@@ -7,10 +7,11 @@ export interface Props {
   href: string;
   src: string;
   alt: string;
+  readingTime: number;
   publishedAt: Date;
 }
 
-const { href, title, src, alt, publishedAt } = Astro.props;
+const { href, title, src, alt, publishedAt, readingTime } = Astro.props;
 
 const formatDate = (date: Date) => {
   const dateFormat = 'dd MMM, yyyy';
@@ -23,7 +24,7 @@ const formatDate = (date: Date) => {
   <a href={href} class="w-full text-sm sm:text-base">
     <img class="w-full rounded mb-2" src={src} alt={alt} />
     <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
-    <span>— 6 min read</span>
+    <span>— {readingTime} mins de lectura</span>
     <H3 classes="mt-2">{title}</H3>
   </a>
 </li>

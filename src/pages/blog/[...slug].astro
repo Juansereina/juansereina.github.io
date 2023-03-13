@@ -21,8 +21,12 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
-  <Content />
+  <article>
+    <h1>{entry.data.title}</h1>
+    <main>
+      <Content />
+    </main>
+  </article>
 </Layout>
 
 <style is:global>

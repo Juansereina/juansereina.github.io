@@ -8,7 +8,7 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
 ---
 
 <Layout title="Blog">
-  <h1 class="mb-4">Blog</h1>
+  <h1 class="mb-4 leading-tight">Blog</h1>
   <ul>
     {
       blogs.map(({ data, slug, body }) => {

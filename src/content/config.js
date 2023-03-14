@@ -4,7 +4,7 @@ import { parse } from 'date-fns';
 const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    draft: z.boolean(),
+    draft: z.boolean().optional(),
     image: z.object({
       src: z.string(),
       alt: z.string(),

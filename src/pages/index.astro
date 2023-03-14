@@ -8,7 +8,7 @@ import Social from '../components/social.astro';
 import { readingTime } from '../utils';
 import projects from '../data/projects.json';
 
-const blogs = await getCollection('blog');
+const blogs = await getCollection('blog', (item) => !item.data.draft);
 ---
 
 <Layout title="Juansereina">

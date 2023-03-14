@@ -1,6 +1,5 @@
 ---
 title: Calcular tiempo de lectura en Javascript
-draft: true
 image:
   src: '../../../../public/images/reading-time.jpg'
   alt: 'Reloj de arena junto a tres dados'

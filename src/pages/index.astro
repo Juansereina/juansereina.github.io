@@ -8,6 +8,7 @@ import H1 from '../components/common/h1.astro';
 import P from '../components/common/p.astro';
 import A from '../components/common/a.astro';
 import Social from '../components/social.astro';
+import { readingTime } from '../utils';
 
 const blogs = await getCollection('blog');
 const projects = [
@@ -16,14 +17,6 @@ const projects = [
     link: 'https://www.behance.net/gallery/66596359/Protermico-Project',
   },
 ];
-
-function readingTime(post: string) {
-  const WORDS_PER_MINUTE = 200;
-  const regex = /\w+/g;
-  const wordCount = post.match(regex)?.length || 0;
-
-  return Math.ceil(wordCount / WORDS_PER_MINUTE);
-}
 ---
 
 <Layout title="Juansereina">
@@ -61,18 +54,20 @@ function readingTime(post: string) {
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       {
-        blogs.filter((_, index) => index < 3).map(({ data, slug, body }) => {
-          return (
-            <Blog
-              title={data.title}
-              alt={data.image.alt}
-              src={data.image.src}
-              href={`/blog/${slug}`}
-              publishedAt={data.publishedAt}
-              readingTime={readingTime(body)}
-            />
-          );
-        })
+        blogs
+          .filter((_, index) => index < 3)
+          .map(({ data, slug, body }) => {
+            return (
+              <Blog
+                title={data.title}
+                alt={data.image.alt}
+                src={data.image.src}
+                href={`/blog/${slug}`}
+                publishedAt={data.publishedAt}
+                readingTime={readingTime(body)}
+              />
+            );
+          })
       }
     </ul>
     <!-- End -->

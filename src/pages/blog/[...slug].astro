@@ -53,8 +53,8 @@ const timeTobeRead = readingTime(entry.body);
     @apply text-base sm:text-lg lg:sm:text-xl;
   }
 
-  p,
-  time {
+  .post p,
+  .header {
     @apply text-gray-300;
   }
 
@@ -63,7 +63,7 @@ const timeTobeRead = readingTime(entry.body);
   }
 
   .post img {
-    @apply rounded;
+    @apply rounded object-cover lg:scale-110 lg:py-8;
   }
 
   .post a {
@@ -81,7 +81,6 @@ const timeTobeRead = readingTime(entry.body);
   .header,
   .post h2,
   .post p,
-  .post img,
   .post pre {
     @apply mb-6 md:mb-8 lg:mb-10;
   }

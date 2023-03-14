@@ -15,7 +15,7 @@ const { href, title, src, alt, publishedAt, readingTime } = Astro.props;
 
 <li class="flex-1 text-gray-400">
   <a href={href} class="w-full text-sm sm:text-base">
-    <img class="w-full rounded mb-2" src={src} alt={alt} />
+    <img class="w-full mb-2" src={src} alt={alt} />
     <time class="capitalize" datetime={publishedAt.toISOString()}
       >{formatDate(publishedAt)}</time
     >

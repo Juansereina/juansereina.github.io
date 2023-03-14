@@ -7,9 +7,7 @@ export interface Props {
 const { text, strongText, classes } = Astro.props;
 ---
 
-<h2
-  class={`font-semibold text-white text-xl sm:text-2xl lg:sm:text-3xl ${classes}`}
->
+<h2 class={classes}>
   {text}
   <span
     class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-cyan-300 ml-2"

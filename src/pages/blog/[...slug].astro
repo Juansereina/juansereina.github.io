@@ -39,7 +39,7 @@ const { Content } = await entry.render();
   }
 
   p {
-    @apply text-white text-base sm:text-lg lg:sm:text-xl text-justify;
+    @apply text-gray-300 text-base sm:text-lg lg:sm:text-xl text-justify;
   }
 
   pre {
@@ -48,6 +48,14 @@ const { Content } = await entry.render();
 
   img {
     @apply rounded;
+  }
+
+  strong {
+    @apply text-white;
+  }
+
+  p > code {
+    @apply text-white before:content-['`'] after:content-['`'];
   }
 
   h1,

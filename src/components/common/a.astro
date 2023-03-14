@@ -1,12 +1,19 @@
 ---
 export interface Props {
   classes?: string;
+  target?: string;
+  rel?: string;
   href: string;
 }
-const { classes, href } = Astro.props;
+const { classes, href, target, rel } = Astro.props;
 ---
 
-<a class={`group transition duration-200 ${classes}`} href={href}>
+<a
+  class={`group transition duration-200 ${classes}`}
+  href={href}
+  target={target}
+  rel={rel}
+>
   <slot />
   <span
     class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-cyan-300 -mt-1"

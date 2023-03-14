@@ -12,13 +12,15 @@ export interface Props {
 const { href, title, src, alt, publishedAt, readingTime } = Astro.props;
 ---
 
-<li class="flex-1 text-gray-400">
+<li class="flex-1 text-gray-400 group">
   <a href={href} class="w-full text-sm sm:text-base">
     <img class="w-full mb-2" src={src} alt={alt} />
     <time class="capitalize" datetime={publishedAt.toISOString()}
       >{formatDate(publishedAt)}</time
     >
     <span>— {readingTime} mins de lectura</span>
-    <h3 class="mt-2">{title}</h3>
+    <h3 class="mt-2 group-hover:underline decoration-cyan-300">
+      {title}
+    </h3>
   </a>
 </li>

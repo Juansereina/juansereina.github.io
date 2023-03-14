@@ -1,5 +1,19 @@
 [
   {
+    "title": "Web personal",
+    "text": "Mi página web, el lugar en donde aprendo nuevas tecnologías mientras construyo, pruebo y aplico ideas.",
+    "link": "https://github.com/Juansereina/juansereina.github.io",
+    "tags": ["Firebase", "Nextjs", "TypeScript"],
+    "icons": ["fa-brands fa-github"]
+  },
+  {
+    "title": "Nextfire",
+    "text": "Pequeño proyecto de como conectar Firebase y Nextjs.",
+    "link": "https://github.com/Juansereina/nextfire",
+    "tags": ["Firebase", "Nextjs", "TypeScript"],
+    "icons": ["fa-brands fa-github"]
+  },
+  {
     "title": "Dotfiles",
     "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
     "link": "https://github.com/Juansereina/dotfiles",
@@ -8,9 +22,9 @@
   },
   {
     "title": "Protérmico",
-    "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
+    "text": "Proyecto que busca mejorar la calidad de trabajo de los campesinos en Colombia.",
     "link": "https://www.behance.net/gallery/66596359/Protermico-Project",
-    "tags": ["git", "bash", "npm", "zsh"],
+    "tags": ["C++", "Arduino"],
     "icons": ["fa-brands fa-behance", "fa-brands fa-github"]
   }
 ]

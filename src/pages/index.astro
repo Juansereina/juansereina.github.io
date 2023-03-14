@@ -61,7 +61,7 @@ function readingTime(post: string) {
     </div>
     <ul class="flex max-sm:flex-wrap mb-8 sm:mb-10 gap-4">
       {
-        blogs.map(({ data, slug, body }) => {
+        blogs.filter((_, index) => index < 3).map(({ data, slug, body }) => {
           return (
             <Blog
               title={data.title}

@@ -1,8 +1,10 @@
 ---
-
 title: Calcular tiempo de lectura en Javascript
 draft: true
-image: { src: '../../../../public/images/reading-time.jpg', alt: 'Reloj de arena junto a tres dados' }
+image: {
+  src: '../../../../public/images/reading-time.jpg',
+  alt: 'Reloj de arena junto a tres dados'
+}
 publishedAt: '13/03/2023'
 ---
 
@@ -22,8 +24,7 @@ function readingTime(post) {
 }
 ```
 
-
-## Cómo funciona?
+## [Cómo funciona?](#cómo-funciona)
 
 Creamos una función `readingTime`, con un parametro `post` que sería el texto del cual queremos determinar el tiempo de lectura.
 
@@ -36,13 +37,13 @@ Se estima que las personas leen entre 200 y 250 palabras por minuto, entonces, n
 const WORDS_PER_MINUTE = 200;
 
 ```
-El truco para encontrar las palabras es utilizar Regex.
+El truco para encontrar las palabras es utilizar [`Regex`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions).
 
 ```js
 const regex = /\w+/g;
 ```
 
-Utilizando el metodo match identificamos en el string cuantas palabras coinciende con el regex. Al final, agregamos el operador `||` con un `0` por si el regex no encuentra concidencias.
+Utilizando el [metodo match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) identificamos en el string cuantas palabras coinciende con el regex. Al final, agregamos el operador `||` con un `0` por si el regex no encuentra concidencias.
 
 ```js
 const wordCount = post.match(regex)?.length || 0;
@@ -54,7 +55,7 @@ Calculamos el tiempo al dividir las paralbas encontradas por las palabras por mi
 wordCount / WORDS_PER_MINUTE
 ```
 
-Y utilizando `Math.ceil()` obtenemos el valor aproximado:
+Y utilizando [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) obtenemos el valor aproximado:
 
 ```js
 function readingTime(post) {
@@ -70,4 +71,4 @@ const result = readingTime('Mi tiempo de lectura es de 1 min aprox.');
 console.log(result); // resultado: 1
 ```
 
-Si quieres un valor más aproximado puedes cambiar `Math.ceil` por `Math.floor`, `Math.round` o `Math.trunc` según te convenga más.
+Si quieres un valor más aproximado puedes cambiar [`Math.ceil`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) por [`Math.floor`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), [`Math.round`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) o [`Math.trunc`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc) según te convenga más.

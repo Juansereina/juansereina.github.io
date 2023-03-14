@@ -2,19 +2,13 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/general.astro';
 import Blog from '../components/card-blog.astro';
-import Project from '../components/card-project.astro';
 import H2 from '../components/common/h2.astro';
 import A from '../components/common/a.astro';
 import Social from '../components/social.astro';
 import { readingTime } from '../utils';
+import projects from '../data/projects.json';
 
 const blogs = await getCollection('blog');
-const projects = [
-  {
-    title: 'Protérmico',
-    link: 'https://www.behance.net/gallery/66596359/Protermico-Project',
-  },
-];
 ---
 
 <Layout title="Juansereina">
@@ -74,8 +68,19 @@ const projects = [
     <div class="2">
       <H2 text="Más recientes" strongText="Proyectos" classes="flex flex-1" />
     </div>
-    <ul class="mt-4 flex flex-col gap-1">
-      {projects.map(({ title, link }) => <Project title={title} href={link} />)}
+    <ul class="mt-4 flex flex-col gap-2">
+      {
+        projects.map(({ title, link, icons }) => (
+          <li class="w-full p-2 rounded border border-gray-600  bg-gray-700 hover:border-white">
+            <a href={link} class="w-full text-white flex items-center gap-2">
+              <p class="flex-1">{title}</p>
+              {icons.map((ico) => (
+                <i class={`${ico} text-lg`} />
+              ))}
+            </a>
+          </li>
+        ))
+      }
     </ul>
     <!-- End -->
   </main>

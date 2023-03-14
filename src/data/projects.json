@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Dotfiles",
+    "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
+    "link": "https://github.com/Juansereina/dotfiles",
+    "tags": ["git", "bash", "npm", "zsh"],
+    "icons": ["fa-brands fa-github"]
+  },
+  {
+    "title": "Protérmico",
+    "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
+    "link": "https://www.behance.net/gallery/66596359/Protermico-Project",
+    "tags": ["git", "bash", "npm", "zsh"],
+    "icons": ["fa-brands fa-behance", "fa-brands fa-github"]
+  }
+]

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/general.astro';
+import projects from '../data/projects.json';
+---
+
+<Layout title="Proyectos">
+  <h1 class="mb-8">Proyectos</h1>
+  <ul class="grid gap-4">
+    {
+      projects.map(({ title, text, tags, link, icons }) => (
+        <li>
+          <a href={link} class="" target="_blank" rel="noreferrer noopener">
+            <div class="border border-gray-600 rounded p-6 bg-gray-700 hover:border-white">
+              <div class="flex items-baseline gap-2">
+                <h4 class="mb-4 flex-1">{title}</h4>
+                {icons.map((ico) => (
+                  <i class={`text-white text-2xl ${ico}`} />
+                ))}
+              </div>
+              <p class="mb-4">{text}</p>
+              <ul class="flex gap-2 text-gray-300">
+                {tags.map((tag) => (
+                  <li class="bg-gray-600 py-1 px-2 rounded">{tag}</li>
+                ))}
+              </ul>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

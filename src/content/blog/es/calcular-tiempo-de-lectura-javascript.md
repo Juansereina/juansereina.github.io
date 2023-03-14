@@ -1,10 +1,9 @@
 ---
 title: Calcular tiempo de lectura en Javascript
 draft: true
-image: {
-  src: '../../../../public/images/reading-time.jpg',
+image:
+  src: '../../../../public/images/reading-time.jpg'
   alt: 'Reloj de arena junto a tres dados'
-}
 publishedAt: '13/03/2023'
 ---
 
@@ -31,19 +30,20 @@ Creamos una función `readingTime`, con un parametro `post` que sería el texto 
 ```js
 function readingTime(post) {}
 ```
+
 Se estima que las personas leen entre 200 y 250 palabras por minuto, entonces, necesitamos esa medida como referencia.
 
 ```js
 const WORDS_PER_MINUTE = 200;
-
 ```
+
 El truco para encontrar las palabras es utilizar [`Regex`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions).
 
 ```js
 const regex = /\w+/g;
 ```
 
-Utilizando el [metodo match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) identificamos en el string cuantas palabras coinciende con el regex. Al final, agregamos el operador `||` con un `0` por si el regex no encuentra concidencias.
+Utilizando el [metodo match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) identificamos en el string cuantas palabras coinciende con el regex. Al final, agregamos el operador [`||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment) con un `0` por si el regex no encuentra concidencias.
 
 ```js
 const wordCount = post.match(regex)?.length || 0;
@@ -52,7 +52,7 @@ const wordCount = post.match(regex)?.length || 0;
 Calculamos el tiempo al dividir las paralbas encontradas por las palabras por minuto.
 
 ```js
-wordCount / WORDS_PER_MINUTE
+wordCount / WORDS_PER_MINUTE;
 ```
 
 Y utilizando [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) obtenemos el valor aproximado:

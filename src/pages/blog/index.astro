@@ -9,8 +9,6 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
   description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
-  image: '/images/profile.webp',
-  url: Astro.url.href,
 };
 ---
 

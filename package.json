@@ -25,6 +25,12 @@
   },
   "devDependencies": {
     "@astrojs/partytown": "^1.1.1",
+    "cz-conventional-changelog": "^3.3.0",
     "date-fns": "^2.29.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

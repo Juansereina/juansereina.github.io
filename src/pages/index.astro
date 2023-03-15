@@ -14,7 +14,7 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
 <Layout title="Juansereina">
   <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
-    <header class="text-white mb-8 sm:mb-10">
+    <header class="text-white mb-10 sm:mb-12">
       <div
         class="flex flex-wrap gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
       >
@@ -26,7 +26,7 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
       </div>
       <div class="flex max-md:flex-col gap-8">
         <img
-          class="max-w-md w-full md:w-2/6 mx-auto rounded border"
+          class="max-w-md w-full md:w-2/6 mx-auto rounded border border-gray-500"
           src="/images/profile.webp"
           alt=""
         />
@@ -58,7 +58,7 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
         </span>
       </A>
     </div>
-    <ul class="grid sm:grid-cols-3 mb-8 sm:mb-10 gap-4">
+    <ul class="grid sm:grid-cols-3 mb-10 sm:mb-12 gap-4">
       {
         blogs
           .filter((_, index) => index < 3)
@@ -78,10 +78,10 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
     </ul>
     <!-- End -->
     <!-- Projects -->
-    <div class="2">
+    <div class="mb-4">
       <H2 text="Más recientes" strongText="Proyectos" classes="flex flex-1" />
     </div>
-    <ul class="mt-4 flex flex-col gap-2">
+    <ul class="flex flex-col gap-2">
       {
         projects.map(({ title, link, icons }) => (
           <li class="w-full p-2 rounded border border-gray-600  bg-gray-700 hover:border-white">

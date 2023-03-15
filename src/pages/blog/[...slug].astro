@@ -20,9 +20,16 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const timeTobeRead = readingTime(entry.body);
+
+const meta = {
+  title: entry.data.title,
+  description: entry.data.description,
+  image: entry.data.image.src,
+  url: Astro.url.href,
+};
 ---
 
-<Layout title={entry.data.title}>
+<Layout meta={meta}>
   <header class="header">
     <div class="flex mb-10">
       <img class="w-14 rounded-full mr-2" src="/images/profile.webp" alt="" />

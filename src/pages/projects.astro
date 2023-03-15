@@ -1,9 +1,16 @@
 ---
 import Layout from '../layouts/general.astro';
 import projects from '../data/projects.json';
+
+const meta = {
+  title: 'Proyectos - Juan Sebastián Reina 👨‍💻',
+  description: 'Proyectos a los que estoy dedicando tiempo actualmente',
+  image: '/images/profile.webp',
+  url: Astro.url.href,
+};
 ---
 
-<Layout title="Proyectos">
+<Layout meta={meta}>
   <h1 class="mb-8 leading-tight">Proyectos</h1>
   <ul class="grid gap-4">
     {

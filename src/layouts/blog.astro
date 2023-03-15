@@ -2,12 +2,17 @@
 import Layout from './general.astro';
 
 export interface Props {
-  title: string;
+  meta: {
+    title: string;
+    description: string;
+    image: string;
+    url: string;
+  };
 }
 
-const { title } = Astro.props;
+const { meta } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout meta={meta}>
   <slot />
 </Layout>

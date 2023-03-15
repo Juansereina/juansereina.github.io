@@ -5,9 +5,16 @@ import Layout from '../../layouts/general.astro';
 import Card from '../../components/card-blog.astro';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
+
+const meta = {
+  title: 'Blog - Juan Sebastián Reina 👨‍💻',
+  description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
+  image: '/images/profile.webp',
+  url: Astro.url.href,
+};
 ---
 
-<Layout title="Blog">
+<Layout meta={meta}>
   <h1 class="mb-4 leading-tight">Blog</h1>
   <ul>
     {

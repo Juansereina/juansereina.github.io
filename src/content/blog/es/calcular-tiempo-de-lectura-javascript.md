@@ -1,5 +1,6 @@
 ---
 title: Calcular tiempo de lectura en Javascript
+description: Cómo calcular tiempo de lectura de una página con Javascript sin utilizar dependencias
 image:
   src: '/images/reading-time.jpg'
   alt: 'Reloj de arena junto a tres dados'

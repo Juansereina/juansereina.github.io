@@ -24,13 +24,28 @@ const timeTobeRead = readingTime(entry.body);
 
 <Layout title={entry.data.title}>
   <header class="header">
+    <div class="flex mb-10">
+      <img class="w-14 rounded-full mr-2" src="/images/profile.webp" alt="" />
+      <div>
+        <p>Juan Sebastián Reina</p>
+        <p class="text-sm">
+          <a
+            href="https://twitter.com/Juansereina_"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            @Juansereina_
+          </a>
+        </p>
+      </div>
+    </div>
     <h1 class="title mb-2">{entry.data.title}</h1>
-    <p>
+    <p class="mb-4">
       <time class="capitalize" datetime={entry.data.publishedAt.toISOString()}>
         {formatDate(entry.data.publishedAt)}
       </time>
       -
-      {timeTobeRead} mins
+      {timeTobeRead} mins de lectura
     </p>
   </header>
   <main>
@@ -49,6 +64,7 @@ const timeTobeRead = readingTime(entry.body);
     @apply lg:scale-110 lg:py-8;
   }
 
+  .header a,
   .post a {
     @apply text-cyan-300 font-medium hover:underline decoration-cyan-300;
   }

@@ -9,9 +9,17 @@ import { readingTime } from '../utils';
 import projects from '../data/projects.json';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
+
+const meta = {
+  title: 'Juan Sebastián Reina',
+  description:
+    'Desarrollador Web 👨‍💻 con pasión por las finanzas  📚 y las inversiones 💸',
+  image: '/images/profile.webp',
+  url: Astro.url.href,
+};
 ---
 
-<Layout title="Juansereina">
+<Layout meta={meta}>
   <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
     <header class="text-white mb-10 sm:mb-12">

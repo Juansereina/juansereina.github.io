@@ -1,15 +1,19 @@
 ---
 export interface Props {
   classes?: string;
-  target?: string;
-  rel?: string;
   href: string;
+  isActive?: boolean;
+  rel?: string;
+  target?: string;
 }
-const { classes, href, target, rel } = Astro.props;
+const { classes, href, target, rel, isActive } = Astro.props;
 ---
 
 <a
-  class={`group transition duration-200 ${classes}`}
+  class:list={[
+    `group transition duration-200 ${classes || ''}`,
+    { 'text-cyan-400': isActive },
+  ]}
   href={href}
   target={target}
   rel={rel}

@@ -1,7 +1,20 @@
 ---
 import A from './common/a.astro';
+
+const { pathname } = Astro.url;
+const items = [
+  {
+    link: '/projects',
+    text: 'Proyectos',
+  },
+  {
+    link: '/blog',
+    text: 'Blog',
+  },
+];
 ---
 
+<!-- {JSON.stringify(window.location.href)} -->
 <nav class="text-lg sm:text-xl flex font-medium mb-10 sm:mb-12">
   <A href="/">
     <strong
@@ -11,11 +24,14 @@ import A from './common/a.astro';
     </strong>
   </A>
   <ul class="text-white flex gap-4 ml-auto">
-    <li>
-      <A href="/projects">Proyectos</A>
-    </li>
-    <li>
-      <A href="/blog">Blog</A>
-    </li>
+    {
+      items.map(({ link, text }) => (
+        <li>
+          <A href={link} isActive={link === pathname}>
+            {text}
+          </A>
+        </li>
+      ))
+    }
   </ul>
 </nav>

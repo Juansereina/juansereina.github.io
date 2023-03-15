@@ -7,16 +7,28 @@ export interface Props {
 const { classes } = Astro.props;
 
 const items = [
-  { ico: 'fa-linkedin', link: 'https://www.linkedin.com/in/juansereina' },
-  { ico: 'fa-twitter', link: 'https://twitter.com/Juansereina_' },
-  { ico: 'fa-github', link: 'https://github.com/Juansereina' },
+  {
+    ico: 'fa-linkedin',
+    link: 'https://www.linkedin.com/in/juansereina',
+    aria: 'LinkedIn Profile',
+  },
+  {
+    ico: 'fa-twitter',
+    link: 'https://twitter.com/Juansereina_',
+    aria: 'Twitter Profile',
+  },
+  {
+    ico: 'fa-github',
+    link: 'https://github.com/Juansereina',
+    aria: 'Github Profile',
+  },
 ];
 ---
 
 <div class={`text-white text-2xl sm:text-3xl flex gap-4 max-w-max ${classes}`}>
   {
-    items.map(({ ico, link }) => (
-      <A href={link} rel="noopener noreferrer" target="_blank">
+    items.map(({ ico, link, aria }) => (
+      <A href={link} rel="noopener noreferrer" target="_blank" aria={aria}>
         <i class={`fa-brands ${ico}`} />
       </A>
     ))

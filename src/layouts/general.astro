@@ -72,10 +72,11 @@ const canonicalURL = new URL(Astro.url).href;
 
     <!-- Google tag (gtag.js) -->
     <script
+      defer
       type="text/partytown"
       src="https://www.googletagmanager.com/gtag/js?id=G-SESMVBDB29"
     ></script>
-    <script type="text/partytown">
+    <script async type="text/partytown">
       //@ts-ignore
       window.dataLayer = window.dataLayer || [];
       function gtag() {

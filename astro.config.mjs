@@ -2,16 +2,15 @@ import { defineConfig } from 'astro/config';
 import partyTown from '@astrojs/partytown';
 import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
+import mdx from '@astrojs/mdx';
+
+const partyTownConfig = {
+  config: {
+    forward: ['dataLayer.push'],
+  },
+};
+
 export default defineConfig({
   site: 'https://juansereina.com',
-  integrations: [
-    tailwind(),
-    partyTown({
-      // Adds dataLayer.push as a forwarding-event.
-      config: {
-        forward: ['dataLayer.push'],
-      },
-    }),
-  ],
+  integrations: [tailwind(), mdx(), partyTown(partyTownConfig)],
 });

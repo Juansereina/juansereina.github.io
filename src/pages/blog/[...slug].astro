@@ -30,20 +30,23 @@ const meta = {
 
 <Layout meta={meta}>
   <header class="header">
-    <div class="flex mb-10">
-      <img class="w-14 rounded-full mr-2" src="/images/profile.webp" alt="" />
-      <div>
-        <p>Juan Sebastián Reina</p>
-        <p class="text-sm">
-          <a
-            href="https://twitter.com/Juansereina_"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            @Juansereina_
-          </a>
-        </p>
-      </div>
+    <div class="mb-10">
+      <a
+        href="https://twitter.com/Juansereina_"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="flex"
+      >
+        <img
+          class="w-14 rounded-full mr-2"
+          src="/images/profile.webp"
+          alt="Foto de Juan Sebastian sonriendo"
+        />
+        <div>
+          <p>Juan Sebastián Reina</p>
+          <p class="text-sm text-cyan-300">@Juansereina_</p>
+        </div>
+      </a>
     </div>
     <h1 class="title mb-2">{entry.data.title}</h1>
     <p class="mb-4">
@@ -67,7 +70,7 @@ const meta = {
   }
 
   .post img {
-    @apply lg:scale-110 lg:py-8;
+    @apply lg:scale-110 lg:my-16 border border-gray-700;
   }
 
   .header a,

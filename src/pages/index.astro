@@ -14,22 +14,35 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
 <Layout title="Juansereina">
   <main class="mb-8 sm:mb-10">
     <!-- Introduction -->
-    <div class="text-white mb-8 sm:mb-10">
+    <header class="text-white mb-8 sm:mb-10">
       <div
-        class="flex gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
+        class="flex flex-wrap gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
       >
         <span>Hola, soy</span>
         <strong>
-          <h1>Juansereina</h1>
+          <h1>Juan Sebastián</h1>
         </strong>
         👋
       </div>
-      <p class="max-w-md mb-4 md:mb-6 lg:mb-8">
-        Soy <strong>Web Developer</strong>, aquí comparto algunas ideas sobre
-        cosas creativas con código, libros y temas de mi interes 🤪 🍔
-      </p>
-      <Social />
-    </div>
+      <div class="flex max-md:flex-col gap-8">
+        <img
+          class="max-w-md w-full md:w-2/6 mx-auto rounded border"
+          src="/images/profile.webp"
+          alt=""
+        />
+        <div class="flex-1 gap-4 flex flex-col">
+          <p>
+            Soy <strong>Web Developer</strong>, llevo unos años trabajando
+            <strong>JavaScript</strong>. He tenido la oportunidad de aprender de
+            muchas personas 👨‍💻, por lo que decidí compartir algunas ideas sobre
+            cosas creativas con
+            <strong>código</strong> 👨‍🎨, <strong>libros</strong> 📚 y temas que he
+            aprendido con el tiempo 🤔
+          </p>
+          <Social classes="mt-auto" />
+        </div>
+      </div>
+    </header>
     <!-- End -->
     <!-- Post -->
     <div class="flex items-baseline">

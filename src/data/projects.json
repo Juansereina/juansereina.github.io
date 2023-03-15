@@ -3,14 +3,14 @@
     "title": "Web personal",
     "text": "Mi página web, el lugar en donde aprendo nuevas tecnologías mientras construyo, pruebo y aplico ideas.",
     "link": "https://github.com/Juansereina/juansereina.github.io",
-    "tags": ["Firebase", "Nextjs", "TypeScript"],
+    "tags": ["Astro", "zup", "TypeScript", "Markdown", "Tailwind", "git"],
     "icons": ["fa-brands fa-github"]
   },
   {
     "title": "Nextfire",
     "text": "Pequeño proyecto de como conectar Firebase y Nextjs.",
     "link": "https://github.com/Juansereina/nextfire",
-    "tags": ["Firebase", "Nextjs", "TypeScript"],
+    "tags": ["Firebase", "Nextjs", "TypeScript", "git"],
     "icons": ["fa-brands fa-github"]
   },
   {

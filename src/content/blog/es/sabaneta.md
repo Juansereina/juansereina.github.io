@@ -4,6 +4,7 @@ description: TODO
 draft: true
 image: { src: 'https://placehold.co/600x400', alt: '' }
 publishedAt: '16/08/2014'
+keywords: TODO
 ---
 
 # Por qué llueve tanto en Sabaneta

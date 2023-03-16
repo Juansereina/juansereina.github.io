@@ -4,6 +4,7 @@ description: TODO
 draft: true
 image: { src: 'https://placehold.co/600x400', alt: '' }
 publishedAt: '16/08/2014'
+keywords: TODO
 ---
 
 a es un municipio ubicado en el departamento de Antioquia en Colombia. Es conocido por sus hermosos paisajes naturales y su clima tropical, pero también es famoso por la cantidad de lluvia que recibe durante todo el año. ¿Por qué llueve tanto en Sabaneta? En este post, exploraremos algunas de las razones detrás de las fuertes precipitaciones en esta región.

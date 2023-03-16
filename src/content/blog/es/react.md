@@ -4,6 +4,7 @@ description: TODO
 draft: true
 image: { src: 'https://placehold.co/600x400', alt: '' }
 publishedAt: '16/08/2014'
+keywords: TODO
 ---
 
 React es una popular biblioteca de JavaScript para construir interfaces de usuario. Con React, puedes crear componentes reutilizables que facilitan la construcción de aplicaciones complejas. En este artículo, repasaremos los conceptos básicos para comenzar con React usando Markdown.

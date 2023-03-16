@@ -25,14 +25,32 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
         👋
       </div>
       <div class="flex max-md:flex-col gap-8">
-        <img
-          class="max-w-md w-full md:w-2/6 mx-auto rounded border border-gray-500"
-          src="https://ik.imagekit.io/juansereina/tr:w-300/web/profile.jpg"
-          alt="Foto de Juan Sebastian sonriendo"
-          loading="lazy"
-          height="246"
-          width="228"
-        />
+        <picture class="max-w-md w-full md:w-2/6 mx-auto">
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              https://ik.imagekit.io/juansereina/tr:w-300/web/profile.jpg 1x,
+              https://ik.imagekit.io/juansereina/tr:w-600/web/profile.jpg 2x,
+              https://ik.imagekit.io/juansereina/tr:w-900/web/profile.jpg 3x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              https://ik.imagekit.io/juansereina/tr:w-500/web/profile.jpg 1x,
+              https://ik.imagekit.io/juansereina/tr:w-1000/web/profile.jpg 2x,
+              https://ik.imagekit.io/juansereina/tr:w-1500/web/profile.jpg 3x
+            "
+          />
+          <img
+            src="https://ik.imagekit.io/juansereina/tr:w-1000/web/profile.jpg"
+            alt="Foto de Juan Sebastian sonriendo"
+            loading="lazy"
+            height="246"
+            width="228"
+            class="w-full rounded border border-gray-500"
+          />
+        </picture>
         <div class="flex-1 gap-4 flex flex-col">
           <p>
             Soy <strong>Web Developer</strong>, llevo unos años trabajando
@@ -85,11 +103,14 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
         blogs
           .filter((_, index) => index < 3)
           .map(({ data, slug, body }) => {
+            console.log({ data });
+
             return (
               <Blog
                 title={data.title}
                 alt={data.image.alt}
                 src={data.image.src}
+                srcset={data.image.srcset}
                 href={`/blog/${slug}`}
                 publishedAt={data.publishedAt}
                 readingTime={readingTime(body)}

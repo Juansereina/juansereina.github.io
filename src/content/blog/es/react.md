@@ -2,7 +2,7 @@
 title: Comenzando con React usando Markdown
 description: TODO
 draft: true
-image: { src: 'https://placehold.co/600x400', alt: '' }
+image: { src: 'https://placehold.co/600x400', alt: '', srcset: '' }
 publishedAt: '16/08/2014'
 keywords: TODO
 ---

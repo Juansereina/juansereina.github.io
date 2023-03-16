@@ -9,7 +9,6 @@ const blogCollection = defineCollection({
     draft: z.boolean().optional(),
     image: z.object({
       src: z.string(),
-      srcset: z.string(),
       alt: z.string(),
     }),
     publishedAt: z.string().transform((date) => {

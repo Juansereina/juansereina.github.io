@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { readingTime } from '../../utils';
 import Layout from '../../layouts/general.astro';
-import Card from '../../components/card-blog.astro';
+import Card from '../../components/card-blog/index.astro';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
 
@@ -23,6 +23,8 @@ const meta = {
             title={data.title}
             alt={data.image.alt}
             src={data.image.src}
+            sources={[{ media: '(max-width: 400px)', trw: 600 }]}
+            sources={[{ media: '(min-width: 401px)', trw: 800 }]}
             href={`/blog/${slug}`}
             publishedAt={data.publishedAt}
             readingTime={readingTime(body)}

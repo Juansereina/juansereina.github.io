@@ -1,0 +1,18 @@
+---
+export interface Props {
+  src?: string;
+  media: string;
+  trw: number;
+}
+
+const { src, media, trw } = Astro.props;
+---
+
+<source
+  media={media}
+  srcset={`
+    https://ik.imagekit.io/juansereina/tr:w-${trw}/web/${src} 1x,
+    https://ik.imagekit.io/juansereina/tr:w-${trw * 2}/web/${src} 2x,
+    https://ik.imagekit.io/juansereina/tr:w-${trw * 3}/web/${src} 3x
+  `}
+/>

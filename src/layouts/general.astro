@@ -6,14 +6,17 @@ export interface Props {
     title?: string;
     description?: string;
     image?: string;
+    keywords?: string;
   };
 }
 
+const author = 'Juan Sebastián Reina';
 const defaultMeta = {
-  title: 'Juan Sebastián Reina',
+  title: author,
   description:
     'Desarrollador Web 👨‍💻 con pasión por las finanzas  📚 y las inversiones 💸',
   image: '/images/banner.png',
+  keywords: 'Web, Development, Front End, HTML, CSS, JavaScript',
 };
 
 const { meta } = Astro.props;
@@ -22,6 +25,7 @@ const {
   title = defaultMeta.title,
   description = defaultMeta.description,
   image = defaultMeta.image,
+  keywords = defaultMeta.keywords,
 } = meta || defaultMeta;
 
 const metaImage = new URL(image, Astro.site).href;
@@ -40,6 +44,8 @@ const canonicalURL = new URL(Astro.url).href;
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="keywords" content={keywords} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

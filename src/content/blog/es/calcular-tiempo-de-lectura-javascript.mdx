@@ -8,12 +8,9 @@ publishedAt: 13/03/2023
 keywords: JavaScript, Markdown, Text, Regex, Reading time
 ---
 
-<img
-  src={frontmatter.image.src}
-  alt={frontmatter.image.alt}
-  width="810"
-  height="540"
-/>
+import Picture from '../../../components/picture-blog.astro';
+
+<Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
 
 Cuando empece este blog, inspirandome de otras páginas me dí cuenta que todos muestran el tiempo que toma leer un post. Pero, cómo se hace?
 

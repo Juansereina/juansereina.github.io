@@ -1,0 +1,28 @@
+---
+import type { Props as SourceProps } from './source.astro';
+import Source from './source.astro';
+export interface Props {
+  sources?: SourceProps[];
+  src: string;
+  alt: string;
+  trw: number;
+  picClass?: string;
+  imgClass?: string;
+}
+
+const { sources, src, alt, trw, picClass, imgClass } = Astro.props;
+---
+
+<picture class={picClass}>
+  {
+    sources?.map((source) => (
+      <Source media={source.media} trw={source.trw} src={src} />
+    ))
+  }
+  <img
+    class={imgClass}
+    src={`https://ik.imagekit.io/juansereina/tr:w-${trw}/web/${src}`}
+    alt={alt}
+    loading="lazy"
+  />
+</picture>

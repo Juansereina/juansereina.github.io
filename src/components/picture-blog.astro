@@ -1,0 +1,20 @@
+---
+import Picture from './common/picture.astro';
+
+export interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<Picture
+  src={src}
+  alt={alt}
+  trw={850}
+  sources={[
+    { media: '(max-width: 400px)', trw: 600 },
+    { media: '(min-width: 401px)', trw: 850 },
+  ]}
+/>

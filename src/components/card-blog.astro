@@ -1,7 +1,8 @@
 ---
-import { formatDate } from '../../utils/date';
-import type { Props as SourceProps } from './source.astro';
-import Source from './source.astro';
+import { formatDate } from '../utils/date';
+import Picture from './common/picture.astro';
+import type { Props as SourceProps } from './common/source.astro';
+import Source from './common/source.astro';
 export interface Props {
   title: string;
   href: string;
@@ -19,19 +20,14 @@ const { href, title, src, alt, publishedAt, readingTime, classes, sources } =
 
 <li class={`flex-1 text-gray-400 group ${classes}`}>
   <a href={href} class="w-full text-sm sm:text-base">
-    <picture class="mb-2">
-      {
-        sources.map((source) => (
-          <Source media={source.media} trw={source.trw} src={src} />
-        ))
-      }
-      <img
-        class="w-full border border-gray-700"
-        src={`https://ik.imagekit.io/juansereina/tr:w-650/web/${src}`}
-        alt={alt}
-        loading="lazy"
-      />
-    </picture>
+    <Picture
+      picClass="mb-2"
+      imgClass="w-full border border-gray-700"
+      src={src}
+      alt={alt}
+      trw={650}
+      sources={sources}
+    />
 
     <time class="capitalize" datetime={publishedAt.toISOString()}
       >{formatDate(publishedAt)}</time

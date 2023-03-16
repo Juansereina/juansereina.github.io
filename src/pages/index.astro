@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/general.astro';
-import Blog from '../components/card-blog/index.astro';
+import Blog from '../components/card-blog.astro';
 import H2 from '../components/common/h2.astro';
+import Picture from '../components/common/picture.astro';
 import A from '../components/common/a.astro';
 import Social from '../components/social.astro';
 import { readingTime } from '../utils';
@@ -25,32 +26,24 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
         👋
       </div>
       <div class="flex max-md:flex-col gap-8">
-        <picture class="max-w-md w-full md:w-2/6 mx-auto">
-          <source
-            media="(min-width: 768px)"
-            srcset="
-              https://ik.imagekit.io/juansereina/tr:w-300/web/profile.jpg 1x,
-              https://ik.imagekit.io/juansereina/tr:w-600/web/profile.jpg 2x,
-              https://ik.imagekit.io/juansereina/tr:w-900/web/profile.jpg 3x
-            "
-          />
-          <source
-            media="(max-width: 767px)"
-            srcset="
-              https://ik.imagekit.io/juansereina/tr:w-500/web/profile.jpg 1x,
-              https://ik.imagekit.io/juansereina/tr:w-1000/web/profile.jpg 2x,
-              https://ik.imagekit.io/juansereina/tr:w-1500/web/profile.jpg 3x
-            "
-          />
-          <img
-            src="https://ik.imagekit.io/juansereina/tr:w-1000/web/profile.jpg"
-            alt="Foto de Juan Sebastian sonriendo"
-            loading="lazy"
-            height="246"
-            width="228"
-            class="w-full rounded border border-gray-500"
-          />
-        </picture>
+        <Picture
+          src="profile.jpg"
+          alt="Foto de Juan Sebastian sonriendo"
+          trw={1000}
+          picClass="max-w-md w-full md:w-2/6 mx-auto"
+          imgClass="w-full rounded border border-gray-500"
+          sources={[
+            {
+              media: '(max-width: 767px)',
+              trw: 500,
+            },
+            {
+              media: '(min-width: 768px)',
+              trw: 300,
+            },
+          ]}
+        />
+
         <div class="flex-1 gap-4 flex flex-col">
           <p>
             Soy <strong>Web Developer</strong>, llevo unos años trabajando

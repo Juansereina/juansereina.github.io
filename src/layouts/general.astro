@@ -30,6 +30,8 @@ const {
 
 const metaImage = new URL(image, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
+const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
+  .href;
 ---
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="author" content={author} />
     <meta name="keywords" content={keywords} />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href={appleTouchIconURL} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

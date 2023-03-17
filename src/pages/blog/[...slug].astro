@@ -1,9 +1,9 @@
 ---
-import Picture from '../../components/common/picture.astro';
+import Picture from '@/components/common/picture.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import Layout from '../../layouts/general.astro';
-import { formatDate, readingTime } from '../../utils';
+import Layout from '@/layouts/general.astro';
+import { formatDate, readingTime } from '@/utils';
 
 interface Props {
   entry: CollectionEntry<'blog'>;

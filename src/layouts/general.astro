@@ -1,6 +1,6 @@
 ---
-import Nav from '../components/nav.astro';
-import Footer from '../components/footer.astro';
+import Nav from '@/components/nav.astro';
+import Footer from '@/components/footer.astro';
 export interface Props {
   meta?: {
     title?: string;
@@ -80,9 +80,14 @@ const canonicalURL = new URL(Astro.url).href;
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
       crossorigin="anonymous"
       referrerPolicy="no-referrer"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
 
     <!-- Google tag (gtag.js) -->

@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../layouts/general.astro';
-import Blog from '../components/card-blog.astro';
-import H2 from '../components/common/h2.astro';
-import Picture from '../components/common/picture.astro';
-import A from '../components/common/a.astro';
-import Social from '../components/social.astro';
-import { readingTime } from '../utils';
-import projects from '../data/projects.json';
+import Layout from '@/layouts/general.astro';
+import Blog from '@/components/card-blog.astro';
+import H2 from '@/components/common/h2.astro';
+import Picture from '@/components/common/picture.astro';
+import A from '@/components/common/a.astro';
+import Social from '@/components/social.astro';
+import { readingTime } from '@/utils';
+import projects from '@/data/projects.json';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
 ---

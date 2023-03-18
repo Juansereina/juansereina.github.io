@@ -17,4 +17,6 @@ const { src, alt } = Astro.props;
     { media: '(max-width: 400px)', trw: 600 },
     { media: '(min-width: 401px)', trw: 850 },
   ]}
+  loading="eager"
+  fetchpriority="high"
 />

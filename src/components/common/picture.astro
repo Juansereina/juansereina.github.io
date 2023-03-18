@@ -8,9 +8,20 @@ export interface Props {
   trw: number;
   picClass?: string;
   imgClass?: string;
+  loading?: 'lazy' | 'eager' | null | undefined;
+  fetchpriority?: 'auto' | 'high' | 'low' | null | undefined;
 }
 
-const { sources, src, alt, trw, picClass, imgClass } = Astro.props;
+const {
+  sources,
+  src,
+  alt,
+  trw,
+  picClass,
+  imgClass,
+  loading = 'lazy',
+  fetchpriority = 'auto',
+} = Astro.props;
 ---
 
 <picture class={picClass}>
@@ -23,6 +34,7 @@ const { sources, src, alt, trw, picClass, imgClass } = Astro.props;
     class={imgClass}
     src={`https://ik.imagekit.io/juansereina/tr:w-${trw}/web/${src}`}
     alt={alt}
-    loading="lazy"
+    loading={loading}
+    fetchpriority={fetchpriority}
   />
 </picture>

@@ -11,24 +11,33 @@ const items = [
     ico: 'fa-linkedin',
     link: 'https://www.linkedin.com/in/juansereina',
     aria: 'LinkedIn Profile',
+    title: 'LinkedIn',
   },
   {
     ico: 'fa-twitter',
     link: 'https://twitter.com/Juansereina_',
     aria: 'Twitter Profile',
+    title: 'Twitter',
   },
   {
     ico: 'fa-github',
     link: 'https://github.com/Juansereina',
     aria: 'Github Profile',
+    title: 'Github',
   },
 ];
 ---
 
 <div class={`text-2xl sm:text-3xl flex gap-4 max-w-max ${classes}`}>
   {
-    items.map(({ ico, link, aria }) => (
-      <A href={link} rel="noopener noreferrer" target="_blank" aria={aria}>
+    items.map(({ ico, link, aria, title }) => (
+      <A
+        href={link}
+        rel="noopener noreferrer"
+        target="_blank"
+        aria={aria}
+        title={title}
+      >
         <i class={`fa-brands ${ico}`} />
       </A>
     ))

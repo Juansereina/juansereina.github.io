@@ -6,8 +6,9 @@ export interface Props {
   rel?: string;
   target?: string;
   aria?: string;
+  title?: string;
 }
-const { classes, href, target, rel, isActive, aria } = Astro.props;
+const { classes, href, target, rel, isActive, aria, title } = Astro.props;
 ---
 
 <a
@@ -19,6 +20,7 @@ const { classes, href, target, rel, isActive, aria } = Astro.props;
   target={target}
   rel={rel}
   aria-label={aria}
+  title={title}
 >
   <slot />
   <span

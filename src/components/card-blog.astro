@@ -29,10 +29,12 @@ const { href, title, src, alt, publishedAt, readingTime, classes, sources } =
       sources={sources}
     />
 
-    <time class="capitalize" datetime={publishedAt.toISOString()}
-      >{formatDate(publishedAt)}</time
-    >
-    <span>— {readingTime} mins de lectura</span>
+    <small>
+      <time class="capitalize" datetime={publishedAt.toISOString()}
+        >{formatDate(publishedAt)}</time
+      >
+      <span>— {readingTime} mins de lectura</span>
+    </small>
     <h3 class="mt-2 group-hover:underline decoration-cyan-300">
       {title}
     </h3>

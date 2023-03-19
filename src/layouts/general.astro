@@ -99,6 +99,18 @@ const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
       //@ts-ignore
       gtag('config', 'G-SESMVBDB29');
     </script>
+    <script defer>
+      const colorTheme = 'color-theme';
+      const dark = 'dark';
+      const inStoraged = colorTheme in localStorage;
+      const scheme = `(prefers-color-scheme: ${dark})`;
+      const isDarkPreferedColor = window.matchMedia(scheme).matches;
+
+      const darkPrefered = !inStoraged && isDarkPreferedColor;
+      const isDark = localStorage.getItem(colorTheme) === dark;
+
+      document.documentElement.classList.toggle(isDark || darkPrefered);
+    </script>
   </head>
   <body>
     <Nav />

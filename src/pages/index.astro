@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/general.astro';
 import Blog from '@/components/card-blog.astro';
-import H2 from '@/components/common/h2.astro';
 import Picture from '@/components/common/picture.astro';
 import A from '@/components/common/a.astro';
 import Social from '@/components/social.astro';
@@ -62,7 +61,10 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
     <!-- End -->
     <!-- Stack -->
     <div class="mb-4">
-      <H2 text="Tech" strongText="Stack" classes="flex flex-1" />
+      <h2 class="flex flex-1">
+        Tech
+        <span class="gradient ml-2">Stack</span>
+      </h2>
     </div>
     <div class="text-white text-4xl mb-10 sm:mb-12 flex gap-4">
       <i class="fa-brands fa-react"></i>
@@ -74,7 +76,11 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
     <!-- End -->
     <!-- Projects -->
     <div class="mb-4">
-      <H2 text="Más recientes" strongText="Proyectos" classes="flex flex-1" />
+      <h2 class="flex flex-1">
+        Más recientes
+        <span class="gradient ml-2">Proyectos</span>
+      </h2>
+      <!-- <h2 text="" strongText="" classes="flex flex-1" /> -->
     </div>
     <ul class="flex flex-col mb-10 sm:mb-12 gap-4">
       {
@@ -93,13 +99,12 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
     <!-- End -->
     <!-- Post -->
     <div class="flex items-baseline">
-      <H2
-        text="Últimos"
-        strongText="Posts"
-        classes="flex flex-1 mb-4 md:mb-6 lg:mb-8"
-      />
+      <h2 class="flex flex-1 mb-4 md:mb-6 lg:mb-8">
+        Últimos
+        <span class="gradient ml-2">Posts</span>
+      </h2>
       <A href="/blog/es">
-        <span class="text-white">
+        <span>
           Ver todos
           <i class="fa-solid fa-circle-arrow-right text-sm"></i>
         </span>

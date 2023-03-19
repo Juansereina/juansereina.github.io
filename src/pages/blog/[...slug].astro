@@ -32,7 +32,7 @@ const meta = {
 
 <Layout meta={meta}>
   <header class="header">
-    <div class="mb-10">
+    <div class="mb-10 group">
       <a
         href="https://twitter.com/Juansereina_"
         target="_blank"
@@ -48,18 +48,18 @@ const meta = {
 
         <div>
           <p>Juan Sebastián Reina</p>
-          <p class="text-sm text-cyan-300">@Juansereina_</p>
+          <p class="text-sm group-hover:underline">@Juansereina_</p>
         </div>
       </a>
     </div>
     <h1 class="title mb-2">{entry.data.title}</h1>
-    <p class="mb-4">
+    <small class="mb-4">
       <time class="capitalize" datetime={entry.data.publishedAt.toISOString()}>
         {formatDate(entry.data.publishedAt)}
       </time>
       -
       {timeTobeRead} mins de lectura
-    </p>
+    </small>
   </header>
   <main>
     <article class="post">
@@ -69,15 +69,10 @@ const meta = {
 </Layout>
 
 <style is:global>
-  .header {
-    @apply text-gray-300;
-  }
-
   .post img {
-    @apply w-full lg:scale-110 my-6 md:my-8 lg:my-16 border border-gray-700;
+    @apply w-full lg:scale-110 my-6 md:my-8 lg:my-16;
   }
 
-  .header a,
   .post a {
     @apply text-cyan-300 font-medium hover:underline decoration-cyan-300;
   }

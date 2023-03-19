@@ -17,12 +17,12 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
 <Layout>
   <main>
     <!-- Introduction -->
-    <header class="text-white mb-10 sm:mb-12">
+    <header class="mb-10 sm:mb-12">
       <div
         class="flex flex-wrap gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
       >
         <span>Hola, soy</span>
-        <strong>
+        <strong class="gradient">
           <h1>Juan Sebastián</h1>
         </strong>
         👋

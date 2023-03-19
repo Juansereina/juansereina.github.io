@@ -85,8 +85,8 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
     <ul class="flex flex-col mb-10 sm:mb-12 gap-4">
       {
         projects.map(({ title, link, icons }) => (
-          <li class="w-full p-2 rounded border border-gray-600  bg-gray-700 hover:border-white">
-            <a href={link} class="w-full text-white flex items-center gap-2">
+          <li class="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 general-boder border-hover">
+            <a href={link} class="w-full flex items-center gap-2">
               <p class="flex-1">{title}</p>
               {icons.map((ico) => (
                 <i class={`${ico} text-lg`} />

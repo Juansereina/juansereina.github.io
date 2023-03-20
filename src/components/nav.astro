@@ -33,9 +33,19 @@ const items = [
     }
     <li class="flex items-center">
       <button id="theme-toggle" type="button">
-        <i class="dark:hidden fa-solid fa-moon"></i>
-        <i class="hidden dark:inline fa-solid fa-sun"></i>
+        <i id="theme-dark-icon" class="hidden dark:inline fa-solid fa-sun"></i>
+        <i id="theme-light-icon" class="dark:hidden fa-solid fa-moon"></i>
       </button>
     </li>
   </ul>
 </nav>
+
+<script defer>
+  const themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function () {
+    const currentlyDark = document.documentElement.classList.contains(dark);
+    document.documentElement.classList.toggle(dark);
+    localStorage.setItem(colorTheme, currentlyDark ? light : dark);
+  });
+</script>

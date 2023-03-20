@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/general.astro';
+---
+
+<Layout>
+  <main class="flex-1 flex flex-col items-center justify-center">
+    <h1 class="gradient mb-4">Ops, 404</h1>
+    <h2 class="mb-2">No encuentro esta página 🤔</h2>
+    <p class="mb-6">ruta: <b>{Astro.url.pathname}</b></p>
+    <p>
+      <a href="/" class="gradient">Click aquí para ir al inicio</a> 🚀
+    </p>
+  </main>
+</Layout>

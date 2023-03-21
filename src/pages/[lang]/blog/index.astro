@@ -11,6 +11,10 @@ const meta = {
   description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
   keywords: 'Web development, Coding, Life Style, Business',
 };
+
+export async function getStaticPaths() {
+  return [{params: {lang: 'es'}}]
+}
 ---
 
 <Layout meta={meta}>

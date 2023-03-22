@@ -108,7 +108,7 @@ const lang = getLanguageFromURL(pathname);
         Últimos
         <span class="gradient ml-2">Posts</span>
       </h2>
-      <A href="/blog/es">
+      <A href={`/${lang}/blog`}>
         <span>
           Ver todos
           <i class="fa-solid fa-circle-arrow-right text-sm"></i>
@@ -121,7 +121,7 @@ const lang = getLanguageFromURL(pathname);
           .filter((_, index) => index < 3)
           .map(({ data, slug, body }) => {
             const newSlug = stripLangFromSlug(slug);
-            const link = `${lang}/blog/${newSlug}`;
+            const link = `/${lang}/blog/${newSlug}`;
             return (
               <Blog
                 title={data.title}

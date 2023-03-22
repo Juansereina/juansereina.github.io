@@ -1,10 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
-import { readingTime } from '@/utils';
+import {
+  getLangFromSlug,
+  getLanguageFromURL,
+  readingTime,
+  stripLangFromSlug,
+} from '@/utils';
 import Layout from '@/layouts/general.astro';
 import Card from '@/components/card-blog.astro';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
 
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
@@ -13,7 +20,7 @@ const meta = {
 };
 
 export async function getStaticPaths() {
-  return [{params: {lang: 'es'}}]
+  return [{ params: { lang: 'es' } }];
 }
 ---
 
@@ -22,6 +29,8 @@ export async function getStaticPaths() {
   <ul>
     {
       blogs.map(({ data, slug, body }) => {
+        const newSlug = stripLangFromSlug(slug);
+        const link = `/${lang}/blog/${newSlug}`;
         return (
           <Card
             title={data.title}
@@ -31,7 +40,7 @@ export async function getStaticPaths() {
               { media: '(max-width: 400px)', trw: 600 },
               { media: '(min-width: 401px)', trw: 800 },
             ]}
-            href={`/blog/${slug}`}
+            href={link}
             publishedAt={data.publishedAt}
             readingTime={readingTime(body)}
             classes="mb-8"

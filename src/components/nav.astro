@@ -23,7 +23,7 @@ const items = [
       Juansereina
     </strong>
   </A>
-  <ul class="flex gap-4 ml-auto">
+  <ul class="hidden sm:flex gap-4 ml-auto">
     {
       items.map(({ link, text }) => {
         const path = `/${lang}${link}`;
@@ -36,21 +36,66 @@ const items = [
         );
       })
     }
+    <li>
+      <select class="bg-transparent">
+        <option value="english">🇺🇸 English</option>
+        <option value="spanish">🇨🇴 Español</option>
+      </select>
+    </li>
     <li class="flex items-center">
-      <button id="theme-toggle" type="button" title="Change color theme">
+      <button class="theme-toggle" type="button" title="Change color theme">
         <i id="theme-dark-icon" class="hidden dark:inline fa-solid fa-sun"></i>
         <i id="theme-light-icon" class="dark:hidden fa-solid fa-moon"></i>
       </button>
     </li>
   </ul>
+  <button class="ml-auto text-2xl sm:hidden">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 </nav>
+<dialog open class="w-full h-full">
+  <div class="flex">
+    <i class="text-3xl fa-sharp fa-solid fa-xmark flex-1"></i>
+    <h2 class="font-medium text-3xl">Menu</h2>
+  </div>
+  <hr class="my-4 h-1 w-full" />
+  <ul class="flex flex-col gap-8 ml-auto items-end text-xl">
+    {
+      items.map(({ link, text }) => {
+        const path = `/${lang}${link}`;
+        return (
+          <li class="w-fit">
+            <A href={path} isActive={path === pathname}>
+              {text}
+            </A>
+          </li>
+        );
+      })
+    }
+    <li>
+      <select class="bg-transparent">
+        <option value="english">🇺🇸 English</option>
+        <option value="spanish">🇨🇴 Español</option>
+      </select>
+    </li>
+    <li class="flex items-center">
+      <button class="theme-toggle" type="button" title="Change color theme">
+        Tema
+        <i id="theme-dark-icon" class="hidden dark:inline fa-solid fa-sun"></i>
+        <i id="theme-light-icon" class="dark:hidden fa-solid fa-moon"></i>
+      </button>
+    </li>
+  </ul>
+</dialog>
 
 <script defer>
-  const themeToggleBtn = document.getElementById('theme-toggle');
-
-  themeToggleBtn.addEventListener('click', function () {
+  const handleTheme = () => {
     const currentlyDark = document.documentElement.classList.contains(dark);
     document.documentElement.classList.toggle(dark);
     localStorage.setItem(colorTheme, currentlyDark ? light : dark);
-  });
+  };
+
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle');
+
+  themeToggleBtns.forEach((btn) => btn.addEventListener('click', handleTheme));
 </script>

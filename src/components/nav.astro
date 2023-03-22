@@ -1,6 +1,7 @@
 ---
 import { getLanguageFromURL } from '@/utils';
 import A from './common/a.astro';
+import LangSelect from './lang-select.astro';
 
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
@@ -37,10 +38,7 @@ const items = [
       })
     }
     <li>
-      <select class="bg-transparent">
-        <option value="english">🇺🇸 English</option>
-        <option value="spanish">🇨🇴 Español</option>
-      </select>
+      <LangSelect />
     </li>
     <li class="flex items-center">
       <button class="theme-toggle" type="button" title="Change color theme">
@@ -75,10 +73,7 @@ const items = [
       })
     }
     <li>
-      <select class="bg-transparent">
-        <option value="english">🇺🇸 English</option>
-        <option value="spanish">🇨🇴 Español</option>
-      </select>
+      <LangSelect />
     </li>
     <li class="flex items-center">
       <button class="theme-toggle" type="button" title="Change color theme">

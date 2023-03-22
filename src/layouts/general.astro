@@ -1,6 +1,7 @@
 ---
 import Nav from '@/components/nav.astro';
 import Footer from '@/components/footer.astro';
+import { getLanguageFromURL } from '@/utils';
 export interface Props {
   meta?: {
     title?: string;
@@ -20,6 +21,7 @@ const defaultMeta = {
 };
 
 const { meta } = Astro.props;
+const { pathname } = Astro.url;
 
 const {
   title = defaultMeta.title,
@@ -32,10 +34,12 @@ const metaImage = new URL(image, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
 const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
   .href;
+
+const lang = getLanguageFromURL(pathname);
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

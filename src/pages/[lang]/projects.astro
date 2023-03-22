@@ -7,6 +7,10 @@ const meta = {
   description: 'Proyectos a los que estoy dedicando tiempo actualmente',
   keywords: 'Web development, HTML, CSS, TypeScript, JavaScript',
 };
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
 ---
 
 <Layout meta={meta}>

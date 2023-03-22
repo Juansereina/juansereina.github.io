@@ -5,7 +5,17 @@ const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 ---
 
-<select class="bg-transparent">
+<select id="lang-select" class="bg-transparent">
   <option value="en" selected={lang === 'en'}>🇺🇸 English</option>
   <option value="es" selected={lang === 'es'}>🇨🇴 Español</option>
 </select>
+
+<script>
+  const select = document.querySelector('#lang-select');
+
+  select?.addEventListener('change', function (e) {
+    const selectedLang = e.target?.value || 'es';
+
+    localStorage.setItem('lang', selectedLang);
+  });
+</script>

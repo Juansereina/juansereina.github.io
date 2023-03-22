@@ -5,15 +5,23 @@ import Blog from '@/components/card-blog.astro';
 import Picture from '@/components/common/picture.astro';
 import A from '@/components/common/a.astro';
 import Social from '@/components/social.astro';
-import { getLanguageFromURL, readingTime, stripLangFromSlug } from '@/utils';
+import {
+  getLangFromSlug,
+  getLanguageFromURL,
+  readingTime,
+  stripLangFromSlug,
+} from '@/utils';
 import projects from '@/data/projects.json';
 import NextIcon from '@/components/icons/nextjs.astro';
 import TypeScriptIcon from '@/components/icons/ts.astro';
 
-const blogs = await getCollection('blog', (item) => !item.data.draft);
-
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
+const blogs = await getCollection('blog', (item) => {
+  const langSlug = getLangFromSlug(item.slug);
+
+  return !item.data.draft && langSlug === lang;
+});
 ---
 
 <Layout>

@@ -49,13 +49,15 @@ const items = [
       </button>
     </li>
   </ul>
-  <button class="ml-auto text-2xl sm:hidden">
+  <button id="open-dialog" class="ml-auto text-2xl sm:hidden">
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
-<dialog open class="w-full h-full">
+<dialog id="dialog" hidden class="absolute h-full z-10">
   <div class="flex">
-    <i class="text-3xl fa-sharp fa-solid fa-xmark flex-1"></i>
+    <i
+      id="close-dialog"
+      class="cursor-pointer text-3xl fa-sharp fa-solid fa-xmark flex-1"></i>
     <h2 class="font-medium text-3xl">Menu</h2>
   </div>
   <hr class="my-4 h-1 w-full" />
@@ -98,4 +100,18 @@ const items = [
   const themeToggleBtns = document.querySelectorAll('.theme-toggle');
 
   themeToggleBtns.forEach((btn) => btn.addEventListener('click', handleTheme));
+
+  const modal = document.querySelector('#dialog');
+  const openBtn = document.querySelector('#open-dialog');
+  const closeBtn = document.querySelector('#close-dialog');
+
+  closeBtn.addEventListener('click', () => {
+    modal.hidden = true;
+    modal.open = true;
+  });
+
+  openBtn.addEventListener('click', () => {
+    modal.open = true;
+    modal.hidden = false;
+  });
 </script>

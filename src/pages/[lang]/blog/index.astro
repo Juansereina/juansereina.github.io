@@ -9,9 +9,13 @@ import {
 import Layout from '@/layouts/general.astro';
 import Card from '@/components/card-blog.astro';
 
-const blogs = await getCollection('blog', (item) => !item.data.draft);
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
+const blogs = await getCollection('blog', (item) => {
+  const langSlug = getLangFromSlug(item.slug);
+
+  return !item.data.draft && langSlug === lang;
+});
 
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
@@ -20,7 +24,7 @@ const meta = {
 };
 
 export async function getStaticPaths() {
-  return [{ params: { lang: 'es' } }];
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
 }
 ---
 

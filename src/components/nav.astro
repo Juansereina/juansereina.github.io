@@ -1,7 +1,10 @@
 ---
+import { getLanguageFromURL } from '@/utils';
 import A from './common/a.astro';
 
 const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
+
 const items = [
   {
     link: '/projects',
@@ -14,7 +17,6 @@ const items = [
 ];
 ---
 
-<!-- {JSON.stringify(window.location.href)} -->
 <nav class="text-lg sm:text-xl flex font-medium mb-10 sm:mb-12">
   <A href="/">
     <strong class="text-transparent bg-clip-text bg-gradient-to-r gradient">
@@ -23,13 +25,16 @@ const items = [
   </A>
   <ul class="flex gap-4 ml-auto">
     {
-      items.map(({ link, text }) => (
-        <li>
-          <A href={link} isActive={link === pathname}>
-            {text}
-          </A>
-        </li>
-      ))
+      items.map(({ link, text }) => {
+        const path = `/${lang}${link}`;
+        return (
+          <li>
+            <A href={path} isActive={path === pathname}>
+              {text}
+            </A>
+          </li>
+        );
+      })
     }
     <li class="flex items-center">
       <button id="theme-toggle" type="button" title="Change color theme">

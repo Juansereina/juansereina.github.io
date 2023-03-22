@@ -5,12 +5,15 @@ import Blog from '@/components/card-blog.astro';
 import Picture from '@/components/common/picture.astro';
 import A from '@/components/common/a.astro';
 import Social from '@/components/social.astro';
-import { readingTime } from '@/utils';
+import { getLanguageFromURL, readingTime, stripLangFromSlug } from '@/utils';
 import projects from '@/data/projects.json';
 import NextIcon from '@/components/icons/nextjs.astro';
 import TypeScriptIcon from '@/components/icons/ts.astro';
 
 const blogs = await getCollection('blog', (item) => !item.data.draft);
+
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
 ---
 
 <Layout>
@@ -116,20 +119,24 @@ const blogs = await getCollection('blog', (item) => !item.data.draft);
       {
         blogs
           .filter((_, index) => index < 3)
-          .map(({ data, slug, body }) => (
-            <Blog
-              title={data.title}
-              alt={data.image.alt}
-              src={data.image.src}
-              sources={[
-                { media: '(min-width: 640px)', trw: 300 },
-                { media: '(max-width: 639px)', trw: 650 },
-              ]}
-              href={`/blog/${slug}`}
-              publishedAt={data.publishedAt}
-              readingTime={readingTime(body)}
-            />
-          ))
+          .map(({ data, slug, body }) => {
+            const newSlug = stripLangFromSlug(slug);
+            const link = `${lang}/blog/${newSlug}`;
+            return (
+              <Blog
+                title={data.title}
+                alt={data.image.alt}
+                src={data.image.src}
+                sources={[
+                  { media: '(min-width: 640px)', trw: 300 },
+                  { media: '(max-width: 639px)', trw: 650 },
+                ]}
+                href={link}
+                publishedAt={data.publishedAt}
+                readingTime={readingTime(body)}
+              />
+            );
+          })
       }
     </ul>
     <!-- End -->

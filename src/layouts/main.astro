@@ -88,8 +88,7 @@ const t = await getTranslate(lang);
     <!-- Projects -->
     <div class="mb-4">
       <h2 class="flex flex-1">
-        Más recientes
-        <span class="gradient ml-2">Proyectos</span>
+        <Fragment set:html={t('recent_projects')} />
       </h2>
       <!-- <h2 text="" strongText="" classes="flex flex-1" /> -->
     </div>
@@ -111,12 +110,11 @@ const t = await getTranslate(lang);
     <!-- Post -->
     <div class="flex items-baseline">
       <h2 class="flex flex-1 mb-4 md:mb-6 lg:mb-8">
-        Últimos
-        <span class="gradient ml-2">Posts</span>
+        <Fragment set:html={t('recent_post')} />
       </h2>
       <A href={`/${lang}/blog`}>
         <span>
-          Ver todos
+          {t('see_all')}
           <i class="fa-solid fa-circle-arrow-right text-sm"></i>
         </span>
       </A>

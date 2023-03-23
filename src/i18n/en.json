@@ -3,6 +3,9 @@
     "hello": "Hello, I'm",
     "summary": "<strong>Web Developer</strong>, I've been working with <strong>JavaScript</strong> for a while. I have had the opportunity to learn from many people. 👨‍💻, so I decided to share some ideas about <strong>coding</strong> 👨‍🎨, <strong>books</strong> 📚 and other topic I really like 🤔",
     "projects": "Projects",
-    "theme": "Change color theme"
+    "theme": "Change color theme",
+    "recent_projects": "Most recent <span class='gradient ml-2'>Projects</span>",
+    "recent_post": "Latest <span class='gradient ml-2'>Posts</span>",
+    "see_all": "See all"
   }
 }

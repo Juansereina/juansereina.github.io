@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getTranslate } from '@/i18n/index';
 import Layout from '@/layouts/general.astro';
 import Blog from '@/components/card-blog.astro';
 import Picture from '@/components/common/picture.astro';
@@ -22,6 +23,8 @@ const blogs = await getCollection('blog', (item) => {
 
   return !item.data.draft && langSlug === lang;
 });
+
+const t = await getTranslate(lang);
 ---
 
 <Layout>
@@ -31,7 +34,7 @@ const blogs = await getCollection('blog', (item) => {
       <div
         class="flex flex-wrap gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
       >
-        <span>Hola, soy</span>
+        <span> {t('hello')}</span>
         <strong class="gradient">
           <h1>Juan Sebastián</h1>
         </strong>
@@ -57,13 +60,8 @@ const blogs = await getCollection('blog', (item) => {
         />
 
         <div class="flex-1 gap-4 flex flex-col">
-          <p>
-            Soy <strong>Web Developer</strong>, llevo unos años trabajando
-            <strong>JavaScript</strong>. He tenido la oportunidad de aprender de
-            muchas personas 👨‍💻, por lo que decidí compartir algunas ideas sobre
-            cosas creativas con
-            <strong>código</strong> 👨‍🎨, <strong>libros</strong> 📚 y temas que he
-            aprendido con el tiempo 🤔
+          <p class="i18n" data-i18n="[html]content.body">
+            <Fragment set:html={t('summary')} />
           </p>
           <Social classes="mt-auto" />
         </div>

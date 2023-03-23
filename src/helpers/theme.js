@@ -1,6 +1,5 @@
-const dark = 'dark';
-const light = 'light';
-const colorTheme = 'color-theme';
+import { colorTheme, dark, light } from './constants';
+
 const currentColorTheme = localStorage.getItem(colorTheme);
 const scheme = `(prefers-color-scheme: ${dark})`;
 const isDarkSysPreference = window.matchMedia(scheme).matches;

@@ -18,7 +18,7 @@ const getTranslate = async (lang: 'en' | 'es') => {
   };
 
   if (i18next.isInitialized) {
-    return t;
+    return i18next.changeLanguage(lang);
   }
 
   return await initialize();

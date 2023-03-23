@@ -6,6 +6,8 @@
     "theme": "Cambiar color del tema",
     "recent_projects": "Más recientes <span class='gradient ml-2'>Proyectos</span>",
     "recent_post": "Últimos <span class='gradient ml-2'>Posts</span>",
-    "see_all": "Ver todos"
+    "see_all": "Ver todos",
+    "not_found": "No encuentro esta página 🤔",
+    "404_message": "Click aquí para ir al inicio"
   }
 }

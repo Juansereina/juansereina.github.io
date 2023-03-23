@@ -1,13 +1,20 @@
 ---
 import Layout from '@/layouts/general.astro';
+import { getLanguageFromURL } from '@/utils';
+import { getTranslate } from '@/i18n/index';
+
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
+
+const t = await getTranslate(lang);
 ---
 
 <Layout>
   <main class="flex-1 flex flex-col items-center justify-center">
     <h1 class="gradient mb-4">Ops, 404</h1>
-    <h2 class="mb-4">No encuentro esta página 🤔</h2>
+    <h2 class="mb-4">{t('not_found')}</h2>
     <p>
-      <a href="/" class="gradient">Click aquí para ir al inicio</a> 🚀
+      <a href={`/${lang}`} class="gradient">{t('404_message')}</a> 🚀
     </p>
   </main>
 </Layout>

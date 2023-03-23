@@ -6,6 +6,8 @@
     "theme": "Change color theme",
     "recent_projects": "Most recent <span class='gradient ml-2'>Projects</span>",
     "recent_post": "Latest <span class='gradient ml-2'>Posts</span>",
-    "see_all": "See all"
+    "see_all": "See all",
+    "not_found": "Page not found 🤔",
+    "404_message": "Click to go home page"
   }
 }

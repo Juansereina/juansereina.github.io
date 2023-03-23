@@ -1,19 +1,29 @@
 ---
+import { getTranslate } from '@/i18n/index';
 import Layout from '@/layouts/general.astro';
 import projects from '@/data/projects.json';
+import { getLanguageFromURL } from '@/utils';
 
 const meta = {
   title: 'Proyectos - Juan Sebastián Reina 👨‍💻',
   description: 'Proyectos a los que estoy dedicando tiempo actualmente',
   keywords: 'Web development, HTML, CSS, TypeScript, JavaScript',
 };
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
+const t = await getTranslate(lang);
 ---
 
 <Layout meta={meta}>
-  <h1 class="mb-8 leading-tight">Proyectos</h1>
+  <h1 class="mb-8 leading-tight">{t('projects')}</h1>
   <ul class="grid gap-4">
     {
-      projects.map(({ title, text, tags, link, icons }) => (
+      projects[lang].map(({ title, text, tags, link, icons }) => (
         <li>
           <a href={link} class="" target="_blank" rel="noreferrer noopener">
             <div class="rounded p-6 projects-bg general-border border-hover">

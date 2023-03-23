@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import { getTranslate } from '@/i18n/index';
+import Layout from '@/layouts/general.astro';
+import Blog from '@/components/card-blog.astro';
+import Picture from '@/components/common/picture.astro';
+import A from '@/components/common/a.astro';
+import Social from '@/components/social.astro';
+import {
+  getLangFromSlug,
+  getLanguageFromURL,
+  readingTime,
+  stripLangFromSlug,
+} from '@/utils';
+import projects from '@/data/projects.json';
+import NextIcon from '@/components/icons/nextjs.astro';
+import TypeScriptIcon from '@/components/icons/ts.astro';
+
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
+const blogs = await getCollection('blog', (item) => {
+  const langSlug = getLangFromSlug(item.slug);
+
+  return !item.data.draft && langSlug === lang;
+});
+
+const t = await getTranslate(lang);
+---
+
+<Layout>
+  <main>
+    <!-- Introduction -->
+    <header class="mb-10 sm:mb-12">
+      <div
+        class="flex flex-wrap gap-1 text-2xl sm:text-4xl lg:sm:text-5xl justify-center md:justify-start mb-4 md:mb-6 lg:mb-8"
+      >
+        <span> {t('hello')}</span>
+        <strong class="gradient">
+          <h1>Juan Sebastián</h1>
+        </strong>
+        👋
+      </div>
+      <div class="flex max-md:flex-col gap-8">
+        <Picture
+          src="profile.jpg"
+          alt="Foto de Juan Sebastian sonriendo"
+          trw={1000}
+          picClass="max-w-md w-full md:w-2/6 mx-auto"
+          imgClass="w-full"
+          sources={[
+            {
+              media: '(max-width: 767px)',
+              trw: 500,
+            },
+            {
+              media: '(min-width: 768px)',
+              trw: 300,
+            },
+          ]}
+        />
+
+        <div class="flex-1 gap-4 flex flex-col">
+          <p class="i18n" data-i18n="[html]content.body">
+            <Fragment set:html={t('summary')} />
+          </p>
+          <Social classes="mt-auto" />
+        </div>
+      </div>
+    </header>
+    <!-- End -->
+    <!-- Stack -->
+    <div class="mb-4">
+      <h2 class="flex flex-1">
+        Tech
+        <span class="gradient ml-2">Stack</span>
+      </h2>
+    </div>
+    <div class="text-4xl mb-10 sm:mb-12 flex gap-4">
+      <i class="fa-brands fa-react" title="React" aria-label="React js icon"
+      ></i>
+      <NextIcon />
+      <TypeScriptIcon />
+      <i class="fa-brands fa-sass" title="Sass" aria-label="Sass icon"></i>
+      <i class="fa-brands fa-node-js" title="Node" aria-label="Node js icon"
+      ></i>
+    </div>
+    <!-- End -->
+    <!-- Projects -->
+    <div class="mb-4">
+      <h2 class="flex flex-1">
+        <Fragment set:html={t('recent_projects')} />
+      </h2>
+      <!-- <h2 text="" strongText="" classes="flex flex-1" /> -->
+    </div>
+    <ul class="flex flex-col mb-10 sm:mb-12 gap-4">
+      {
+        projects[lang].map(({ title, link, icons }) => (
+          <li class="w-full p-2 rounded projects-bg general-border border-hover">
+            <a href={link} class="w-full flex items-center gap-2">
+              <p class="flex-1">{title}</p>
+              {icons.map((ico) => (
+                <i title={ico.title} class={`${ico.fig} text-lg`} />
+              ))}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- End -->
+    <!-- Post -->
+    <div class="flex items-baseline">
+      <h2 class="flex flex-1 mb-4 md:mb-6 lg:mb-8">
+        <Fragment set:html={t('recent_post')} />
+      </h2>
+      <A href={`/${lang}/blog`}>
+        <span>
+          {t('see_all')}
+          <i class="fa-solid fa-circle-arrow-right text-sm"></i>
+        </span>
+      </A>
+    </div>
+    <ul class="grid sm:grid-cols-3 gap-4">
+      {
+        blogs
+          .filter((_, index) => index < 3)
+          .map(({ data, slug, body }) => {
+            const newSlug = stripLangFromSlug(slug);
+            const link = `/${lang}/blog/${newSlug}`;
+            return (
+              <Blog
+                title={data.title}
+                alt={data.image.alt}
+                src={data.image.src}
+                sources={[
+                  { media: '(min-width: 640px)', trw: 300 },
+                  { media: '(max-width: 639px)', trw: 650 },
+                ]}
+                href={link}
+                publishedAt={data.publishedAt}
+                readingTime={readingTime(body)}
+              />
+            );
+          })
+      }
+    </ul>
+    <!-- End -->
+  </main>
+</Layout>

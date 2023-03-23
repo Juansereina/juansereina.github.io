@@ -1,0 +1,41 @@
+---
+import { getLanguageFromURL } from '@/utils';
+
+export interface Props {
+  classes?: string;
+}
+
+const { classes } = Astro.props;
+const { pathname } = Astro.url;
+const lang = getLanguageFromURL(pathname);
+---
+
+<select class={`lang-select bg-transparent ${classes ? classes : ''}`}>
+  <option value="en" selected={lang === 'en'}>🇺🇸 English</option>
+  <option value="es" selected={lang === 'es'}>🇨🇴 Español</option>
+</select>
+
+<script>
+  const stripLangFromSlug = (slug: string) => {
+    const startWithSlash = slug.startsWith('/');
+    const sliceAt = startWithSlash ? 2 : 1;
+
+    return slug.split('/').slice(sliceAt).join('/');
+  };
+
+  const selects = document.querySelectorAll('.lang-select');
+
+  selects.forEach((select) => {
+    select?.addEventListener('change', function (e) {
+      const target = e.target as HTMLSelectElement;
+      const selectedLang = target?.value || 'en';
+
+      const { pathname } = window.location;
+      const path = stripLangFromSlug(pathname);
+      const isEmpty = path.length == 0;
+      const newPath = isEmpty ? `/${selectedLang}` : `/${selectedLang}/${path}`;
+
+      window.location.replace(newPath);
+    });
+  });
+</script>

@@ -5,7 +5,7 @@ const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 ---
 
-<select id="lang-select" class="bg-transparent">
+<select class="lang-select bg-transparent">
   <option value="en" selected={lang === 'en'}>🇺🇸 English</option>
   <option value="es" selected={lang === 'es'}>🇨🇴 Español</option>
 </select>
@@ -13,16 +13,19 @@ const lang = getLanguageFromURL(pathname);
 <script>
   import { stripLangFromSlug } from '@/helpers/route';
 
-  const select = document.querySelector('#lang-select');
+  const selects = document.querySelectorAll('.lang-select');
 
-  select?.addEventListener('change', function (e) {
-    const selectedLang = e.target?.value || 'es';
+  selects.forEach((select) => {
+    select?.addEventListener('change', function (e) {
+      console.log('entra');
+      const selectedLang = e.target?.value || 'en';
 
-    const { pathname } = window.location;
-    const path = stripLangFromSlug(pathname);
-    const isEmpty = path.length == 0;
-    const newPath = isEmpty ? `/${selectedLang}` : `/${selectedLang}/${path}`;
+      const { pathname } = window.location;
+      const path = stripLangFromSlug(pathname);
+      const isEmpty = path.length == 0;
+      const newPath = isEmpty ? `/${selectedLang}` : `/${selectedLang}/${path}`;
 
-    window.location.replace(newPath);
+      window.location.replace(newPath);
+    });
   });
 </script>

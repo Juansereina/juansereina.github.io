@@ -11,11 +11,19 @@ const lang = getLanguageFromURL(pathname);
 </select>
 
 <script>
+  import { stripLangFromSlug, saveLang } from '@/helpers/index.js';
+
   const select = document.querySelector('#lang-select');
 
   select?.addEventListener('change', function (e) {
     const selectedLang = e.target?.value || 'es';
 
-    localStorage.setItem('lang', selectedLang);
+    saveLang(selectedLang);
+
+    const { pathname } = window.location;
+    const path = stripLangFromSlug(pathname);
+    const newPath = `/${selectedLang}/${path}`;
+
+    window.location.replace(newPath);
   });
 </script>

@@ -22,7 +22,6 @@ const lang = getLanguageFromURL(pathname);
 
   selects.forEach((select) => {
     select?.addEventListener('change', function (e) {
-      console.log('entra');
       const selectedLang = e.target?.value || 'en';
 
       const { pathname } = window.location;

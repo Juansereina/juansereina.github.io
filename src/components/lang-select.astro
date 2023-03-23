@@ -1,11 +1,16 @@
 ---
 import { getLanguageFromURL } from '@/utils';
 
+export interface Props {
+  classes?: string;
+}
+
+const { classes } = Astro.props;
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 ---
 
-<select class="lang-select bg-transparent">
+<select class={`lang-select bg-transparent ${classes ? classes : ''}`}>
   <option value="en" selected={lang === 'en'}>🇺🇸 English</option>
   <option value="es" selected={lang === 'es'}>🇨🇴 Español</option>
 </select>

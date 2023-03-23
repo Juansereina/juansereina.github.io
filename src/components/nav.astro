@@ -27,6 +27,7 @@ const items = [
       Juansereina
     </strong>
   </A>
+
   <ul class="hidden sm:flex gap-4 ml-auto">
     {
       items.map(({ link, text }) => {
@@ -50,7 +51,8 @@ const items = [
       </button>
     </li>
   </ul>
-  <button id="open-dialog" class="ml-auto text-2xl sm:hidden">
+  <LangSelect classes="ml-auto sm:hidden" />
+  <button id="open-dialog" class="ml-6 text-2xl sm:hidden">
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
@@ -75,9 +77,6 @@ const items = [
         );
       })
     }
-    <li>
-      <LangSelect />
-    </li>
     <li class="flex items-center">
       <button class="theme-toggle" type="button" title="Change color theme">
         Tema

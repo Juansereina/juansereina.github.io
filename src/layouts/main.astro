@@ -100,7 +100,7 @@ const t = await getTranslate(lang);
             <a href={link} class="w-full flex items-center gap-2">
               <p class="flex-1">{title}</p>
               {icons.map((ico) => (
-                <i class={`${ico} text-lg`} />
+                <i title={ico.title} class={`${ico.fig} text-lg`} />
               ))}
             </a>
           </li>

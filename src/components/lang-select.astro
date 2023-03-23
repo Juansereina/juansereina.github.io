@@ -11,7 +11,6 @@ const lang = getLanguageFromURL(pathname);
 </select>
 
 <script>
-  import { saveLang } from '@/helpers/storage';
   import { stripLangFromSlug } from '@/helpers/route';
 
   const select = document.querySelector('#lang-select');
@@ -19,11 +18,10 @@ const lang = getLanguageFromURL(pathname);
   select?.addEventListener('change', function (e) {
     const selectedLang = e.target?.value || 'es';
 
-    saveLang(selectedLang);
-
     const { pathname } = window.location;
     const path = stripLangFromSlug(pathname);
-    const newPath = `/${selectedLang}/${path}`;
+    const isEmpty = path.length == 0;
+    const newPath = isEmpty ? `/${selectedLang}` : `/${selectedLang}/${path}`;
 
     window.location.replace(newPath);
   });

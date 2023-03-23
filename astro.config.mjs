@@ -12,7 +12,7 @@ const partyTownConfig = {
 
 const sitemapConfig = {
   i18n: {
-    defaultLocale: 'es',
+    defaultLocale: 'en',
     locales: {
       en: 'en-US',
       es: 'es-ES',

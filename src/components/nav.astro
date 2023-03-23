@@ -1,15 +1,18 @@
 ---
 import { getLanguageFromURL } from '@/utils';
+import { getTranslate } from '@/i18n/index';
 import A from './common/a.astro';
 import LangSelect from './lang-select.astro';
 
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 
+const t = await getTranslate(lang);
+
 const items = [
   {
     link: '/projects',
-    text: 'Proyectos',
+    text: t('projects'),
   },
   {
     link: '/blog',
@@ -41,7 +44,7 @@ const items = [
       <LangSelect />
     </li>
     <li class="flex items-center">
-      <button class="theme-toggle" type="button" title="Change color theme">
+      <button class="theme-toggle" type="button" title={t('theme')}>
         <i id="theme-dark-icon" class="hidden dark:inline fa-solid fa-sun"></i>
         <i id="theme-light-icon" class="dark:hidden fa-solid fa-moon"></i>
       </button>

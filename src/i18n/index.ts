@@ -1,11 +1,11 @@
 import i18next, { t } from 'i18next';
 
-import main from './main.json';
-import nav from './nav.json';
+import en from './en.json';
+import es from './es.json';
 
 const resources = {
-  ...main,
-  ...nav,
+  en,
+  es,
 };
 
 const getTranslate = async (lang: 'en' | 'es') => {

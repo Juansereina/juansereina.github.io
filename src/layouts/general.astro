@@ -103,7 +103,21 @@ const lang = getLanguageFromURL(pathname);
       //@ts-ignore
       gtag('config', 'G-SESMVBDB29');
     </script>
-    <script src="./js/theme.js" type="module" async></script>
+    <script defer>
+      import { colorTheme, dark, light } from '@/utils/constants';
+
+      const currentColorTheme = localStorage.getItem(colorTheme);
+      const scheme = `(prefers-color-scheme: ${dark})`;
+      const isDarkSysPreference = window.matchMedia(scheme).matches;
+      const preferedDark = currentColorTheme === dark;
+      const isDark = currentColorTheme ? preferedDark : isDarkSysPreference;
+
+      document.documentElement.classList.toggle(dark, isDark);
+
+      if (!currentColorTheme) {
+        localStorage.setItem(colorTheme, isDarkSysPreference ? dark : light);
+      }
+    </script>
   </head>
   <body>
     <Nav />

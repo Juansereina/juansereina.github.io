@@ -11,7 +11,8 @@ const lang = getLanguageFromURL(pathname);
 </select>
 
 <script>
-  import { stripLangFromSlug, saveLang } from '@/helpers/index.js';
+  import { saveLang } from '@/helpers/storage';
+  import { stripLangFromSlug } from '@/helpers/route';
 
   const select = document.querySelector('#lang-select');
 

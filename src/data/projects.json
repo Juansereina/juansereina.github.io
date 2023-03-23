@@ -1,33 +1,68 @@
-[
-  {
-    "title": "Website",
-    "text": "Mi página web, el lugar en donde aprendo nuevas tecnologías mientras construyo, pruebo y aplico ideas.",
-    "link": "https://github.com/Juansereina/juansereina.github.io",
-    "tags": ["Astro", "zup", "TypeScript", "Markdown", "Tailwind", "git"],
-    "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
-  },
-  {
-    "title": "Nextfire",
-    "text": "Pequeño proyecto de como conectar Firebase y Nextjs.",
-    "link": "https://github.com/Juansereina/nextfire",
-    "tags": ["Firebase", "Nextjs", "TypeScript", "git"],
-    "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
-  },
-  {
-    "title": "Dotfiles",
-    "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
-    "link": "https://github.com/Juansereina/dotfiles",
-    "tags": ["git", "bash", "npm", "zsh"],
-    "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
-  },
-  {
-    "title": "Protérmico",
-    "text": "Proyecto que busca mejorar la calidad de trabajo de los campesinos en Colombia.",
-    "link": "https://www.behance.net/gallery/66596359/Protermico-Project",
-    "tags": ["C++", "Arduino"],
-    "icons": [
-      { "title": "Github", "fig": "fa-brands fa-github" },
-      { "title": "Behance", "fig": "fa-brands fa-behance" }
-    ]
-  }
-]
+{
+  "en": [
+    {
+      "title": "Website",
+      "text": "Mi persona website, where I apply all I've learned and try new things.",
+      "link": "https://github.com/Juansereina/juansereina.github.io",
+      "tags": ["Astro", "zup", "TypeScript", "Markdown", "Tailwind", "git"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Nextfire",
+      "text": "An small project about how to connect Firebase and Nextjs",
+      "link": "https://github.com/Juansereina/nextfire",
+      "tags": ["Firebase", "Nextjs", "TypeScript", "git"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Dotfiles",
+      "text": "Personal configuration for all my local environments.",
+      "link": "https://github.com/Juansereina/dotfiles",
+      "tags": ["git", "bash", "npm", "zsh"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Protérmico",
+      "text": "It's a project that aims to help people that works on rural areas of Colombia",
+      "link": "https://www.behance.net/gallery/66596359/Protermico-Project",
+      "tags": ["C++", "Arduino"],
+      "icons": [
+        { "title": "Github", "fig": "fa-brands fa-github" },
+        { "title": "Behance", "fig": "fa-brands fa-behance" }
+      ]
+    }
+  ],
+  "es": [
+    {
+      "title": "Website",
+      "text": "Mi página web, el lugar en donde aprendo nuevas tecnologías mientras construyo, pruebo y aplico ideas.",
+      "link": "https://github.com/Juansereina/juansereina.github.io",
+      "tags": ["Astro", "zup", "TypeScript", "Markdown", "Tailwind", "git"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Nextfire",
+      "text": "Pequeño proyecto de como conectar Firebase y Nextjs.",
+      "link": "https://github.com/Juansereina/nextfire",
+      "tags": ["Firebase", "Nextjs", "TypeScript", "git"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Dotfiles",
+      "text": "La configuración personal que siempre utilizo en mi ambiente de trabajo.",
+      "link": "https://github.com/Juansereina/dotfiles",
+      "tags": ["git", "bash", "npm", "zsh"],
+      "icons": [{ "title": "Github", "fig": "fa-brands fa-github" }]
+    },
+    {
+      "title": "Protérmico",
+      "text": "Proyecto que busca mejorar la calidad de trabajo de los campesinos en Colombia.",
+      "link": "https://www.behance.net/gallery/66596359/Protermico-Project",
+      "tags": ["C++", "Arduino"],
+      "icons": [
+        { "title": "Github", "fig": "fa-brands fa-github" },
+        { "title": "Behance", "fig": "fa-brands fa-behance" }
+      ]
+    }
+  ]
+}

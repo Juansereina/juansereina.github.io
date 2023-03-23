@@ -94,7 +94,7 @@ const t = await getTranslate(lang);
     </div>
     <ul class="flex flex-col mb-10 sm:mb-12 gap-4">
       {
-        projects.map(({ title, link, icons }) => (
+        projects[lang].map(({ title, link, icons }) => (
           <li class="w-full p-2 rounded projects-bg general-border border-hover">
             <a href={link} class="w-full flex items-center gap-2">
               <p class="flex-1">{title}</p>

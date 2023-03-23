@@ -17,7 +17,7 @@ const getTranslate = async (lang: 'en' | 'es') => {
     });
   };
 
-  if (!i18next.isInitialized) {
+  if (i18next.isInitialized) {
     return t;
   }
 

@@ -10,6 +10,7 @@ import {
   stripLangFromSlug,
   getLanguageFromURL,
 } from '@/utils';
+import { getTranslate } from '@/i18n';
 
 interface Props {
   entry: CollectionEntry<'blog'>;
@@ -39,6 +40,7 @@ const meta = {
 };
 
 const lang = getLanguageFromURL(Astro.url.pathname);
+const t = await getTranslate(lang);
 ---
 
 <Layout meta={meta}>
@@ -69,7 +71,8 @@ const lang = getLanguageFromURL(Astro.url.pathname);
         {formatDate(entry.data.publishedAt, lang)}
       </time>
       -
-      {timeTobeRead} mins de lectura
+      {timeTobeRead}
+      {t('min_read')}
     </small>
   </header>
   <main>

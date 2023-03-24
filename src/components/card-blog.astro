@@ -1,4 +1,5 @@
 ---
+import { getTranslate } from '@/i18n';
 import { formatDate, getLanguageFromURL } from '@/utils';
 import Picture from './common/picture.astro';
 import type { Props as SourceProps } from './common/source.astro';
@@ -18,6 +19,8 @@ const { href, title, src, alt, publishedAt, readingTime, classes, sources } =
   Astro.props;
 
 const lang = getLanguageFromURL(Astro.url.pathname);
+
+const t = await getTranslate(lang);
 ---
 
 <li class={`flex-1 group ${classes}`}>
@@ -35,7 +38,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
       <time class="capitalize" datetime={publishedAt.toISOString()}
         >{formatDate(publishedAt, lang)}</time
       >
-      <span>— {readingTime} mins de lectura</span>
+      <span>— {readingTime} {t('min_read')}</span>
     </small>
     <h3 class="mt-2 group-hover:underline">
       {title}

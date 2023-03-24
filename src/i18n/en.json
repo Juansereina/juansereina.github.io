@@ -8,6 +8,7 @@
     "recent_post": "Latest <span class='gradient ml-2'>Posts</span>",
     "see_all": "See all",
     "not_found": "Page not found 🤔",
-    "404_message": "Click to go home page"
+    "404_message": "Click to go home page",
+    "min_read": "min read"
   }
 }

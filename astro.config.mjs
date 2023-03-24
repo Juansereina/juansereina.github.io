@@ -10,24 +10,7 @@ const partyTownConfig = {
   },
 };
 
-const sitemapConfig = {
-  i18n: {
-    defaultLocale: 'en',
-    locales: {
-      en: 'en-US',
-      es: 'es-ES',
-    },
-  },
-  lastmod: new Date(),
-};
-
 export default defineConfig({
   site: 'https://juansereina.com',
-  integrations: [
-    tailwind(),
-    mdx(),
-    ,
-    sitemap(sitemapConfig),
-    partyTown(partyTownConfig),
-  ],
+  integrations: [tailwind(), mdx(), sitemap(), partyTown(partyTownConfig)],
 });

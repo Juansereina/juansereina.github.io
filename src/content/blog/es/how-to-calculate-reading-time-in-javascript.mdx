@@ -12,9 +12,9 @@ import Picture from '@/components/picture-blog.astro';
 
 <Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
 
-Cuando empece este blog, inspirandome de otras páginas me dí cuenta que todos muestran el tiempo que toma leer un post. Pero, cómo se hace?
+Al empezar este blog, me inspiré en otras páginas y me di cuenta de que todas muestran el tiempo que tarda en leerse un post.
 
-Acá el snippet, por si solo necesitas eso 😛
+¿Pero cómo se hace? Acá el snippet 😉
 
 ```js
 function readingTime(post) {
@@ -34,7 +34,7 @@ Creamos una función `readingTime`, con un parametro `post` que sería el texto 
 function readingTime(post) {}
 ```
 
-Se estima que las personas leen entre 200 y 250 palabras por minuto, entonces, necesitamos esa medida como referencia.
+Las personas leen entre 200 y 250 palabras por minuto apróximadamente, entonces, establecemos una variable de referencia".
 
 ```js
 const WORDS_PER_MINUTE = 200;
@@ -46,19 +46,19 @@ El truco para encontrar las palabras es utilizar [`Regex`](https://developer.moz
 const regex = /\w+/g;
 ```
 
-Utilizando el [metodo match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) identificamos en el string cuantas palabras coinciende con el regex. Al final, agregamos el operador [`||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment) con un `0` por si el regex no encuentra concidencias.
+Utilizando el [metodo match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) identificamos cuántas palabras coinciden con el regex. Al final, agregamos el operador [`||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment) seguido de un `0` por si no encuentra coincidencias.
 
 ```js
 const wordCount = post.match(regex)?.length || 0;
 ```
 
-Calculamos el tiempo al dividir las paralbas encontradas por las palabras por minuto.
+Calculamos el tiempo al dividir las palabras encontradas por las palabras por minuto.
 
 ```js
 wordCount / WORDS_PER_MINUTE;
 ```
 
-Y utilizando [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) obtenemos el valor aproximado:
+Luego, utilizando [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) obtenemos el valor aproximado:
 
 ```js
 function readingTime(post) {

@@ -1,5 +1,5 @@
 ---
-import { formatDate } from '@/utils';
+import { formatDate, getLanguageFromURL } from '@/utils';
 import Picture from './common/picture.astro';
 import type { Props as SourceProps } from './common/source.astro';
 
@@ -16,6 +16,8 @@ export interface Props {
 
 const { href, title, src, alt, publishedAt, readingTime, classes, sources } =
   Astro.props;
+
+const lang = getLanguageFromURL(Astro.url.pathname);
 ---
 
 <li class={`flex-1 group ${classes}`}>
@@ -31,7 +33,7 @@ const { href, title, src, alt, publishedAt, readingTime, classes, sources } =
 
     <small>
       <time class="capitalize" datetime={publishedAt.toISOString()}
-        >{formatDate(publishedAt)}</time
+        >{formatDate(publishedAt, lang)}</time
       >
       <span>— {readingTime} mins de lectura</span>
     </small>

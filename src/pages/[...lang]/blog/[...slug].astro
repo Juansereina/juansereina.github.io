@@ -8,6 +8,7 @@ import {
   readingTime,
   getLangFromSlug,
   stripLangFromSlug,
+  getLanguageFromURL,
 } from '@/utils';
 
 interface Props {
@@ -36,6 +37,8 @@ const meta = {
   image: entry.data.image.src,
   keywords: entry.data.keywords,
 };
+
+const lang = getLanguageFromURL(Astro.url.pathname);
 ---
 
 <Layout meta={meta}>
@@ -63,7 +66,7 @@ const meta = {
     <h1 class="title mb-2">{entry.data.title}</h1>
     <small class="mb-4">
       <time class="capitalize" datetime={entry.data.publishedAt.toISOString()}>
-        {formatDate(entry.data.publishedAt)}
+        {formatDate(entry.data.publishedAt, lang)}
       </time>
       -
       {timeTobeRead} mins de lectura

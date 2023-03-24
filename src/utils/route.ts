@@ -14,7 +14,7 @@ enum Lang {
 export function getLanguageFromURL(pathname: string) {
   const langCodeMatch = pathname.match(/\/?([a-z]{2}-?[a-z]{0,2})\/?/);
   const result = langCodeMatch ? langCodeMatch[1] : Lang.en;
-  const exist = result.includes(Lang.en || Lang.es);
+  const exist = Object.values(Lang).some((lang) => result.includes(lang));
 
   return exist ? result : Lang.en;
 }

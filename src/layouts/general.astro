@@ -30,7 +30,10 @@ const {
   keywords = defaultMeta.keywords,
 } = meta || defaultMeta;
 
-const metaImage = new URL(image, Astro.site).href;
+const isExternalImage =
+  image.startsWith('https://') || image.startsWith('http://');
+const metaImage = isExternalImage ? image : new URL(image, Astro.site).href;
+
 const canonicalURL = new URL(Astro.url).href;
 const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
   .href;

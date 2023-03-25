@@ -32,10 +32,11 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const timeTobeRead = readingTime(entry.body);
 
+const image = `https://ik.imagekit.io/juansereina/tr:w-1300/web/${entry.data.image.src}`;
 const meta = {
   title: entry.data.title,
   description: entry.data.description,
-  image: entry.data.image.src,
+  image,
   keywords: entry.data.keywords,
 };
 

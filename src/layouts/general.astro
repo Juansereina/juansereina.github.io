@@ -1,14 +1,13 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import Nav from '@/components/nav.astro';
 import Footer from '@/components/footer.astro';
 import { getLanguageFromURL } from '@/utils';
+
+type MetaType = Partial<Omit<CollectionEntry<'blog'>['data'], 'publishedAt' | 'draft'>>;
+
 export interface Props {
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: string;
-    keywords?: string;
-  };
+  meta?: MetaType;
 }
 
 const author = 'Juan Sebastián Reina';
@@ -16,8 +15,10 @@ const defaultMeta = {
   title: author,
   description:
     'Desarrollador Web 👨‍💻 con pasión por las finanzas  📚 y las inversiones 💸',
-  image: 'https://ik.imagekit.io/juansereina/web/banner.png',
-  keywords: 'Web, Development, Front End, HTML, CSS, JavaScript',
+  image: {
+    src: 'https://ik.imagekit.io/juansereina/web/banner.png'
+  },
+  keywords: ['Web', 'Development', 'Front End', 'HTML', 'CSS', 'JavaScript'],
 };
 
 const { meta } = Astro.props;
@@ -31,8 +32,8 @@ const {
 } = meta || defaultMeta;
 
 const isExternalImage =
-  image.startsWith('https://') || image.startsWith('http://');
-const metaImage = isExternalImage ? image : new URL(image, Astro.site).href;
+  image.src.startsWith('https://') || image.src.startsWith('http://');
+const metaImage = isExternalImage ? image.src : new URL(image.src, Astro.site).href;
 
 const canonicalURL = new URL(Astro.url).href;
 const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
@@ -55,7 +56,7 @@ const lang = getLanguageFromURL(pathname);
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <meta name="keywords" content={keywords} />
+    <meta name="keywords" content={keywords.join(',')} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="apple-touch-icon" href={appleTouchIconURL} />
 

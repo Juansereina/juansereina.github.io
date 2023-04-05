@@ -20,7 +20,7 @@ const blogs = await getCollection('blog', (item) => {
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
   description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
-  keywords: 'Web development, Coding, Life Style, Business',
+  keywords: ['Web development', 'Coding', 'Life Style', 'Business'],
 };
 
 export async function getStaticPaths() {

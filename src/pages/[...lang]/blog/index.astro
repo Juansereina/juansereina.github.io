@@ -14,7 +14,7 @@ const lang = getLanguageFromURL(pathname);
 const blogs = await getCollection('blog', (item) => {
   const langSlug = getLangFromSlug(item.id);
 
-  return langSlug === lang;
+  return !item.data.draft && langSlug === lang;
 });
 
 const meta = {

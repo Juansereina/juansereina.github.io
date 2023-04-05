@@ -7,7 +7,6 @@ import {
   formatDate,
   readingTime,
   getLangFromSlug,
-  stripLangFromSlug,
   getLanguageFromURL,
 } from '@/utils';
 import { getTranslate } from '@/i18n';
@@ -20,11 +19,10 @@ export async function getStaticPaths() {
   const entries = await getCollection('blog');
 
   return entries
-    .filter((entry) => !entry.data.draft)
     .map((entry) => {
-      const lang = getLangFromSlug(entry.slug);
-      const slug = stripLangFromSlug(entry.slug);
-      return { params: { lang, slug }, props: { entry } };
+      const lang = getLangFromSlug(entry.id);
+
+      return { params: { lang, slug: entry.slug }, props: { entry } };
     });
 }
 

@@ -1,5 +1,4 @@
 import { defineCollection, z } from 'astro:content';
-import { parse } from 'date-fns';
 
 const blogCollection = defineCollection({
   schema: z.object({
@@ -11,10 +10,7 @@ const blogCollection = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    publishedAt: z.string().transform((date) => {
-      const format = 'dd/MM/yyyy';
-      return parse(date, format, new Date());
-    }),
+    publishedAt: z.date(),
   }),
 });
 

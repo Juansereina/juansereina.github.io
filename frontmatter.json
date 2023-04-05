@@ -24,7 +24,24 @@
           "isPublishDate": true
         },
         {
-          "title": "Content preview",
+          "title": "image",
+          "name": "image",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "src",
+              "name": "src",
+              "type": "string"
+            },
+            {
+              "title": "alt",
+              "name": "alt",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "preview",
           "name": "preview",
           "type": "image"
         },
@@ -37,6 +54,11 @@
           "title": "Tags",
           "name": "tags",
           "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
         }
       ]
     }
@@ -47,11 +69,13 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "en",
-      "path": "[[workspace]]/src/content/blog/en"
+      "path": "[[workspace]]/src/content/blog/en",
+      "previewPath": "/en/{{pathToken.3}}"
     },
     {
       "title": "es",
-      "path": "[[workspace]]/src/content/blog/es"
+      "path": "[[workspace]]/src/content/blog/es",
+      "previewPath": "/es/{{pathToken.3}}"
     }
   ],
   "frontMatter.taxonomy.tags": [],

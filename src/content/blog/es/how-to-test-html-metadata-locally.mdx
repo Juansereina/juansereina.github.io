@@ -15,28 +15,28 @@ import Picture from '@/components/picture-blog.astro';
 
 <Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
 
-Usualmente para probar los metatags necesitamos hacer un despliegue, pero podemos ahorra tiempo probando localmente asi:
+Usualmente para probar los [metatags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) necesitamos hacer un deploy, podemos ahorra tiempo probando localmente asi:
 
-## Primero
+## [Primero](#first)
 
 Debemos tener nuestra aplicacion corriendo en algun puerto desde nuestra terminal
 
 ![](/assets/terminal.png)
 
-## Segundo
+## [Segundo](#second)
 
-Necesitamos tener npm instalado y ejecutamos la instrucción:
+Necesitamos tener [npm](https://nodejs.org/en/download) instalado y ejecutamos la instrucción:
 
 ```bash
 npx localtunnel --port 3000
 ```
-Si es la primera vez que utilizas localtunnel veras una pregunta en la terminal y presionas Y y obtienes una url similar a esta:
+Si es la primera vez que utilizas [localtunnel](https://theboroer.github.io/localtunnel-www/), veras una pregunta en la terminal, presionas **Y** y obtienes una **url** similar a esta:
 
 ![](/assets/localtunnel-terminal.png)
 
-## Tercero
+## [Tercero](#third)
 
-Nos dirijimos a metatags.io Y en la parte superior de la página agregas la url que nos generó localtunnel
+Nos dirijimos a [metatags.io](https://metatags.io/), en la parte superior de la página agregas la **url** que nos generó [localtunnel](https://theboroer.github.io/localtunnel-www/)
 
 ![](/assets/metatag-search-bar.png)
 
@@ -44,9 +44,9 @@ Con esta herramientas puedes validar y editar cada metatag.
 
 ![](/assets/metatags-preview.png)
 
-En la parte izquierda, hay unas opciones que te permiten previsualizar como se ve en Facebook, Google o Twitter, entre otros.
+En la parte izquierda, hay opciones que permiten previsualizar como se vería en **Facebook**, **Google** o **Twitter**, entre otros.
 
-## Cuarto
-Finalmente, puedes copiar la configuración utilizando en botón de generar y llevarlo a tu web.
+## [Por último](#last)
+Puedes copiar la configuración utilizando en botón de **Generate** y llevarlo a tu web.
 
 ![](/assets/metatags-generated.png)

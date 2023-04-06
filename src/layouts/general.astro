@@ -158,6 +158,10 @@ const lang = getLanguageFromURL(pathname);
     @apply text-zinc-900 dark:text-zinc-50 before:content-['`'] after:content-['`'];
   }
 
+  p a code {
+    @apply underline;
+  }
+
   p a {
     @apply font-medium hover:underline;
   }
@@ -203,7 +207,7 @@ const lang = getLanguageFromURL(pathname);
   }
 
   h2 a,
-  p a {
+  p a, p a code {
     @apply decoration-orange-500 dark:decoration-cyan-300;
   }
 

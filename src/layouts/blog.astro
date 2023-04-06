@@ -1,13 +1,11 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import Layout from './general.astro';
 
+type MetaType = Partial<Omit<CollectionEntry<'blog'>['data'], 'publishedAt' | 'draft'>>;
+
 export interface Props {
-  meta: {
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-  };
+  meta: MetaType;
 }
 
 const { meta } = Astro.props;

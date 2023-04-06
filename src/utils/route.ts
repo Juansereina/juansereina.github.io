@@ -4,7 +4,7 @@ import { Lang } from '@/types/lang';
 export const stripLangFromSlug = (slug: CollectionEntry<'blog'>['slug']) =>
   slug.split('/').slice(1).join('/');
 
-export const getLangFromSlug = (slug: CollectionEntry<'blog'>['slug']) =>
+export const getLangFromSlug = (slug: CollectionEntry<'blog'>['slug' | 'id']) =>
   slug.split('/')[0];
 
 export function getLanguageFromURL(pathname: string) {

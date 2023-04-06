@@ -19,7 +19,7 @@ import TypeScriptIcon from '@/components/icons/ts.astro';
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 const blogs = await getCollection('blog', (item) => {
-  const langSlug = getLangFromSlug(item.slug);
+  const langSlug = getLangFromSlug(item.id);
 
   return !item.data.draft && langSlug === lang;
 });
@@ -124,8 +124,7 @@ const t = await getTranslate(lang);
         blogs
           .filter((_, index) => index < 3)
           .map(({ data, slug, body }) => {
-            const newSlug = stripLangFromSlug(slug);
-            const link = `/${lang}/blog/${newSlug}`;
+            const link = `/${lang}/blog/${slug}`;
             return (
               <Blog
                 title={data.title}

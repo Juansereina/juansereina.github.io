@@ -12,7 +12,7 @@ import Card from '@/components/card-blog.astro';
 const { pathname } = Astro.url;
 const lang = getLanguageFromURL(pathname);
 const blogs = await getCollection('blog', (item) => {
-  const langSlug = getLangFromSlug(item.slug);
+  const langSlug = getLangFromSlug(item.id);
 
   return !item.data.draft && langSlug === lang;
 });
@@ -20,7 +20,7 @@ const blogs = await getCollection('blog', (item) => {
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
   description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
-  keywords: 'Web development, Coding, Life Style, Business',
+  keywords: ['Web development', 'Coding', 'Life Style', 'Business'],
 };
 
 export async function getStaticPaths() {
@@ -33,8 +33,7 @@ export async function getStaticPaths() {
   <ul>
     {
       blogs.map(({ data, slug, body }) => {
-        const newSlug = stripLangFromSlug(slug);
-        const link = `/${lang}/blog/${newSlug}`;
+        const link = `/${lang}/blog/${slug}`;
         return (
           <Card
             title={data.title}

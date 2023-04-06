@@ -1,7 +1,7 @@
 ---
-title: Como probar los Meta tags localmente
+title: Cómo probar los Meta tags localmente
 description: ""
-publishedAt: 2023-04-05T20:58:52.541Z
+publishedAt: 2023-04-06T20:58:52.541Z
 image:
   src: seo
   alt: Dados de la letra S, E y O
@@ -21,7 +21,13 @@ Usualmente para probar los [metatags](https://developer.mozilla.org/en-US/docs/W
 
 Debemos tener nuestra aplicacion corriendo en algun puerto desde nuestra terminal
 
-![](/assets/terminal.png)
+```bash
+-> npm start
+
+> portfolio@3.0.0 start
+> astro developer
+> Local http://localhost:3000
+```
 
 ## [Segundo](#second)
 
@@ -32,21 +38,25 @@ npx localtunnel --port 3000
 ```
 Si es la primera vez que utilizas [localtunnel](https://theboroer.github.io/localtunnel-www/), veras una pregunta en la terminal, presionas **Y** y obtienes una **url** similar a esta:
 
-![](/assets/localtunnel-terminal.png)
+```bash
+-> npx localtunnel --port
+
+> your url is: https://strong-meals-prove-181-142-210-248.loca.lt
+```
 
 ## [Tercero](#third)
 
-Nos dirijimos a [metatags.io](https://metatags.io/), en la parte superior de la página agregas la **url** que nos generó [localtunnel](https://theboroer.github.io/localtunnel-www/)
+Nos dirijimos a [metatags.io](https://metatags.io/) y en la parte superior de la página agregas la **url** que nos generó [localtunnel](https://theboroer.github.io/localtunnel-www/)
 
-![](/assets/metatag-search-bar.png)
+![](/assets/test-metatags/metatag-search-bar.png)
 
-Con esta herramientas puedes validar y editar cada metatag.
+Con esta herramientas puedes validar y editar cada metatag
 
-![](/assets/metatags-preview.png)
+![](/assets/test-metatags/metatags-preview.png)
 
 En la parte izquierda, hay opciones que permiten previsualizar como se vería en **Facebook**, **Google** o **Twitter**, entre otros.
 
 ## [Por último](#last)
-Puedes copiar la configuración utilizando en botón de **Generate** y llevarlo a tu web.
+Puedes copiar la configuración utilizando en botón de **Generate** y llevarlo a tu web
 
-![](/assets/metatags-generated.png)
+![](/assets/test-metatags/metatags-generated.png)

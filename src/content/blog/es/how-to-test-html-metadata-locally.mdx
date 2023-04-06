@@ -1,17 +1,63 @@
 ---
-title: How to test html metadata locally
+title: Cómo probar los Meta tags localmente
 description: ""
-publishedAt: 2023-04-05T20:58:52.541Z
+publishedAt: 2023-04-06T20:58:52.541Z
 image:
-  src: reading-time.jpg
-  alt: Reloj de arena junto a tres dados
-preview: null
+  src: seo
+  alt: Dados de la letra S, E y O
 draft: true
-tags: []
-categories: []
 slug: test-html-metadata-locally
 keywords:
   - HTML
 ---
 
-# Heya
+import Picture from '@/components/picture-blog.astro';
+
+<Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
+
+Usualmente, para probar los [metatags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta), necesitamos hacer un deploy, podemos ahorra tiempo probando localmente asi:
+
+## [Primero](#first)
+
+Debemos tener nuestra aplicación corriendo en algún puerto desde nuestra terminal.
+
+```bash
+-> npm start
+
+> portfolio@3.0.0 start
+> astro developer
+> Local http://localhost:3000
+```
+
+## [Segundo](#second)
+
+Necesitamos tener [npm](https://nodejs.org/en/download) instalado y ejecutar la instrucción:
+
+```bash
+npx localtunnel --port 3000
+```
+
+Si es la primera vez que utilizas [localtunnel](https://theboroer.github.io/localtunnel-www/), verás una pregunta en la terminal. Presionas **Y** y obtienes una **URL** similar a esta:
+
+```bash
+-> npx localtunnel --port
+
+> your url is: https://strong-meals-prove-181-142-210-248.loca.lt
+```
+
+## [Tercero](#third)
+
+Nos dirigimos a [metatags.io](https://metatags.io/) y en la parte superior de la página agregamos la **URL** que nos generó [localtunnel](https://theboroer.github.io/localtunnel-www/).
+
+![](/assets/test-metatags/metatag-search-bar.png)
+
+Con esta herramienta, puedes validar y editar cada metatag.
+
+![](/assets/test-metatags/metatags-preview.png)
+
+En la parte izquierda, hay opciones que permiten previsualizar cómo se vería en **Facebook**, **Google** o **Twitter**, entre otros.
+
+## [Por último](#last)
+Puedes copiar la configuración utilizando el botón de **Generate** y llevarlo a tu web.
+
+![](/assets/test-metatags/metatags-generated.png)

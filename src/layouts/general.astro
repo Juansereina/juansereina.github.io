@@ -40,6 +40,8 @@ const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
   .href;
 
 const lang = getLanguageFromURL(pathname);
+
+const isDev = import.meta.env.MODE === 'development';
 ---
 
 <!DOCTYPE html>
@@ -89,24 +91,22 @@ const lang = getLanguageFromURL(pathname);
     />
 
     <!-- Google tag (gtag.js) -->
-    <script
-      defer
-      type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-SESMVBDB29"
-    ></script>
-    <script async type="text/partytown">
-      //@ts-ignore
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        //@ts-ignore
-        dataLayer.push(arguments);
-      }
-      //@ts-ignore
-      gtag('js', new Date());
-
-      //@ts-ignore
-      gtag('config', 'G-SESMVBDB29');
-    </script>
+    { !isDev &&
+      <script
+        defer
+        type="text/partytown"
+        src="https://www.googletagmanager.com/gtag/js?id=G-SESMVBDB29"
+      >
+      </script>
+    }
+    {
+      !isDev && <script async type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SESMVBDB29');
+      </script>
+    }
     <script>
       import { colorTheme, dark, light } from '@/utils/constants';
 

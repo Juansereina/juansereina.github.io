@@ -1,17 +1,52 @@
 ---
-title: How to test html metadata locally
+title: Como probar los Meta tags localmente
 description: ""
 publishedAt: 2023-04-05T20:58:52.541Z
 image:
-  src: reading-time.jpg
-  alt: Reloj de arena junto a tres dados
-preview: null
+  src: seo
+  alt: Dados de la letra S, E y O
 draft: true
-tags: []
-categories: []
 slug: test-html-metadata-locally
 keywords:
   - HTML
 ---
 
-# Heya
+import Picture from '@/components/picture-blog.astro';
+
+<Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
+
+Usualmente para probar los metatags necesitamos hacer un despliegue, pero podemos ahorra tiempo probando localmente asi:
+
+## Primero
+
+Debemos tener nuestra aplicacion corriendo en algun puerto desde nuestra terminal
+
+![](/assets/terminal.png)
+
+## Segundo
+
+Necesitamos tener npm instalado y ejecutamos la instrucción:
+
+```bash
+npx localtunnel --port 3000
+```
+Si es la primera vez que utilizas localtunnel veras una pregunta en la terminal y presionas Y y obtienes una url similar a esta:
+
+![](/assets/localtunnel-terminal.png)
+
+## Tercero
+
+Nos dirijimos a metatags.io Y en la parte superior de la página agregas la url que nos generó localtunnel
+
+![](/assets/metatag-search-bar.png)
+
+Con esta herramientas puedes validar y editar cada metatag.
+
+![](/assets/metatags-preview.png)
+
+En la parte izquierda, hay unas opciones que te permiten previsualizar como se ve en Facebook, Google o Twitter, entre otros.
+
+## Cuarto
+Finalmente, puedes copiar la configuración utilizando en botón de generar y llevarlo a tu web.
+
+![](/assets/metatags-generated.png)

@@ -18,19 +18,21 @@ interface Props {
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
 
-  return entries
-    .map((entry) => {
-      const lang = getLangFromSlug(entry.id);
+  return entries.map((entry) => {
+    const lang = getLangFromSlug(entry.id);
 
-      return { params: { lang, slug: entry.slug }, props: { entry } };
-    });
+    return { params: { lang, slug: entry.slug }, props: { entry } };
+  });
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const timeTobeRead = readingTime(entry.body);
 
-const image = {src: `https://ik.imagekit.io/juansereina/tr:w-1300/web/${entry.data.image.src}`, alt: ''};
+const image = {
+  src: `https://ik.imagekit.io/juansereina/tr:w-1300/web/${entry.data.image.src}`,
+  alt: '',
+};
 const meta = {
   title: entry.data.title,
   description: entry.data.description,
@@ -93,7 +95,12 @@ const t = await getTranslate(lang);
   .post h2,
   .post p,
   .post pre {
-    @apply mb-6 md:mb-8 lg:mb-10;
+    @apply mb-6 md:mb-8;
+  }
+
+  .post p + h2,
+  .post pre + h2 {
+    @apply mt-8 md:mt-10;
   }
 
   .post > *:last-child {

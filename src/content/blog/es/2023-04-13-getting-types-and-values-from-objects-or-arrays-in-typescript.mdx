@@ -44,14 +44,14 @@ const User = {
   age: 26,
   isDev: true,
   id: null,
-} as const; // nota el uso de -> as const
+} as const; // Nota el uso de -> as const
 
 type Data = typeof User;
 type Name = Data['name']; // Juan
 type Age = Data['age']; // 26
 type Dev = Data['isDev']; // true
 type Id = Data['id']; // null
-// Para Id null es el value y el type al mismo tiempo
+// Para Id, null es el value y el type al mismo tiempo
 ```
 
 ### [Convertir object a union](#convertir-object-a-union)
@@ -99,7 +99,7 @@ type DataUnion = (typeof User)[Exclude<keyof typeof User, 'age' | 'isDev'>];
 type DataUnion = (typeof User)[Extract<keyof typeof User, 'age' | 'isDev'>];
 // true | 26;
 
-// Opcionalmente puedes usar types para mejorar la legibilidad
+// Opcionalmente, puedes usar types para mejorar la legibilidad
 
 type TUser = typeof User;
 type KeysUnion = keyof TUser;

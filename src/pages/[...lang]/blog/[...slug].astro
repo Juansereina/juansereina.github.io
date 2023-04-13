@@ -92,14 +92,22 @@ const t = await getTranslate(lang);
     @apply w-full lg:scale-110 my-6 md:my-8 lg:my-16;
   }
 
+  .post h2 a:hover::after,
+  .post h3 a:hover::after {
+    content: ' #';
+  }
+
   .post h2,
+  .post h3,
   .post p,
   .post pre {
     @apply mb-6 md:mb-8;
   }
 
   .post p + h2,
-  .post pre + h2 {
+  .post pre + h2,
+  .post p + h3,
+  .post pre + h3 {
     @apply mt-8 md:mt-10;
   }
 

@@ -198,20 +198,18 @@ const isDev = import.meta.env.MODE === 'development';
     @apply underline-offset-2;
   }
 
-  h2 a {
+  h2 a,
+  h3 a {
     @apply hover:underline;
   }
 
-  h2 a:hover::after {
-    content: ' #';
-  }
-
   h2 a,
+  h3 a,
   p a, p a code {
     @apply decoration-orange-500 dark:decoration-cyan-300;
   }
 
-  p > a {
+  p a {
     @apply text-orange-500 dark:text-cyan-300;
   }
 

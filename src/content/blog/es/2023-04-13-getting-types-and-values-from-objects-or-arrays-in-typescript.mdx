@@ -1,0 +1,176 @@
+---
+title: Access Keys or Values in TypeScript
+description: How to access Keys and Values from Objects or Arrays in TypeScript by example
+publishedAt: 2023-04-13T16:40:59.762Z
+image:
+  src: typescript-keys-values
+  alt: A code snippet suing typescript
+tags:
+  - Web
+  - Dev
+  - TypeScript
+  - Tips
+slug: access-keys-values-typescript
+---
+
+import Picture from '@/components/picture-blog.astro';
+
+<Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
+
+## Objects
+
+### [Obtener el type de un valor](#object-value-type)
+
+```ts
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+};
+
+type Data = typeof User;
+type Name = Data['name']; // string
+type Age = Data['age']; // number
+type Dev = Data['isDev']; // boolean
+type Id = Data['id']; // null
+```
+
+### [Obtener el valor como type](#object-value-as-type)
+
+```ts
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+} as const; // nota el uso de -> as const
+
+type Data = typeof User;
+type Name = Data['name']; // Juan
+type Age = Data['age']; // 26
+type Dev = Data['isDev']; // true
+type Id = Data['id']; // null
+// Para Id null es el value y el type al mismo tiempo
+```
+
+### [Convertir object a union](#object-to-union)
+
+```ts
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+} as const;
+
+// union de los keys
+type KeysUnion = keyof typeof User;
+// "name" | "age" | "isDev" | "id"
+
+// union de los values
+type ValuesUnion = (typeof User)[keyof typeof User];
+// true | "Juan" | 26 | null
+
+// Si no agregas "as const" obtienes los tipos de cada valor.
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+}; // as const
+
+type ValuesUnion = (typeof User)[keyof typeof User];
+// string | number | boolean | null
+```
+
+### [Crear union usando utilidades](#object-to-union-using-utilities)
+
+```ts
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+} as const;
+
+type DataUnion = (typeof User)[Exclude<keyof typeof User, 'age' | 'isDev'>];
+// 'Juan' | null;
+type DataUnion = (typeof User)[Extract<keyof typeof User, 'age' | 'isDev'>];
+// true | 26;
+
+// Opcionalmente puedes usar types para mejorar la legibilidad
+
+type TUser = typeof User;
+type KeysUnion = keyof TUser;
+
+type DataUnion = TUser[Exclude<KeysUnion, 'age' | 'isDev'>];
+// 'Juan' | null;
+type DataUnion = TUser[Extract<KeysUnion, 'age' | 'isDev'>];
+// true | 26;
+```
+
+## [Arrays](#arrays)
+
+```ts
+const animals = ['🐶', '🐱', '🦄'] as const;
+
+type DogOrCat = (typeof animals)[0 | 1]; // "🐶" | "🐱"
+type Animals = (typeof animals)[number]; // "🐶" | "🐱" | "🦄"
+```
+
+## Discriminated unions
+
+Discriminated unions son [unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) con propiedades en común utilizadas para **diferenciar cada miembro de la union**
+
+### [Convertir discriminated union](#convert-discriminated-unions)
+
+```ts
+type Event =
+  | {
+      type: 'click';
+      event: MouseEvent;
+    }
+  | {
+      type: 'focus';
+      event: FocusEvent;
+    }
+  | {
+      type: 'keydown';
+      event: KeyboardEvent;
+    };
+
+type ClickEvent = Event['type'];
+// "click" | "focus" | "keydown"
+
+type ClickEvent = Event['event'];
+// MouseEvent | FocusEvent | KeyboardEvent
+```
+
+### [Convertir union usando utilidades](#convert-discriminated-unions-using-utilities)
+
+```ts
+type Event =
+  | {
+      type: 'click';
+      event: MouseEvent;
+    }
+  | {
+      type: 'focus';
+      event: FocusEvent;
+    }
+  | {
+      type: 'keydown';
+      event: KeyboardEvent;
+    };
+
+// Puedes usar tambien algo como: { event: MouseEvent }
+
+type ClickEvent = Extract<Event, { type: 'click' }>;
+//  { type: 'click'; event: MouseEvent; }
+
+type FocustAndKeyboardEvent = Exclude<Event, { type: 'click' }>;
+//  { type: 'focus'; event: FocusEvent; } | { type: 'keydown'; event: KeyboardEvent; }
+```
+
+_PD: Estas son mis notas del curso de [Total TypeScript](https://www.totaltypescript.com/). Si deseas profundizar, te recomiendo mucho el curso, es excelente._

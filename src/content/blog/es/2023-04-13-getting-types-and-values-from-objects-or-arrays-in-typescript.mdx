@@ -19,7 +19,7 @@ import Picture from '@/components/picture-blog.astro';
 
 ## Objects
 
-### [Obtener el type de un valor](#object-value-type)
+### [Obtener el type de un valor](#obtener-el-type-de-un-valor)
 
 ```ts
 const User = {
@@ -36,7 +36,7 @@ type Dev = Data['isDev']; // boolean
 type Id = Data['id']; // null
 ```
 
-### [Obtener el valor como type](#object-value-as-type)
+### [Obtener el valor como type](#obtener-el-valor-como-type)
 
 ```ts
 const User = {
@@ -54,7 +54,7 @@ type Id = Data['id']; // null
 // Para Id null es el value y el type al mismo tiempo
 ```
 
-### [Convertir object a union](#object-to-union)
+### [Convertir object a union](#convertir-object-a-union)
 
 ```ts
 const User = {
@@ -84,7 +84,7 @@ type ValuesUnion = (typeof User)[keyof typeof User];
 // string | number | boolean | null
 ```
 
-### [Crear union usando utilidades](#object-to-union-using-utilities)
+### [Crear union usando utilidades](#crear-union-usando-utilidades)
 
 ```ts
 const User = {
@@ -123,7 +123,7 @@ type Animals = (typeof animals)[number]; // "🐶" | "🐱" | "🦄"
 
 Discriminated unions son [unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) con propiedades en común utilizadas para **diferenciar cada miembro de la union**
 
-### [Convertir discriminated union](#convert-discriminated-unions)
+### [Convertir discriminated union](#convertir-discriminated-union)
 
 ```ts
 type Event =
@@ -147,7 +147,7 @@ type ClickEvent = Event['event'];
 // MouseEvent | FocusEvent | KeyboardEvent
 ```
 
-### [Convertir union usando utilidades](#convert-discriminated-unions-using-utilities)
+### [Convertir union usando utilidades](#convertir-union-usando-utilidades)
 
 ```ts
 type Event =

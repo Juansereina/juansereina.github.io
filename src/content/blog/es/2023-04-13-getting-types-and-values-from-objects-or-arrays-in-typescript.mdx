@@ -3,14 +3,18 @@ title: Access Keys or Values in TypeScript
 description: How to access Keys and Values from Objects or Arrays in TypeScript by example
 publishedAt: 2023-04-13T16:40:59.762Z
 image:
-  src: ''
-  alt: ''
+  src: typescript-keys-values
+  alt: A code snippet suing typescript
 preview: ''
 draft: true
 tags: []
 categories: []
 slug: access-keys-values-typescript
 ---
+
+import Picture from '@/components/picture-blog.astro';
+
+<Picture src={frontmatter.image.src} alt={frontmatter.image.alt} />
 
 ## Objects
 
@@ -66,6 +70,17 @@ type KeysUnion = keyof typeof User;
 // union de los values
 type ValuesUnion = (typeof User)[keyof typeof User];
 // true | "Juan" | 26 | null
+
+// Si no agregas "as const" obtienes los tipos de cada valor.
+const User = {
+  name: 'Juan',
+  age: 26,
+  isDev: true,
+  id: null,
+}; // as const
+
+type ValuesUnion = (typeof User)[keyof typeof User];
+// string | number | boolean | null
 ```
 
 ### [Crear union usando utilidades](#object-to-union-using-utilities)
@@ -83,7 +98,7 @@ type DataUnion = (typeof User)[Exclude<keyof typeof User, 'age' | 'isDev'>];
 type DataUnion = (typeof User)[Extract<keyof typeof User, 'age' | 'isDev'>];
 // true | 26;
 
-// Opcionalmente puedes crear usar type para mejorar legibilidad
+// Opcionalmente puedes usar types para mejorar la legibilidad
 
 type TUser = typeof User;
 type KeysUnion = keyof TUser;
@@ -105,10 +120,12 @@ type Animals = (typeof animals)[number]; // "🐶" | "🐱" | "🦄"
 
 ## Discriminated unions
 
-### [Convertir discriminated union en un union](#convert-discriminated-unions)
+Discriminated unions son [unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) con propiedades en común utilizadas para **diferenciar cada miembro de la union**
+
+### [Convertir discriminated union](#convert-discriminated-unions)
 
 ```ts
-export type Event =
+type Event =
   | {
       type: 'click';
       event: MouseEvent;
@@ -122,15 +139,37 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type ClickEvent = Event['type']; // "click" | "focus" | "keydown"
+type ClickEvent = Event['type'];
+// "click" | "focus" | "keydown"
+
+type ClickEvent = Event['event'];
+// MouseEvent | FocusEvent | KeyboardEvent
 ```
 
 ### [Convertir union usando utilidades](#convert-discriminated-unions-using-utilities)
 
 ```ts
-type ClickEvent2 = Extract<Event, { type: 'click' }>;
+type Event =
+  | {
+      type: 'click';
+      event: MouseEvent;
+    }
+  | {
+      type: 'focus';
+      event: FocusEvent;
+    }
+  | {
+      type: 'keydown';
+      event: KeyboardEvent;
+    };
+
+// Puedes usar tambien algo como: { event: MouseEvent }
+
+type ClickEvent = Extract<Event, { type: 'click' }>;
 //  { type: 'click'; event: MouseEvent; }
 
-type ClickEvent3 = Exclude<Event, { type: 'click' }>;
+type FocustAndKeyboardEvent = Exclude<Event, { type: 'click' }>;
 //  { type: 'focus'; event: FocusEvent; } | { type: 'keydown'; event: KeyboardEvent; }
 ```
+
+_PD: Estas son mis notas del curso de [Total TypeScript](https://www.totaltypescript.com/). Si deseas profundizar, te recomiendo mucho el curso, es excelente._

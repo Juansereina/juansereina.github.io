@@ -1,8 +1,15 @@
 ---
+import { Lang } from '@/types/lang';
 import Main from '@/layouts/main.astro';
 
 export async function getStaticPaths() {
-  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+  const langs = Object.values(Lang);
+
+  return langs.map((lang) => ({
+    params: {
+      lang,
+    },
+  }));
 }
 ---
 

@@ -1,4 +1,5 @@
 ---
+import { Lang } from '@/types/lang';
 import { getTranslate } from '@/i18n/index';
 import Layout from '@/layouts/general.astro';
 import projects from '@/data/projects.json';
@@ -11,7 +12,13 @@ const meta = {
 };
 
 export async function getStaticPaths() {
-  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+  const langs = Object.values(Lang);
+
+  return langs.map((lang) => ({
+    params: {
+      lang,
+    },
+  }));
 }
 
 const { pathname } = Astro.url;

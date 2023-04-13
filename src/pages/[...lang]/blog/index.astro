@@ -1,10 +1,7 @@
 ---
+import { Lang } from '@/types/lang';
 import { getCollection } from 'astro:content';
-import {
-  getLangFromSlug,
-  getLanguageFromURL,
-  readingTime,
-} from '@/utils';
+import { getLangFromSlug, getLanguageFromURL, readingTime } from '@/utils';
 import Layout from '@/layouts/general.astro';
 import Card from '@/components/card-blog.astro';
 
@@ -16,6 +13,13 @@ const blogs = await getCollection('blog', (item) => {
   return !item.data.draft && langSlug === lang;
 });
 
+const sortedBlog = blogs.sort((a, b) => {
+  const blogA = new Date(a.data.publishedAt);
+  const blogB = new Date(b.data.publishedAt);
+
+  return blogB.getTime() - blogA.getTime();
+});
+
 const meta = {
   title: 'Blog - Juan Sebastián Reina 👨‍💻',
   description: 'Acá comparto y documento esos momentos de extenso aprendizaje',
@@ -23,7 +27,13 @@ const meta = {
 };
 
 export async function getStaticPaths() {
-  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+  const langs = Object.values(Lang);
+
+  return langs.map((lang) => ({
+    params: {
+      lang,
+    },
+  }));
 }
 ---
 
@@ -31,7 +41,7 @@ export async function getStaticPaths() {
   <h1 class="mb-4 leading-tight">Blog</h1>
   <ul>
     {
-      blogs.map(({ data, slug, body }) => {
+      sortedBlog.map(({ data, slug, body }) => {
         const link = `/${lang}/blog/${slug}`;
         return (
           <Card

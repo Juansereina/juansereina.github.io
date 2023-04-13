@@ -1,10 +1,10 @@
 ---
-title: Acceder Keys or Values en TypeScript
-description: Ejemplos de como acceder a las keys o values de un Object o Array en TypeScript
+title: Access Keys or Values in TypeScript
+description: How to access Keys and Values from Objects or Arrays in TypeScript by example
 publishedAt: 2023-04-13T16:40:59.762Z
 image:
   src: typescript-keys-values
-  alt: Fragmento de codigo usando typescript
+  alt: A code snippet using typescript
 tags:
   - Web
   - Dev
@@ -19,7 +19,7 @@ import Picture from '@/components/picture-blog.astro';
 
 ## Objects
 
-### [Obtener el type de un valor](#obtener-el-type-de-un-valor)
+### [Get the type of a value](#get-the-type-of-a-value)
 
 ```ts
 const User = {
@@ -36,7 +36,7 @@ type Dev = Data['isDev']; // boolean
 type Id = Data['id']; // null
 ```
 
-### [Obtener el valor como type](#obtener-el-valor-como-type)
+### [Get the value as type](#get-the-value-as-type)
 
 ```ts
 const User = {
@@ -44,17 +44,17 @@ const User = {
   age: 26,
   isDev: true,
   id: null,
-} as const; // Nota el uso de -> as const
+} as const; // Note the use of -> as const
 
 type Data = typeof User;
 type Name = Data['name']; // Juan
 type Age = Data['age']; // 26
 type Dev = Data['isDev']; // true
 type Id = Data['id']; // null
-// Para Id, null es el value y el type al mismo tiempo
+// For Id, null is the value and the type are the same thing
 ```
 
-### [Convertir object a union](#convertir-object-a-union)
+### [Convert object to union](#convert-object-to-union)
 
 ```ts
 const User = {
@@ -64,15 +64,15 @@ const User = {
   id: null,
 } as const;
 
-// union de los keys
+// union from keys
 type KeysUnion = keyof typeof User;
 // "name" | "age" | "isDev" | "id"
 
-// union de los values
+// union from values
 type ValuesUnion = (typeof User)[keyof typeof User];
 // true | "Juan" | 26 | null
 
-// Si no agregas "as const" obtienes los tipos de cada valor.
+// If you don't add 'as const', you will obtain the types of each value
 const User = {
   name: 'Juan',
   age: 26,
@@ -84,7 +84,7 @@ type ValuesUnion = (typeof User)[keyof typeof User];
 // string | number | boolean | null
 ```
 
-### [Crear union usando utilidades](#crear-union-usando-utilidades)
+### [Create union using utilities](#create-union-using-utilities)
 
 ```ts
 const User = {
@@ -99,7 +99,7 @@ type DataUnion = (typeof User)[Exclude<keyof typeof User, 'age' | 'isDev'>];
 type DataUnion = (typeof User)[Extract<keyof typeof User, 'age' | 'isDev'>];
 // true | 26;
 
-// Opcionalmente, puedes usar types para mejorar la legibilidad
+// Optionally, you can use types to improve readability
 
 type TUser = typeof User;
 type KeysUnion = keyof TUser;
@@ -121,9 +121,9 @@ type Animals = (typeof animals)[number]; // "🐶" | "🐱" | "🦄"
 
 ## Discriminated unions
 
-Discriminated unions son [unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) con propiedades en común utilizadas para **diferenciar cada miembro de la union**
+Discriminated unions are [unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) with common properties used to **distinguish each member of the union**.
 
-### [Convertir discriminated union](#convertir-discriminated-union)
+### [Convert discriminated union](#convert-discriminated-union)
 
 ```ts
 type Event =
@@ -147,7 +147,7 @@ type ClickEvent = Event['event'];
 // MouseEvent | FocusEvent | KeyboardEvent
 ```
 
-### [Convertir union usando utilidades](#convertir-union-usando-utilidades)
+### [Convert union using utilities](#convert-union-using-utilities)
 
 ```ts
 type Event =
@@ -164,7 +164,7 @@ type Event =
       event: KeyboardEvent;
     };
 
-// Puedes usar tambien algo como: { event: MouseEvent }
+// You can also use something like: { event: MouseEvent }
 
 type ClickEvent = Extract<Event, { type: 'click' }>;
 //  { type: 'click'; event: MouseEvent; }
@@ -173,4 +173,4 @@ type FocustAndKeyboardEvent = Exclude<Event, { type: 'click' }>;
 //  { type: 'focus'; event: FocusEvent; } | { type: 'keydown'; event: KeyboardEvent; }
 ```
 
-_PD: Estas son mis notas del curso de [Total TypeScript](https://www.totaltypescript.com/). Si deseas profundizar, te recomiendo mucho el curso, es excelente._
+_PS: These are my notes from the [Total TypeScript](https://www.totaltypescript.com/) course. If you want to delve deeper, I highly recommend the course, it is excellent._

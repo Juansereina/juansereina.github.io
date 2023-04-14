@@ -109,7 +109,11 @@ const site2 = Astro.site;
       !isDev && <script async type="text/partytown">
         const prod = 'https://juansereina.com';
         const isProd = prod === location.origin;
-        console.log('aja', location, location.origin, location.host, location.href, {isProd})
+        console.log('location', {location})
+        console.log('origin', location.origin)
+        console.log('host', location.host)
+        console.log('href', location.href)
+        console.log('isProd',{isProd})
         window.dataLayer = window.dataLayer || [];
         function gtag() {dataLayer.push(arguments);}
         gtag('js', new Date());

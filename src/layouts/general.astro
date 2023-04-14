@@ -107,7 +107,9 @@ const site2 = Astro.site;
     }
     {
       !isDev && <script async type="text/partytown">
-        console.log('aja', location)
+        const prod = 'https://juansereina.com';
+        const isProd = prod === location.origin;
+        console.log('aja', location, location.origin, location.host, location.href, {isProd})
         window.dataLayer = window.dataLayer || [];
         function gtag() {dataLayer.push(arguments);}
         gtag('js', new Date());

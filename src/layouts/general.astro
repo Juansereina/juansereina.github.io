@@ -104,7 +104,6 @@ const isDev = import.meta.env.MODE === 'development';
       !isDev && <script async type="text/partytown">
         const prod = 'https://juansereina.com';
         const isProd = prod === location.origin;
-        console.log('isProd',{isProd})
 
         if(isProd) {
           window.dataLayer = window.dataLayer || [];

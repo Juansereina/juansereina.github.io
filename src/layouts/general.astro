@@ -42,11 +42,6 @@ const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
 const lang = getLanguageFromURL(pathname);
 
 const isDev = import.meta.env.MODE === 'development';
-const site = import.meta.env.SITE;
-const isProd = import.meta.env.PROD
-const origin = Astro.url.origin;
-const result = origin === site;
-const site2 = Astro.site;
 
 ---
 

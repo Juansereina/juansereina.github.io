@@ -42,6 +42,12 @@ const appleTouchIconURL = new URL('favicon/apple-touch-icon.png', Astro.site)
 const lang = getLanguageFromURL(pathname);
 
 const isDev = import.meta.env.MODE === 'development';
+const site = import.meta.env.SITE;
+const isProd = import.meta.env.PROD
+const origin = Astro.url.origin;
+const result = origin === site;
+const site2 = Astro.site;
+
 ---
 
 <!DOCTYPE html>
@@ -101,10 +107,20 @@ const isDev = import.meta.env.MODE === 'development';
     }
     {
       !isDev && <script async type="text/partytown">
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-SESMVBDB29');
+        const prod = 'https://juansereina.com';
+        const isProd = prod === location.origin;
+        console.log('location', {location})
+        console.log('origin', location.origin)
+        console.log('host', location.host)
+        console.log('href', location.href)
+        console.log('isProd',{isProd})
+
+        if(isProd) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SESMVBDB29');
+        }
       </script>
     }
     <script>

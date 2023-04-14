@@ -114,10 +114,13 @@ const site2 = Astro.site;
         console.log('host', location.host)
         console.log('href', location.href)
         console.log('isProd',{isProd})
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-SESMVBDB29');
+
+        if(isProd) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SESMVBDB29');
+        }
       </script>
     }
     <script>
@@ -137,12 +140,6 @@ const site2 = Astro.site;
     </script>
   </head>
   <body>
-    <h1>origin: {origin}</h1>
-    <h1>site: {site}</h1>
-    <h1>site2: {site2}</h1>
-    <h1>isProd: {isProd.toString()}</h1>
-    <h1>isDev: {isDev.toString()}</h1>
-    <h1 class="mb-4">result: {result.toString()}</h1>
     <Nav />
     <div class="flex-1 flex flex-col">
       <slot />
